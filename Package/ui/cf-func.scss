@@ -1,0 +1,10 @@
+@charset "utf-8";
+//sass 函数声明
+@import "cf-varia";
+@function remToPx($rem){
+  @if($env!="weex"){
+    @return $rem;
+  }@else{
+    @return $rem/1rem * 20px;
+  }
+}

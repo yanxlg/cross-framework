@@ -1,0 +1,20 @@
+@charset "utf-8";
+//背景颜色
+@import "cf-varia";
+@each $key,$val in $messageColor{
+  .bg-#{$key}{
+    background-color: $val;
+  }
+}
+
+@each $key,$val in $baseColor{
+  .bg-#{$key}{
+    background-color: $val;
+  }
+}
+
+@each $key,$val in $paleColor{
+  .bg-#{$key}{
+    background-color: $val;
+  }
+}
