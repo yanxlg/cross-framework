@@ -6,12 +6,33 @@
     "cross",
     "framework"
   ],
+  "scripts": {
+    "prebuild" : "fis3 release -d ./build/web",//先用fis进行发布
+    "build" : "webpack",//再用webpack进行转换es6
+    "watch": "fis3 release -w",
+    "build web": "fis3 release -d ./build/web",
+    "local":"fis3 release"
+  },
   "devDependencies": {
+    "fis3-parser-less-2.5.x": "^1.0.3",
+    "fis-parser-sass3":"^0.0.7",
+    "uglify-js": "^3.0.8",
+    "clean-css": "^4.1.3",
+    "fis-optimizer-png-compressor":"^0.1.6",
+    "fis-parser-babel-5.x":"^1.4.0",
+    "fis3-hook-commonjs":"^0.1.26",
+    "fis3-hook-amd": "^0.2.0",
+    "fis3-postpackager-loader":"^2.1.4",
+    "fis3-parser-typescript":"^1.1.4",
     "webpack": "^2.5.1",
     "babel-core": "^6.20.0",
     "babel-loader": "^6.4.1",
     "babel-preset-env": "^1.1.6",
     "babel-preset-es2015": "^6.18.0",
-    "babel-plugin-transform-beautifier":"^0.1.0"
+    "babel-plugin-transform-beautifier":"^0.1.0",
+    "weex-devtool": "^0.2.64",
+    "weex-loader": "^0.4.1",
+    "weex-vue-loader": "^0.2.5",
+    "uglifyjs-webpack-plugin":"^0.4.3"
   }
 }

@@ -1,15 +1,16 @@
 <component name="libraryTable">
   <library name="Generated files" type="javaScript">
-    <properties>
-      <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/dist/webpack.config.js" />
-        <item url="file://$PROJECT_DIR$/dist/Package/plugin/fetch/cf-fetch.js" />
-      </sourceFilesUrls>
-    </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/dist/Package/plugin/fetch/cf-fetch.js" />
       <root url="file://$PROJECT_DIR$/dist/webpack.config.js" />
       <root url="file://$PROJECT_DIR$/dist/Package/plugin/fetch/cf-fetch.js" />
+      <root url="file://$PROJECT_DIR$/cf-fetch-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dist/webpack.config.js" />
+      <root url="file://$PROJECT_DIR$/cf-fetch-compiled.js" />
+      <root url="file://$PROJECT_DIR$/Package/plugin/fetch/cf-fetch-compiled.js" />
+      <root url="file://$PROJECT_DIR$/webpack.config-compiled.js" />
+      <root url="file://$PROJECT_DIR$/Package/plugin/fetch/cf-fetch-compiled.js" />
+      <root url="file://$PROJECT_DIR$/webpack.config-compiled.js" />
     </CLASSES>
     <SOURCES />
   </library>

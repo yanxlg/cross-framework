@@ -463,5 +463,5 @@
     self.fetch.polyfill = true
 })(typeof self !== 'undefined' ? self : this);
 
-let fetch=typeof self !== 'undefined' ? self.fetch : this.fetch;
+var fetch=typeof self !== 'undefined' ? self.fetch : this.fetch;
 export default fetch;

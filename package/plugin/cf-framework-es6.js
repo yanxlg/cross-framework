@@ -3,3 +3,7 @@
  * 通用api
  */
 import fetch from "../../Static/fetch";
+fetch("http://www.baidu.com").then(function () {
+
+});
+let b="dsadsa";
