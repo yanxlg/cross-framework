@@ -7,8 +7,8 @@
     "framework"
   ],
   "scripts": {
-    "prebuild" : "fis3 release -d ./build/web",//先用fis进行发布
-    "build" : "webpack",//再用webpack进行转换es6
+    "prebuild" : "fis3 release -d ./build/web",
+    "build" : "webpack",
     "watch": "fis3 release -w",
     "build web": "fis3 release -d ./build/web",
     "local":"fis3 release"
@@ -32,7 +32,6 @@
     "babel-plugin-transform-beautifier":"^0.1.0",
     "weex-devtool": "^0.2.64",
     "weex-loader": "^0.4.1",
-    "weex-vue-loader": "^0.2.5",
-    "uglifyjs-webpack-plugin":"^0.4.3"
+    "weex-vue-loader": "^0.2.5"
   }
 }

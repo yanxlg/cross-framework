@@ -1,2 +1,2 @@
-import {name} from 'a';
+import {name} from './a';
 alert(name);

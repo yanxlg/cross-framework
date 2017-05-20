@@ -2,9 +2,9 @@
  * Created by yanxlg on 2017/5/19 0019.
  * 开发环境不进行压缩，不进行美化，不设置hash  默认为开发环境
  * 发布环境media=="pub"
+ * fis不对es6进行处理，es6交给webpack进行处理
  */
-fis.hook("commonjs");
-
+fis.hook('relative');//模块使用相对路径，与webpack统一
 fis.set('project.ignore', [
     'output/**',
     'node_modules/**',
@@ -14,19 +14,20 @@ fis.set('project.ignore', [
     'fis-conf.js',
     'package.json',
     'LICENSE',
-    'README.md'
+    'README.md',
+    'webpack.config.js'
 ]);
 fis.match('::package', {
     postpackager: fis.plugin('loader', {})
 });
 
 
-fis.match('*.es6', {
+/*fis.match('*.es6', {
     rExt: '.js',
     parser: fis.plugin('babel-5.x'),
     // parser: fis.plugin('typescript'),
     useHash: true
-});
+});*/
 
 fis.match('*.js', {
   optimizer: fis.plugin('uglify-js'),
