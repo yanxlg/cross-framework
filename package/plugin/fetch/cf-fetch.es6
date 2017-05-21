@@ -30,5 +30,5 @@ let fetch=(url,data,header)=>{
     return fetchApi(url,obj).then(checkStatus).then((response)=>{
         return response.json();
     });
-}
+};
 export default fetch;
