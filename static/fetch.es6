@@ -1,3 +1,7 @@
+/**
+ * Promise检测
+ */
+import Promise from './Promise.es6';
 (function(self) {
     'use strict';
 
