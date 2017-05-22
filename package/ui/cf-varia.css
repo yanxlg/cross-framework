@@ -1,0 +1,43 @@
+/*
+Error: Invalid CSS after "$env:": expected expression (e.g. 1px, bold), was "'web;"
+        on line 3 of cf-config-variable.scss
+
+1: @charset "utf-8";
+2: //配置变量
+3: $env:'web;
+4: $messageColor:(success:#13CE66, warning:#F7BA2A, danger:#FF4949,info:#03B8CF,important:#BD7B46,special:#8666B8);
+5: $baseColor:(black:#1F2D3D,white:#fff,dark:#353535,gray:#808080,gray-light:#DDDDDD,gray-lighter:#E5E5E5,gray-pale:#F1F1F1,gray-dark:#333333,gray-darker:#222222,silver:#8492A6,light-silver:#99A9BF,light-black:#324057,light-blue:#58B7FF, blue:#20A0FF, dark-blue:#1D8CE0);
+6: $paleColor:(danger-pale:#FFE5E0,warning-pale:#FFF0D5,success-pale:#DDF4DF,info-pale:#DDF3F5,important-pale:#F7EBE1,special-pale:#F5EEFF);
+
+Backtrace:
+cf-config-variable.scss:3
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:1207:in `expected'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/script/lexer.rb:229:in `expected!'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/script/parser.rb:710:in `assert_expr'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/script/parser.rb:75:in `parse'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:1063:in `sass_script'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:630:in `variable'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:684:in `block_child'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:677:in `block_contents'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:125:in `stylesheet'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:41:in `parse'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:406:in `_to_tree'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/engine.rb:298:in `render_with_sourcemap'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `each'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/plugin.rb:82:in `update_stylesheets'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/exec/sass_scss.rb:51:in `process_result'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/exec/base.rb:52:in `parse'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/lib/sass/exec/base.rb:19:in `parse!'
+D:/ruby/setup/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.23/bin/scss:13:in `<top (required)>'
+D:/ruby/setup/Ruby23-x64/bin/scss:22:in `load'
+D:/ruby/setup/Ruby23-x64/bin/scss:22:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"$env:\": expected expression (e.g. 1px, bold), was \"'web;\"\A         on line 3 of cf-config-variable.scss\A \A 1: @charset \"utf-8\";\A 2: //配置变量\A 3: $env:'web;\A 4: $messageColor:(success:#13CE66, warning:#F7BA2A, danger:#FF4949,info:#03B8CF,important:#BD7B46,special:#8666B8);\A 5: $baseColor:(black:#1F2D3D,white:#fff,dark:#353535,gray:#808080,gray-light:#DDDDDD,gray-lighter:#E5E5E5,gray-pale:#F1F1F1,gray-dark:#333333,gray-darker:#222222,silver:#8492A6,light-silver:#99A9BF,light-black:#324057,light-blue:#58B7FF, blue:#20A0FF, dark-blue:#1D8CE0);\A 6: $paleColor:(danger-pale:#FFE5E0,warning-pale:#FFF0D5,success-pale:#DDF4DF,info-pale:#DDF3F5,important-pale:#F7EBE1,special-pale:#F5EEFF);"; }
