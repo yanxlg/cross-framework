@@ -1,0 +1,25 @@
+@charset "utf-8";
+//字体
+@import "cf-varia";
+@import "cf-func";
+.font{
+  font-size: remToPx(0.7rem);
+}
+
+@each $key,$val in $size{
+  .font-size-#{$key}{
+    font-size: remToPx($val);
+  }
+}
+
+@each $key,$val in $messageColor{
+  .font-color-#{$key}{
+    color: $val;
+  }
+}
+
+@each $key,$val in $baseColor{
+  .font-color-#{$key}{
+    color: $val;
+  }
+}

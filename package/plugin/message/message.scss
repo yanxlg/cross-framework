@@ -1,0 +1,166 @@
+@charset "utf-8";
+//message 消息
+@import "../../ui/cf-ui-base";
+@import "../../ui/cf-iconfont/cf-iconfont";
+@import "../../ui/cf-flex";
+@import "../../ui/cf-varia";
+
+.message {
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+  min-width: 15rem;
+  padding: 0.5rem 0.6rem;
+  box-sizing: border-box;
+  border-radius: 2px;
+  position: fixed;
+  left: 50%;
+  top: 1rem;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  transition: opacity .3s, transform .4s;
+  overflow: hidden;
+  @extend .align-center;
+  background-color: #fff;
+  i:first-of-type:before{
+    width:2rem;
+    height:2rem;
+    position: absolute;
+    left:0;
+    top:50%;
+    margin-top: -1rem;
+    @extend .flex;
+    @extend .align-center;
+    @extend .justify-center;
+    font-size: 1.2rem;
+  }
+  &.default{
+    background-color: rgba(0,0,0,0.7);
+    .message-close{
+      &:hover,&:active{
+        background-color: rgba(0,0,0,1);
+        color: #fff;
+      }
+    }
+  }
+  &.primary{
+    background-color: rgba(3,184,207,0.8);
+    .message-group p{
+      color: #e3e3e3;
+    }
+    .message-close{
+      &:hover,&:active{
+        background-color: rgba(3,184,207,1);
+        color: #fff;
+      }
+    }
+  }
+  &.info{
+    i:first-of-type:before{
+      background-color: rgba(80,191,255,0.8);
+      color: #fff;
+    }
+    .message-close{
+      &:hover,&:active{
+        background-color: rgba(80,191,255,0.8);
+        color: #fff;
+      }
+    }
+  }
+  &.success{
+    i:first-of-type:before{
+      background-color: rgba(19,206,102,0.8);
+      color: #fff;
+    }
+    .message-close{
+      &:hover,&:active{
+        background-color: rgba(19,206,102,0.8);
+        color: #fff;
+      }
+    }
+  }
+  &.warning{
+    i:first-of-type:before{
+      background-color: rgba(247,186,42,0.8);
+      color: #fff;
+    }
+    .message-close{
+      &:hover,&:active{
+        background-color: rgba(247,186,42,0.8);
+        color: #fff;
+      }
+    }
+  }
+  &.error{
+    i:first-of-type:before{
+      background-color: rgba(255,73,73,0.8);
+      color: #fff;
+    }
+    .message-close{
+      &:hover,&:active{
+        background-color: rgba(255,73,73,0.8);
+        color: #fff;
+      }
+    }
+  }
+  //round
+  &.round{
+    border-radius: 999rem;
+  }
+  //actions
+
+  //push 排队
+
+}
+
+.message-group {
+  position: relative;
+  height: 1rem;
+  line-height: 1rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+i ~ .message-group{
+  margin-left: 1.9rem;
+}
+
+.message-group p {
+  font-size: 0.7rem;
+  margin: 0 1.7rem 0 0;
+  color: #8391a5;
+  text-align: justify
+}
+
+
+.message-close{
+  position: absolute;
+  width:2rem;
+  height:2rem;
+  right: 0;
+  top:50%;
+  margin-top: -1rem;
+  cursor: pointer;
+  color: #bfcbd9;
+  font-size: 1.1rem;
+  @extend .flex;
+  @extend .align-center;
+  @extend .justify-center;
+}
+
+.message-fade-leave {
+  opacity: 0;
+  -ms-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%)
+}
+
+
+.message-actions{
+  margin-right: 1.4rem;
+  margin-left: -1.5rem;
+  width: 10rem;
+  height:20px;
+  background-color: rebeccapurple;
+  @extend .flex;
+}
+
+
