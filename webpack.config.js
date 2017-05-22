@@ -23,7 +23,7 @@ function createEntries(dir, root) {
         }
     });
 }
-createEntries('./', 'Package');
+createEntries('./', 'package');
 console.log(entries);
 
 module.exports = {
