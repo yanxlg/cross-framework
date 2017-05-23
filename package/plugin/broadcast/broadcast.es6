@@ -1,9 +1,9 @@
 /**
+ * Require Promise
  * Created by yanxlg on 2017/5/22 0022.
  * 广播事件，不同页面之间进行数据传递，本质是storage的事件，修复当前界面接收问题
  */
 import {store,decode} from '../store/store.es6';
-import Promise from '../../../static/Promise.es6';
 
 let addEvent= window.addEventListener||window.attachEvent;
 

@@ -31,12 +31,21 @@ module.exports = {
         filename: "[name].js" //最终打包生成的文件名
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /.es6$/, //是一个正则，代表js或者jsx后缀的文件要使用下面的loader
                 loader: "babel-loader",
                 query: {presets: ['es2015']},
                 exclude: /node_modules/
+            },
+            {
+                test: /\.art$/,
+                loader: "art-template-loader",
+                options: {
+                    // root: path.resolve(__dirname)   art中相对路径转换，用于js与模板不再同一目录时进行转换
+                    // art-template options (if necessary)
+                    // @see https://github.com/aui/art-template
+                }
             }
         ]
     },

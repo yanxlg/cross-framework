@@ -1,12 +1,11 @@
 /**
+ * Require Promise
  * Created by yanxlg on 2017/5/22 0022.
  * 本地存储，包括持久与临时
  * 不同页面存在不同的空间，接入存储时间控制，在get与set的时候会检查存储时间来清理一次
  * location.href 替换成 location.pathname
  * storage事件在当前页面不会广播，调整为当前页面也能接收到广播
  */
-import Promise from '../../../static/Promise.es6';
-
 let store=localStorage;
 let session=sessionStorage;
 
@@ -98,7 +97,7 @@ class Store{
     static iterator(){
         //遍历取的时候也需要判断是否过去
         let $this=this;
-        return new Promise(()=>{
+        return new Promise((resolve)=>{
             for (let i=0, len = store.length; i  <  len; i++){
                 let $key = store.key(i);
                 let $keyObj=JSON.parse($key);

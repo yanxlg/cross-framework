@@ -1,0 +1,27 @@
+<div class="message message-fade-leave {{type}} {{round?'round':''}} {{customClass}}">
+    {{if(iconClass)}}
+        <i class="icon {{iconClass}}"></i>
+    {{/if}}
+    <div class="message-group">
+        <p>{{message}}</p>
+    </div>
+    {{if(actions.length>0)}}
+        <div class="message-actions">
+            {{each actions as action i}}
+                {{if(action.icon)}}
+                    <div class="message-action" data-action="{{i}}">
+                        {{if(action.icon)}}
+                            <i class="{{action.icon}}"></i>
+                        {{/if}}
+                        {{if(action.text)}}
+                            <p>{{action.text}}</p>
+                        {{/if}}
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
+    {{/if}}
+    {{if(showClose)}}
+        <div class="message-close icon-close"></div>
+    {{/if}}
+</div>
