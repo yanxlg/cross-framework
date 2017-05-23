@@ -63,12 +63,38 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 167);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
-/******/ ({
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
 
-/***/ 10:
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -427,63 +453,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 }(typeof self !== 'undefined' ? self : undefined);
 var Promise = typeof self !== 'undefined' ? self.Promise : undefined.Promise;
 exports.default = Promise;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(0)))
 
 /***/ }),
-
-/***/ 167:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _fetch = __webpack_require__(58);
-
-var _fetch2 = _interopRequireDefault(_fetch);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var HttpSuccessStaatus = /^2\d{2}$/; /**
-                                      * Created by yanxianliang on 2017/5/20.
-                                      */
-
-var checkStatus = function checkStatus(response) {
-    if (HttpSuccessStaatus.text(response.status)) {
-        return response;
-    } else {
-        var error = new Error(response.statusText);
-        error.response = response;
-        throw error;
-    }
-};
-
-var fetch = function fetch(url, data, header) {
-    var headers = header ? function () {
-        header['Content-Type'] = 'application/json';
-        return header;
-    } : {
-        'Content-Type': 'application/json'
-    };
-    var obj = data ? {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(data)
-    } : {
-        method: 'GET'
-    };
-    return (0, _fetch2.default)(url, obj).then(checkStatus).then(function (response) {
-        return response.json();
-    });
-};
-exports.default = fetch;
-
-/***/ }),
-
-/***/ 2:
+/* 2 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -673,36 +646,10 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-
-/***/ 3:
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-
-/***/ 58:
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -712,7 +659,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Promise = __webpack_require__(10);
+var _Promise = __webpack_require__(1);
 
 var _Promise2 = _interopRequireDefault(_Promise);
 
@@ -1185,6 +1132,60 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var fetch = typeof self !== 'undefined' ? self.fetch : undefined.fetch;
 exports.default = fetch;
 
-/***/ })
+/***/ }),
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/******/ });
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _fetch = __webpack_require__(6);
+
+var _fetch2 = _interopRequireDefault(_fetch);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var HttpSuccessStaatus = /^2\d{2}$/; /**
+                                      * Created by yanxianliang on 2017/5/20.
+                                      */
+
+var checkStatus = function checkStatus(response) {
+    if (HttpSuccessStaatus.text(response.status)) {
+        return response;
+    } else {
+        var error = new Error(response.statusText);
+        error.response = response;
+        throw error;
+    }
+};
+
+var fetch = function fetch(url, data, header) {
+    var headers = header ? function () {
+        header['Content-Type'] = 'application/json';
+        return header;
+    } : {
+        'Content-Type': 'application/json'
+    };
+    var obj = data ? {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(data)
+    } : {
+        method: 'GET'
+    };
+    return (0, _fetch2.default)(url, obj).then(checkStatus).then(function (response) {
+        return response.json();
+    });
+};
+exports.default = fetch;
+
+/***/ })
+/******/ ]);

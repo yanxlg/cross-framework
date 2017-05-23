@@ -120,18 +120,3 @@ let message=(options)=>{
     });
 };
 export default message;
-
-setTimeout(()=>{
-    new Promise((resolve, reject)=>{
-        new Message({
-            message:"测试",
-            type:"success",
-            iconClass:"icon-success",
-            duration:3000,
-            showClose:true,
-            round:true
-        },resolve,reject);
-    }).then(function (eventName) {
-        alert(eventName);
-    })
-},2000);
