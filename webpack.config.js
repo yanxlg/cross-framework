@@ -2,8 +2,6 @@
 let path = require('path');
 let webpack = require('webpack');
 let fs = require('fs'),fstat = fs.stat;
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-
 let entries={};
 function createEntries(dir, root) {
     let directory = path.join(__dirname, dir);
