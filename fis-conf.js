@@ -15,7 +15,8 @@ fis.set('project.ignore', [
     'package.json',
     'LICENSE',
     'README.md',
-    'webpack.config.js'
+    'webpack.config.js',
+    '.gitignore'
 ]);
 fis.match('::package', {
     postpackager: fis.plugin('loader', {})
