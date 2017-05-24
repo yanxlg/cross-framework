@@ -182,16 +182,37 @@ a, a:hover, a:visited, a:link, a:active {
   box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
   min-width: 15rem;
   padding: 0 0.6rem;
-  box-sizing: border-box;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
   border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
   position: fixed;
   left: 50%;
   top: 1rem;
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  transition: opacity .3s, transform .4s;
+  -webkit-transform: translateX(-50%) scale(1);
+  -moz-transform: translateX(-50%) scale(1);
+  -o-transform: translateX(-50%) scale(1);
+  -ms-transform: translateX(-50%) scale(1);
+  transform: translateX(-50%) scale(1);
+  -webkit-transition: opacity 0.3s, transform 0.4s;
+  -moz-transition: opacity 0.3s, transform 0.4s;
+  -o-transition: opacity 0.3s, transform 0.4s;
+  -ms-transition: opacity 0.3s, transform 0.4s;
+  transition: opacity 0.3s, transform 0.4s;
   overflow: hidden;
-  background-color: #fff; }
+  background-color: #fff;
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -o-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  opacity: 1; }
   .message > i:first-child:before {
     width: 2rem;
     height: 2rem;
@@ -239,13 +260,16 @@ a, a:hover, a:visited, a:link, a:active {
     background-color: rgba(255, 73, 73, 0.8);
     color: #fff; }
   .message.round {
+    -webkit-border-radius: 999rem;
+    -moz-border-radius: 999rem;
+    -o-border-radius: 999rem;
+    -ms-border-radius: 999rem;
     border-radius: 999rem; }
 
 .message-group {
   position: relative;
   line-height: 1rem;
   display: -ms-flexbox;
-  display: flex;
   -ms-flex-align: center;
   align-items: center; }
 
@@ -284,5 +308,13 @@ i ~ .message-group {
     color: rgba(255, 255, 255, 0.6); }
     .message-actions .message-action i {
       margin-right: 0.2rem; }
+
+.message-push-leave {
+  -webkit-transform: translateX(-50%) scale(0.8);
+  -moz-transform: translateX(-50%) scale(0.8);
+  -ms-transform: translateX(-50%) scale(0.8);
+  -o-transform: translateX(-50%) scale(0.8);
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0.5; }
 
 /*# sourceMappingURL=message.css.map */

@@ -4,22 +4,24 @@
 @import "../../ui/cf-iconfont/cf-iconfont";
 @import "../../ui/cf-flex";
 @import "../../ui/cf-varia";
+@import "../../ui/cf-func";
 
 .message {
   box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
   min-width: 15rem;
   padding: 0 0.6rem;
-  box-sizing: border-box;
-  border-radius: 2px;
+  @include prefix(border-radius,2px);
+  @include prefix(box-sizing,border-box);
   position: fixed;
   left: 50%;
   top: 1rem;
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  transition: opacity .3s, transform .4s;
+  @include prefix(transform,translateX(-50%) scale(1));
+  @include prefix(transition,opacity .3s, transform .4s);
   overflow: hidden;
   @extend .align-center;
   background-color: #fff;
+  @include prefix(transform-origin, center center);
+  opacity: 1;
   > i:first-child:before{
     width:2rem;
     height:2rem;
@@ -107,17 +109,15 @@
   }
   //round
   &.round{
-    border-radius: 999rem;
+    @include prefix(border-radius,999rem);
   }
-  //actions
-  //push 排队
 }
 
 .message-group {
   position: relative;
   line-height: 1rem;
   display: -ms-flexbox;
-  display: flex;
+  @include valfix(display,flex);
   -ms-flex-align: center;
   align-items: center;
 }
@@ -168,4 +168,11 @@ i ~ .message-group{
   }
 }
 
-
+.message-push-leave{
+  -webkit-transform: translateX(-50%) scale(0.8);
+  -moz-transform: translateX(-50%) scale(0.8);
+  -ms-transform: translateX(-50%) scale(0.8);
+  -o-transform: translateX(-50%) scale(0.8);
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0.5;
+}

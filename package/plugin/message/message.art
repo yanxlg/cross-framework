@@ -1,4 +1,4 @@
-<div class="message message-fade-leave {{type}} {{round?'round':''}} {{customClass}}">
+<div class="message {{scale?'message-push-leave':'message-fade-leave'}} {{type}} {{round?'round':''}} {{customClass}}">
     {{if(iconClass)}}
         <i class="icon {{iconClass}}"></i>
     {{/if}}

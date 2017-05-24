@@ -12,10 +12,15 @@
  * onClose	关闭时的回调函数, 参数为被关闭的 message 实例	function	—	—
  * round 是否全圆角
  * actions 操作组 [{text:"刷新",icon:"icon-refresh"}]
+ *
+ *
+ *
+ * beta 2.0
+ * ******* scale模式   zui效果   缩放动画 scale 与opacity同时
  */
-
+const messageInstances=new Set();
 let message_render = require('./message.art');
-const requestAnimationFrame=window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame||function () {
+let requestAnimationFrame=callback=>{
     window.setTimeout(callback, 6000 / 60);
 };
 let transitionEnd=(()=>{
@@ -31,7 +36,6 @@ let transitionEnd=(()=>{
         }
     }
 })();
-const messageInstances=[];
 class Message{
     constructor(options,resolve,reject){
         this.message=options.message||"";
@@ -45,12 +49,13 @@ class Message{
         this.actions=options.actions||[];
         this.resolve=resolve;
         this.reject=reject;
+        this.scale=options.scale||false;
         this.create();
         let _this=this;
-        requestAnimationFrame(function () {
+        requestAnimationFrame(()=>{
             _this.show();
         });
-        messageInstances.push(this);
+        messageInstances.add(this);
     }
     create(){
         let _this=this;
@@ -61,14 +66,16 @@ class Message{
             customClass:this.customClass,
             showClose:this.showClose,
             round:this.round,
-            actions:this.actions
+            actions:this.actions,
+            scale:this.scale
         }));
-        this._element.on("mouseover",function () {
+        this._element.on("mouseover",()=>{
             _this.stopTimer();
-        }).on("mouseleave",function () {
+        }).on("mouseleave",()=>{
             _this.resumeTimer();
-        }).on("click",".message-action",function () {
-            _this.resolve("action"+$(this).attr("data-action"));
+        }).on("click",".message-action",()=>{
+            let index=$(this).attr("data-action");
+            _this.resolve(`action${index}`);
             _this.close();
         });
         $("body").append(this._element);
@@ -76,24 +83,25 @@ class Message{
     show(){
         let _this=this;
         !_this.startTime&&(_this.startTime=new Date().getTime());
-        this._element.removeClass("message-fade-leave");
+        this._element.removeClass("message-fade-leave").removeClass("message-push-leave");
         //定时器
-        this._timer=setTimeout(function () {
+        this._timer=setTimeout(()=>{
             _this.close();
         },this.duration);
     }
     close(){
         //关闭事件会触发
         let _this=this;
-        this._element.addClass("message-fade-leave").on(transitionEnd,function () {
+        this._element.addClass(`${this.scale?'message-push-leave':'message-fade-leave'}`).on(transitionEnd,()=>{
             _this._element.remove();
         });
         //触发关闭事件
         this.resolve("close");
     }
     static closeAll(){
-        messageInstances.forEach(function (instance) {
+        messageInstances.forEach(instance=>{
             instance.close();
+            messageInstances.delete(instance);
         })
     }
     stopTimer(){
@@ -105,7 +113,7 @@ class Message{
     }
     resumeTimer(){
         let _this=this;
-        this._timer=setTimeout(function () {
+        this._timer=setTimeout(()=>{
             _this.close();
         },this.duration-(this.endTime-this.startTime));
     }

@@ -103,8 +103,10 @@ var $imports = __webpack_require__(8);
 module.exports = function ($data) {
     'use strict';
     $data = $data || {};
-    var $$out = '', $escape = $imports.$escape, type = $data.type, round = $data.round, customClass = $data.customClass, iconClass = $data.iconClass, message = $data.message, actions = $data.actions, $each = $imports.$each, action = $data.action, i = $data.i, showClose = $data.showClose;
-    $$out += '<div class="message message-fade-leave ';
+    var $$out = '', $escape = $imports.$escape, scale = $data.scale, type = $data.type, round = $data.round, customClass = $data.customClass, iconClass = $data.iconClass, message = $data.message, actions = $data.actions, $each = $imports.$each, action = $data.action, i = $data.i, showClose = $data.showClose;
+    $$out += '<div class="message ';
+    $$out += $escape(scale ? 'message-push-leave' : 'message-fade-leave');
+    $$out += ' ';
     $$out += $escape(type);
     $$out += ' ';
     $$out += $escape(round ? 'round' : '');
@@ -181,10 +183,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * onClose	关闭时的回调函数, 参数为被关闭的 message 实例	function	—	—
  * round 是否全圆角
  * actions 操作组 [{text:"刷新",icon:"icon-refresh"}]
+ *
+ *
+ *
+ * beta 2.0
+ * ******* scale模式   zui效果   缩放动画 scale 与opacity同时
  */
-
+var messageInstances = new Set();
 var message_render = __webpack_require__(3);
-var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function () {
+var requestAnimationFrame = function requestAnimationFrame(callback) {
     window.setTimeout(callback, 6000 / 60);
 };
 var transitionEnd = function () {
@@ -200,7 +207,6 @@ var transitionEnd = function () {
         }
     }
 }();
-var messageInstances = [];
 
 var Message = function () {
     function Message(options, resolve, reject) {
@@ -217,17 +223,20 @@ var Message = function () {
         this.actions = options.actions || [];
         this.resolve = resolve;
         this.reject = reject;
+        this.scale = options.scale || false;
         this.create();
         var _this = this;
         requestAnimationFrame(function () {
             _this.show();
         });
-        messageInstances.push(this);
+        messageInstances.add(this);
     }
 
     _createClass(Message, [{
         key: 'create',
         value: function create() {
+            var _this2 = this;
+
             var _this = this;
             this._element = $(message_render({
                 message: this.message,
@@ -236,14 +245,16 @@ var Message = function () {
                 customClass: this.customClass,
                 showClose: this.showClose,
                 round: this.round,
-                actions: this.actions
+                actions: this.actions,
+                scale: this.scale
             }));
             this._element.on("mouseover", function () {
                 _this.stopTimer();
             }).on("mouseleave", function () {
                 _this.resumeTimer();
             }).on("click", ".message-action", function () {
-                _this.resolve("action" + $(this).attr("data-action"));
+                var index = $(_this2).attr("data-action");
+                _this.resolve('action' + index);
                 _this.close();
             });
             $("body").append(this._element);
@@ -253,7 +264,7 @@ var Message = function () {
         value: function show() {
             var _this = this;
             !_this.startTime && (_this.startTime = new Date().getTime());
-            this._element.removeClass("message-fade-leave");
+            this._element.removeClass("message-fade-leave").removeClass("message-push-leave");
             //定时器
             this._timer = setTimeout(function () {
                 _this.close();
@@ -264,7 +275,7 @@ var Message = function () {
         value: function close() {
             //关闭事件会触发
             var _this = this;
-            this._element.addClass("message-fade-leave").on(transitionEnd, function () {
+            this._element.addClass('' + (this.scale ? 'message-push-leave' : 'message-fade-leave')).on(transitionEnd, function () {
                 _this._element.remove();
             });
             //触发关闭事件
@@ -292,6 +303,7 @@ var Message = function () {
         value: function closeAll() {
             messageInstances.forEach(function (instance) {
                 instance.close();
+                messageInstances.delete(instance);
             });
         }
     }, {
@@ -459,16 +471,15 @@ var _message2 = _interopRequireDefault(_message);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-setTimeout(function () {
-    (0, _message2.default)({
-        message: "测试",
-        type: "success",
-        iconClass: "icon-success",
-        duration: 3000,
-        showClose: true,
-        round: true
-    });
-}, 2000);
+(0, _message2.default)({
+    message: "测试",
+    type: "success",
+    iconClass: "icon-success",
+    duration: 3000,
+    showClose: true,
+    round: true,
+    scale: true
+});
 
 /***/ })
 /******/ ]);
