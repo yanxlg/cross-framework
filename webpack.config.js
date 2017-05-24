@@ -12,6 +12,9 @@ function createEntries(dir, root) {
             if(path.extname(fullpath)===".es6"){
                 let name = path.join(dir, path.basename(file,'.es6'));
                 entries[name] = fullpath
+            }else if(path.extname(fullpath)===".scss"){
+                let name = path.join(dir, path.basename(file,'.scss'));
+                entries[name] = fullpath
             }
         }else if(stat.isDirectory()){
             if(file!=="node_modules"&&file!==".git"&&file!==".idea"&&file!=="dist"&&file!=="build"){
@@ -36,6 +39,11 @@ module.exports = {
                 test: /.es6$/, //是一个正则，代表js或者jsx后缀的文件要使用下面的loader
                 loader: "babel-loader",
                 query: {presets: ['es2015']},
+                exclude: /node_modules/
+            },
+            {
+                test: /.scss$/, //是一个正则，代表js或者jsx后缀的文件要使用下面的loader
+                loader: "sass-loader",
                 exclude: /node_modules/
             },
             {

@@ -8,3 +8,19 @@
     @return $rem/1rem * 20px;
   }
 }
+
+//前缀语法
+@mixin prefix($property,$value...){
+  -webkit-#{$property}:$value;
+  -moz-#{$property}:$value;
+  -o-#{$property}:$value;
+  -ms-#{$property}: $value;
+  #{$property}: $value;
+}
+@mixin valfix($property,$val){
+  $property:-webkit-#{$val};
+  $property:-moz-#{$val};
+  $property:-o-#{$val};
+  $property:-ms-#{$val};
+  $property:#{$val};
+}
