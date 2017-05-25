@@ -1,25 +1,33 @@
 @charset "utf-8";
 //按钮 转成rem 再转成
-@import "cf-varia";
-@import "cf-func";
+@import "cf-varia.scss";
+@import "cf-func.scss";
 .btn{
   cursor:pointer;
   text-align: center;
-  padding: remToPx(0.25rem) remToPx(0.6rem);
+  padding: remToPx(0.4rem) remToPx(0.8rem);
   vertical-align: middle;
   @include prefix(border-radius,remToPx(0.2rem));
   @include prefix(box-sizing,border-box);
+  @include prefix(background-clip,border-box);
   border:1px solid #bfcbd9;
   background-color: transparent;
   &:hover,:focus{
-    color: #20a0ff;;
-    border-color: #20a0ff;
+    color: #353535;
+    background-color: #dedede;
+    border-color: #a1a1a1;
   }
   display: inline-block;
   white-space: nowrap;
   -webkit-appearance: none;
 }
 .btn-primary{
-  background-color: #20A0FF;
-  border-color: #20A0FF;
+  background-color: #3280FC;
+  border-color: #1970fc;
+  color: map_get($baseColor,white);
+  &:hover,:focus{
+    background-color: #0a67fb;;
+    border-color: #0354d4;
+    color: map_get($baseColor,white);
+  }
 }

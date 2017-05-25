@@ -1,10 +1,10 @@
 @charset "utf-8";
 //message 消息
-@import "../../ui/cf-ui-base";
-@import "../../ui/cf-iconfont/cf-iconfont";
-@import "../../ui/cf-flex";
-@import "../../ui/cf-varia";
-@import "../../ui/cf-func";
+@import "../../ui/cf-ui-base.scss";
+@import "../../ui/cf-iconfont/cf-iconfont.scss";
+@import "../../ui/cf-flex.scss";
+@import "../../ui/cf-varia.scss";
+@import "../../ui/cf-func.scss";
 
 .message {
   box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);

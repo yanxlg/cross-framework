@@ -1,6 +1,6 @@
 @charset "utf-8";
 //顶部导航
-@import "../../ui/cf-flex";
+@import "../../ui/cf-flex.scss";
 .nav{
   @extend .flex;
   @extend .justify-end;

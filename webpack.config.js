@@ -1,9 +1,10 @@
-//所有的以-es6命名的js
+/**
+ * 用于转换es6
+ **/
 let path = require('path');
-let webpack = require('webpack');
-let fs = require('fs'),fstat = fs.stat;
+let fs = require('fs');
 let entries={};
-function createEntries(dir, root) {
+function createEntries(dir,root) {
     let directory = path.join(__dirname, dir);
     fs.readdirSync(directory).forEach(function (file) {
         let fullpath = path.join(directory, file);
@@ -11,9 +12,6 @@ function createEntries(dir, root) {
         if(stat.isFile()){
             if(path.extname(fullpath)===".es6"){
                 let name = path.join(dir, path.basename(file,'.es6'));
-                entries[name] = fullpath
-            }else if(path.extname(fullpath)===".scss"){
-                let name = path.join(dir, path.basename(file,'.scss'));
                 entries[name] = fullpath
             }
         }else if(stat.isDirectory()){
@@ -24,7 +22,7 @@ function createEntries(dir, root) {
         }
     });
 }
-createEntries('./', 'package');
+createEntries('./',"package");
 console.log(entries);
 
 module.exports = {
@@ -42,25 +40,18 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /.scss$/, //是一个正则，代表js或者jsx后缀的文件要使用下面的loader
-                loader: "sass-loader",
-                exclude: /node_modules/
-            },
-            {
                 test: /\.art$/,
                 loader: "art-template-loader",
-                options: {
-                    // root: path.resolve(__dirname)   art中相对路径转换，用于js与模板不再同一目录时进行转换
-                    // art-template options (if necessary)
-                    // @see https://github.com/aui/art-template
-                }
+                options:{
+                },
+                exclude: /node_modules/
             }
         ]
     },
     watch:true,
-    watchOptions: {
+        watchOptions: {
         aggregateTimeout: 2000,
         ignored: "**.es6",
-        poll: 10000
+        poll: 4000
     }
 };

@@ -1,7 +1,7 @@
 @charset "utf-8";
 //基础样式
-@import "cf-varia";
-@import "cf-func";
+@import "cf-varia.scss";
+@import "cf-func.scss";
 @if($env!='weex'){
   html{
     width:100%;

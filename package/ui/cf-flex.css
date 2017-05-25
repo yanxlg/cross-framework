@@ -1,78 +1,122 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
-/******/ })
-/************************************************************************/
-/******/ ({
+.flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
 
-/***/ 3:
-/***/ (function(module, exports) {
+.flex-1 {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
 
-throw new Error("Module build failed: ReferenceError: window is not defined\n    at F:\\cross-framework\\node_modules\\style-loader\\index.js!F:\\cross-framework\\node_modules\\css-loader\\index.js??ref--0-2!F:\\cross-framework\\node_modules\\sass-loader\\lib\\loader.js??ref--0-3!F:\\cross-framework\\package\\ui\\cf-flex.scss:110:9\n    at F:\\cross-framework\\node_modules\\style-loader\\index.js!F:\\cross-framework\\node_modules\\css-loader\\index.js??ref--0-2!F:\\cross-framework\\node_modules\\sass-loader\\lib\\loader.js??ref--0-3!F:\\cross-framework\\package\\ui\\cf-flex.scss:99:46\n    at module.exports.module.exports (F:\\cross-framework\\node_modules\\style-loader\\index.js!F:\\cross-framework\\node_modules\\css-loader\\index.js??ref--0-2!F:\\cross-framework\\node_modules\\sass-loader\\lib\\loader.js??ref--0-3!F:\\cross-framework\\package\\ui\\cf-flex.scss:144:46)\n    at Object.module.exports.module.exports.location (F:\\cross-framework\\node_modules\\style-loader\\index.js!F:\\cross-framework\\node_modules\\css-loader\\index.js??ref--0-2!F:\\cross-framework\\node_modules\\sass-loader\\lib\\loader.js??ref--0-3!F:\\cross-framework\\package\\ui\\cf-flex.scss:540:36)\n    at __webpack_require__ (F:\\cross-framework\\node_modules\\style-loader\\index.js!F:\\cross-framework\\node_modules\\css-loader\\index.js??ref--0-2!F:\\cross-framework\\node_modules\\sass-loader\\lib\\loader.js??ref--0-3!F:\\cross-framework\\package\\ui\\cf-flex.scss:21:30)\n    at F:\\cross-framework\\node_modules\\style-loader\\index.js!F:\\cross-framework\\node_modules\\css-loader\\index.js??ref--0-2!F:\\cross-framework\\node_modules\\sass-loader\\lib\\loader.js??ref--0-3!F:\\cross-framework\\package\\ui\\cf-flex.scss:67:18\n    at Object.<anonymous> (F:\\cross-framework\\node_modules\\style-loader\\index.js!F:\\cross-framework\\node_modules\\css-loader\\index.js??ref--0-2!F:\\cross-framework\\node_modules\\sass-loader\\lib\\loader.js??ref--0-3!F:\\cross-framework\\package\\ui\\cf-flex.scss:70:10)\n    at Module._compile (module.js:571:32)\n    at Object.exec (F:\\cross-framework\\node_modules\\webpack\\lib\\NormalModule.js:126:12)\n    at Object.<anonymous> (F:\\cross-framework\\node_modules\\extract-text-webpack-plugin\\loader.js:112:21)\n    at Compiler.<anonymous> (F:\\cross-framework\\node_modules\\webpack\\lib\\Compiler.js:296:10)\n    at F:\\cross-framework\\node_modules\\webpack\\lib\\Compiler.js:499:13\n    at next (F:\\cross-framework\\node_modules\\tapable\\lib\\Tapable.js:138:11)\n    at Compiler.<anonymous> (F:\\cross-framework\\node_modules\\extract-text-webpack-plugin\\loader.js:93:4)\n    at next (F:\\cross-framework\\node_modules\\tapable\\lib\\Tapable.js:140:14)\n    at Compiler.<anonymous> (F:\\cross-framework\\node_modules\\webpack\\lib\\CachePlugin.js:62:5)\n    at Compiler.applyPluginsAsyncSeries (F:\\cross-framework\\node_modules\\tapable\\lib\\Tapable.js:142:13)\n    at F:\\cross-framework\\node_modules\\webpack\\lib\\Compiler.js:496:10\n    at Compilation.applyPluginsAsyncSeries (F:\\cross-framework\\node_modules\\tapable\\lib\\Tapable.js:131:46)\n    at self.applyPluginsAsync.err (F:\\cross-framework\\node_modules\\webpack\\lib\\Compilation.js:649:19)\n    at Compilation.applyPluginsAsyncSeries (F:\\cross-framework\\node_modules\\tapable\\lib\\Tapable.js:131:46)\n    at self.applyPluginsAsync.err (F:\\cross-framework\\node_modules\\webpack\\lib\\Compilation.js:640:11)\n    at Compilation.applyPluginsAsyncSeries (F:\\cross-framework\\node_modules\\tapable\\lib\\Tapable.js:131:46)\n    at self.applyPluginsAsync.err (F:\\cross-framework\\node_modules\\webpack\\lib\\Compilation.js:635:10)\n    at Compilation.applyPluginsAsyncSeries (F:\\cross-framework\\node_modules\\tapable\\lib\\Tapable.js:131:46)\n    at sealPart2 (F:\\cross-framework\\node_modules\\webpack\\lib\\Compilation.js:631:9)\n    at Compilation.applyPluginsAsyncSeries (F:\\cross-framework\\node_modules\\tapable\\lib\\Tapable.js:131:46)\n    at Compilation.seal (F:\\cross-framework\\node_modules\\webpack\\lib\\Compilation.js:579:8)\n    at F:\\cross-framework\\node_modules\\webpack\\lib\\Compiler.js:493:16\n    at F:\\cross-framework\\node_modules\\tapable\\lib\\Tapable.js:225:11");
+.flex-2 {
+  -webkit-box-flex: 2;
+  -moz-box-flex: 2;
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+}
 
-/***/ })
+.flex-3 {
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+}
 
-/******/ });
+.flex-row {
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.flex-column {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.align-start {
+  -moz-box-align: start;
+  -ms-box-align: start;
+  -webkit-box-align: start;
+  box-align: start;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  -ms-align-items: flex-start;
+  -o-align-items: flex-start;
+  align-items: flex-start;
+}
+
+.align-center {
+  -moz-box-align: center;
+  -ms-box-align: center;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+}
+
+.align-end {
+  -moz-box-align: end;
+  -ms-box-align: end;
+  -webkit-box-align: end;
+  box-align: end;
+  -webkit-align-items: flex-end;
+  -moz-align-items: flex-end;
+  -ms-align-items: flex-end;
+  -o-align-items: flex-end;
+  align-items: flex-end;
+}
+
+.justify-start {
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -ms-box-pack: start;
+  -o-box-pack: start;
+  box-pack: start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.justify-center {
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  -o-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+
+.justify-end {
+  -webkit-box-pack: end;
+  -moz-box-pack: end;
+  -ms-box-pack: end;
+  -o-box-pack: end;
+  box-pack: end;
+  -webkit-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  -ms-justify-content: flex-end;
+  justify-content: flex-end;
+}

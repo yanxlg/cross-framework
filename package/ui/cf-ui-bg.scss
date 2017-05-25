@@ -1,6 +1,6 @@
 @charset "utf-8";
 //背景颜色
-@import "cf-varia";
+@import "cf-varia.scss";
 @each $key,$val in $messageColor{
   .bg-#{$key}{
     background-color: $val;
