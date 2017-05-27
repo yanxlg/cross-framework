@@ -1,0 +1,33 @@
+<div class="modal fade" data-dialog-id="{{id}}">
+    <div class="dialog {{size}}" style="width:{{width?(width+'px'):'auto'}};height:{{height?(height+'px'):'auto'}};">
+        {{if showHeader}}
+            <div class="dialog-header {{moveable?'dialog-moveable':''}}">
+                {{if icon}}
+                    <div class="dialog-icon {{icon}}"></div>
+                {{/if}}
+                <div class="dialog-title">
+                    {{title}}
+                </div>
+                <div class="dialog-close icon-close"></div>
+            </div>
+        {{/if}}
+        <div class="dialog-content">
+            {{#content}}
+        </div>
+        {{if showFooter }}
+            <div class="dialog-footer">
+                {{if !footerBtn}}
+                    <button data-operation="cancel" class="btn">取消</button>
+                    <button data-operation="ok" class="btn btn-primary">确定</button>
+                {{else}}
+                    {{each footerBtn btn i}}
+                        <button data-operation="cusBtn{{i}}" class="btn {{btn.themeCss}}">{{btn.text}}</button>
+                    {{/each}}
+                {{/if}}
+            </div>
+        {{/if}}
+    </div>
+</div>
+{{if backdrop}}
+    <div class="modal-backdrop fade" data-for="dialog_id_{{id}}"></div>
+{{/if}}

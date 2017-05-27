@@ -50,8 +50,8 @@ module.exports = {
     },
     watch:true,
         watchOptions: {
-        aggregateTimeout: 2000,
+        aggregateTimeout: 1000,
         ignored: "**.es6",
-        poll: 4000
+        poll: 2000
     }
 };

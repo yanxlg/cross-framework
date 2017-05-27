@@ -12,22 +12,88 @@
   @include prefix(background-clip,border-box);
   border:1px solid #bfcbd9;
   background-color: transparent;
-  &:hover,:focus{
-    color: #353535;
+  color: #353535;
+  &:hover,&:focus{
     background-color: #dedede;
     border-color: #a1a1a1;
   }
   display: inline-block;
   white-space: nowrap;
   -webkit-appearance: none;
+  &.disabled,&[disabled]{
+    cursor: not-allowed;
+    pointer-events: none;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .65;
+    &:hover,:focus{
+      color: #aaa;
+      text-decoration: none;
+    }
+  }
 }
 .btn-primary{
   background-color: #3280FC;
   border-color: #1970fc;
   color: map_get($baseColor,white);
-  &:hover,:focus{
+  &:hover,&:focus{
     background-color: #0a67fb;;
     border-color: #0354d4;
     color: map_get($baseColor,white);
   }
+}
+.btn-info{
+  background-color: map_get($messageColor,info);
+  border-color:#03a2b6;
+  color: map_get($baseColor,white);
+  &:hover,&:focus{
+    background-color: #0294a7;;
+    border-color: #026c7a;
+    color: map_get($baseColor,white);
+  }
+}
+.btn-success{
+  background-color: map_get($messageColor,success);
+  border-color:#329d38;
+  color: map_get($baseColor,white);
+  &:hover,&:focus{
+    background-color: #2e9134;
+    border-color: #236e27;
+    color: map_get($baseColor,white);
+  }
+}
+.btn-warning{
+  background-color: map_get($messageColor,warning);
+  border-color:#ed980f;
+  color: map_get($baseColor,white);
+  &:hover,&:focus{
+    background-color: #df8f0e;
+    border-color: #b4730c;
+    color: map_get($baseColor,white);
+  }
+}
+.btn-danger{
+  background-color: map_get($messageColor,danger);
+  border-color:#e64525;
+  color: map_get($baseColor,white);
+  &:hover,&:focus{
+    background-color: #c63317;
+    border-color: #c62817;
+    color: map_get($baseColor,white);
+  }
+}
+.btn-link{
+  color: #145ccd;
+  background: none;
+  border-color: transparent;
+  @include prefix(box-shadow,none);
+  &:hover,&:focus{
+    border-color: transparent;
+    @include prefix(box-shadow,none);
+  }
+}
+.btn-block{
+  display: block;
+  width: 100%;
 }

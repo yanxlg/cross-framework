@@ -1,0 +1,342 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: hidden;
+  display: block;
+}
+
+.modal.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.modal.fade.in {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.fade {
+  -webkit-transition: opacity 0.15s linear;
+  -moz-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  -ms-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 990;
+  background-color: #000;
+}
+
+.modal-backdrop.fade {
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
+.modal-backdrop.fade.in {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.btn {
+  cursor: pointer;
+  text-align: center;
+  padding: 0.4rem 0.8rem;
+  vertical-align: middle;
+  -webkit-border-radius: 0.2rem;
+  -moz-border-radius: 0.2rem;
+  -o-border-radius: 0.2rem;
+  -ms-border-radius: 0.2rem;
+  border-radius: 0.2rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border-box;
+  -o-background-clip: border-box;
+  -ms-background-clip: border-box;
+  background-clip: border-box;
+  border: 1px solid #bfcbd9;
+  background-color: transparent;
+  color: #353535;
+  display: inline-block;
+  white-space: nowrap;
+  -webkit-appearance: none;
+}
+
+.btn:hover, .btn:focus {
+  background-color: #dedede;
+  border-color: #a1a1a1;
+}
+
+.btn.disabled, .btn[disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: .65;
+}
+
+.btn.disabled:hover, .btn.disabled :focus, .btn[disabled]:hover, .btn[disabled] :focus {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #3280FC;
+  border-color: #1970fc;
+  color: #fff;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #0a67fb;
+  border-color: #0354d4;
+  color: #fff;
+}
+
+.btn-info {
+  background-color: #03B8CF;
+  border-color: #03a2b6;
+  color: #fff;
+}
+
+.btn-info:hover, .btn-info:focus {
+  background-color: #0294a7;
+  border-color: #026c7a;
+  color: #fff;
+}
+
+.btn-success {
+  background-color: #13CE66;
+  border-color: #329d38;
+  color: #fff;
+}
+
+.btn-success:hover, .btn-success:focus {
+  background-color: #2e9134;
+  border-color: #236e27;
+  color: #fff;
+}
+
+.btn-warning {
+  background-color: #F7BA2A;
+  border-color: #ed980f;
+  color: #fff;
+}
+
+.btn-warning:hover, .btn-warning:focus {
+  background-color: #df8f0e;
+  border-color: #b4730c;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #FF4949;
+  border-color: #e64525;
+  color: #fff;
+}
+
+.btn-danger:hover, .btn-danger:focus {
+  background-color: #c63317;
+  border-color: #c62817;
+  color: #fff;
+}
+
+.btn-link {
+  color: #145ccd;
+  background: none;
+  border-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn-link:hover, .btn-link:focus {
+  border-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.modal.fade .dialog {
+  -webkit-transition: -webkit-transform .3s ease-out;
+  -o-transition: transform .3s ease-out,-o-transform .3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out,-webkit-transform .3s ease-out,-o-transform .3s ease-out;
+  -webkit-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  -o-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+}
+
+.modal.in .dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.dialog {
+  display: block;
+  min-width: 24rem;
+  max-width: 30rem;
+  margin: 1.5rem auto;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  -ms-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: auto;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  -o-background-clip: padding-box;
+  -ms-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  -webkit-border-radius: 0.3rem;
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+}
+
+.dialog .dialog-header {
+  display: block;
+  min-height: 0.827rem;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.dialog .dialog-header .dialog-icon {
+  position: absolute;
+  left: 0.4rem;
+  top: 0.9rem;
+}
+
+.dialog .dialog-header .dialog-icon ~ .dialog-title {
+  padding-left: 0.6rem;
+}
+
+.dialog .dialog-header .dialog-title {
+  line-height: 1.53846154;
+  font-size: 0.8rem;
+}
+
+.dialog .dialog-header .dialog-close {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.8rem;
+  cursor: pointer;
+}
+
+.dialog .dialog-header .dialog-close:before {
+  -webkit-transition: -webkit-transform .3s ease-out;
+  -o-transition: transform .3s ease-out,-o-transform .3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out,-webkit-transform .3s ease-out,-o-transform .3s ease-out;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.dialog .dialog-header .dialog-close:hover:before {
+  font-weight: bold;
+  color: #1F2D3D;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.dialog .dialog-header.dialog-moveable {
+  cursor: move;
+}
+
+.dialog .dialog-content {
+  display: block;
+  position: relative;
+  padding: 15px;
+}
+
+.dialog .dialog-footer {
+  display: block;
+  padding: 0.75rem;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+
+.dialog.sm {
+  width: 15rem;
+}
+
+.dialog.lg {
+  width: 45rem;
+}
+
+.dialog.full {
+  position: relative;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0;
+  border-radius: 0;
+}
+
+@media (max-width: 767px) {
+  .sm {
+    width: 160px;
+  }
+  .lg {
+    width: 480px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sm {
+    width: 220px;
+  }
+  .lg {
+    width: 660px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sm {
+    width: 260px;
+  }
+  .lg {
+    width: 780px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sm {
+    width: 300px;
+  }
+  .lg {
+    width: 900px;
+  }
+}

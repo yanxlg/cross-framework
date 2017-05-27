@@ -18,24 +18,9 @@
  * beta 2.0
  * ******* scale模式   zui效果   缩放动画 scale 与opacity同时
  */
+import {transition,transitionEnd} from '../../cf-transition.es6';
 const messageInstances=new Set();
 let message_render = require('./message.art');
-let requestAnimationFrame=callback=>{
-    window.setTimeout(callback, 6000 / 60);
-};
-let transitionEnd=(()=>{
-    let transEndEventNames = {
-        WebkitTransition : 'webkitTransitionEnd',
-        MozTransition    : 'transitionend',
-        OTransition      : 'oTransitionEnd otransitionend',
-        transition       : 'transitionend'
-    };
-    for(let name in transEndEventNames){
-        if(typeof document.body.style[name] === "string"){
-            return transEndEventNames[name];
-        }
-    }
-})();
 class Message{
     constructor(options,resolve,reject){
         this.message=options.message||"";
@@ -52,7 +37,7 @@ class Message{
         this.scale=options.scale||false;
         this.create();
         let _this=this;
-        requestAnimationFrame(()=>{
+        transition(()=>{
             _this.show();
         });
         messageInstances.add(this);

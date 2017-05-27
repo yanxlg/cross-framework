@@ -277,7 +277,7 @@ a, a:hover, a:visited, a:link, a:active {
   color: #fff;
 }
 
-.message.info i:first-child:before {
+.message.info > i:first-child:before {
   background-color: rgba(80, 191, 255, 0.8);
   color: #fff;
 }
@@ -285,6 +285,10 @@ a, a:hover, a:visited, a:link, a:active {
 .message.info .message-close:hover, .message.info .message-close:active, .message.info .message-action:hover, .message.info .message-action:active {
   background-color: rgba(80, 191, 255, 0.8);
   color: #fff;
+}
+
+.message.info .message-action {
+  color: #808080;
 }
 
 .message.success > i:first-child:before {
@@ -297,6 +301,10 @@ a, a:hover, a:visited, a:link, a:active {
   color: #fff;
 }
 
+.message.success .message-action {
+  color: #808080;
+}
+
 .message.warning > i:first-child:before {
   background-color: rgba(247, 186, 42, 0.8);
   color: #fff;
@@ -307,6 +315,10 @@ a, a:hover, a:visited, a:link, a:active {
   color: #fff;
 }
 
+.message.warning .message-action {
+  color: #808080;
+}
+
 .message.error > i:first-child:before {
   background-color: rgba(255, 73, 73, 0.8);
   color: #fff;
@@ -315,6 +327,10 @@ a, a:hover, a:visited, a:link, a:active {
 .message.error .message-close:hover, .message.error .message-close:active, .message.error .message-action:hover, .message.error .message-action:active {
   background-color: rgba(255, 73, 73, 0.8);
   color: #fff;
+}
+
+.message.error .message-action {
+  color: #808080;
 }
 
 .message.round {
@@ -376,6 +392,10 @@ i ~ .message-group {
 
 .message-actions .message-action i {
   margin-right: 0.2rem;
+}
+
+.message-actions .message-action p {
+  font-size: 0.6rem;
 }
 
 .message-push-leave {

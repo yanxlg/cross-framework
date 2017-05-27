@@ -283,15 +283,29 @@ a, a:hover, a:visited, a:link, a:active {
   background-clip: border-box;
   border: 1px solid #bfcbd9;
   background-color: transparent;
+  color: #353535;
   display: inline-block;
   white-space: nowrap;
   -webkit-appearance: none;
 }
 
-.btn:hover, .btn :focus {
-  color: #353535;
+.btn:hover, .btn:focus {
   background-color: #dedede;
   border-color: #a1a1a1;
+}
+
+.btn.disabled, .btn[disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: .65;
+}
+
+.btn.disabled:hover, .btn.disabled :focus, .btn[disabled]:hover, .btn[disabled] :focus {
+  color: #aaa;
+  text-decoration: none;
 }
 
 .btn-primary {
@@ -300,8 +314,81 @@ a, a:hover, a:visited, a:link, a:active {
   color: #fff;
 }
 
-.btn-primary:hover, .btn-primary :focus {
+.btn-primary:hover, .btn-primary:focus {
   background-color: #0a67fb;
   border-color: #0354d4;
   color: #fff;
+}
+
+.btn-info {
+  background-color: #03B8CF;
+  border-color: #03a2b6;
+  color: #fff;
+}
+
+.btn-info:hover, .btn-info:focus {
+  background-color: #0294a7;
+  border-color: #026c7a;
+  color: #fff;
+}
+
+.btn-success {
+  background-color: #13CE66;
+  border-color: #329d38;
+  color: #fff;
+}
+
+.btn-success:hover, .btn-success:focus {
+  background-color: #2e9134;
+  border-color: #236e27;
+  color: #fff;
+}
+
+.btn-warning {
+  background-color: #F7BA2A;
+  border-color: #ed980f;
+  color: #fff;
+}
+
+.btn-warning:hover, .btn-warning:focus {
+  background-color: #df8f0e;
+  border-color: #b4730c;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #FF4949;
+  border-color: #e64525;
+  color: #fff;
+}
+
+.btn-danger:hover, .btn-danger:focus {
+  background-color: #c63317;
+  border-color: #c62817;
+  color: #fff;
+}
+
+.btn-link {
+  color: #145ccd;
+  background: none;
+  border-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn-link:hover, .btn-link:focus {
+  border-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
 }

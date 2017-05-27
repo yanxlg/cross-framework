@@ -63,81 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ({
 
 /***/ 10:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Require Promise
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Created by yanxlg on 2017/5/22 0022.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 广播事件，不同页面之间进行数据传递，本质是storage的事件，修复当前界面接收问题
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
-
-
-var _store = __webpack_require__(5);
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var addEvent = window.addEventListener || window.attachEvent;
-
-var Broadcast = function () {
-    function Broadcast() {
-        _classCallCheck(this, Broadcast);
-    }
-
-    _createClass(Broadcast, null, [{
-        key: "sendEvent",
-        value: function sendEvent(eventName, eventData) {
-            //当前页面不会触发，值相同不会触发  fix
-            _store.store.set(eventName, eventData);
-            this.dispatch(eventName, eventData); //当前页面触发
-        }
-    }, {
-        key: "registerEvent",
-        value: function registerEvent() {
-            //当前页面中需要实现监听
-            var p = new Promise(function () {
-                addEvent("storage", function (ev) {
-                    var $key = JSON.parse((0, _store.decode)(ev.key))._key;
-                    var $val = JSON.parse((0, _store.decode)(ev.newValue))._val;
-                    resolve($key, $val);
-                });
-            });
-            this.promiseArr = this.promiseArr || [];
-            this.promiseArr.push(p);
-            return p;
-        }
-    }, {
-        key: "dispatch",
-        value: function dispatch(eventName, eventData) {
-            //处理方法
-            if (this.promiseArr) {
-                this.promiseArr.forEach(function (promise) {
-                    promise.resolve(eventName, eventData);
-                });
-            }
-        }
-    }]);
-
-    return Broadcast;
-}();
-
-exports.default = Broadcast;
-
-/***/ }),
-
-/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -401,6 +332,75 @@ exports.store = Store;
 exports.session = Session;
 exports.encode = encode;
 exports.decode = decode;
+
+/***/ }),
+
+/***/ 13:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Require Promise
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Created by yanxlg on 2017/5/22 0022.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 广播事件，不同页面之间进行数据传递，本质是storage的事件，修复当前界面接收问题
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+
+
+var _store = __webpack_require__(10);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var addEvent = window.addEventListener || window.attachEvent;
+
+var Broadcast = function () {
+    function Broadcast() {
+        _classCallCheck(this, Broadcast);
+    }
+
+    _createClass(Broadcast, null, [{
+        key: "sendEvent",
+        value: function sendEvent(eventName, eventData) {
+            //当前页面不会触发，值相同不会触发  fix
+            _store.store.set(eventName, eventData);
+            this.dispatch(eventName, eventData); //当前页面触发
+        }
+    }, {
+        key: "registerEvent",
+        value: function registerEvent() {
+            //当前页面中需要实现监听
+            var p = new Promise(function () {
+                addEvent("storage", function (ev) {
+                    var $key = JSON.parse((0, _store.decode)(ev.key))._key;
+                    var $val = JSON.parse((0, _store.decode)(ev.newValue))._val;
+                    resolve($key, $val);
+                });
+            });
+            this.promiseArr = this.promiseArr || [];
+            this.promiseArr.push(p);
+            return p;
+        }
+    }, {
+        key: "dispatch",
+        value: function dispatch(eventName, eventData) {
+            //处理方法
+            if (this.promiseArr) {
+                this.promiseArr.forEach(function (promise) {
+                    promise.resolve(eventName, eventData);
+                });
+            }
+        }
+    }]);
+
+    return Broadcast;
+}();
+
+exports.default = Broadcast;
 
 /***/ })
 

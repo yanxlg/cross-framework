@@ -6,5 +6,9 @@ message({
     duration:3000,
     showClose:true,
     round:true,
-    scale:true
+    scale:true,
+    actions:[{
+        text:"测试",
+        icon:"icon-close"
+    }]
 })

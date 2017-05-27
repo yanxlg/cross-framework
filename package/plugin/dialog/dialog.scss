@@ -1,2 +1,151 @@
 @charset "utf-8";
 //Created by yanxlg on 2017/5/24 0024.
+//大小分为small normal large full
+@import "../../ui/cf-modal.scss";
+@import "../../ui/cf-func.scss";
+@import "../../ui/cf-button.scss";
+.modal.fade{
+  .dialog{
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -o-transition: transform .3s ease-out,-o-transform .3s ease-out;
+    transition: -webkit-transform .3s ease-out;
+    transition: transform .3s ease-out,-webkit-transform .3s ease-out,-o-transform .3s ease-out;
+    -webkit-transform: translate(0,-25%);
+    -ms-transform: translate(0,-25%);
+    -o-transform: translate(0,-25%);
+    transform: translate(0,-25%);
+  }
+}
+.modal.in{
+  .dialog{
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+  }
+}
+.dialog{
+  display: block;
+  min-width: remToPx(24rem);
+  max-width:remToPx(30rem);
+  margin: remToPx(1.5rem) auto;
+  @include prefix(box-shadow,0 5px 15px rgba(0,0,0,.5));
+  position: relative;
+  width: auto;
+  background-color: map_get($baseColor,white);
+  @include prefix(background-clip,padding-box);
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: remToPx(0.3rem);
+  -webkit-border-radius: remToPx(0.3rem);
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+  box-shadow: 0 3px 9px rgba(0,0,0,.5);
+  .dialog-header{
+    display: block;
+    min-height: remToPx(0.827rem);
+    padding: remToPx(0.75rem);
+    border-bottom: 1px solid #e5e5e5;
+    .dialog-icon{
+        position: absolute;
+        left:remToPx(0.4rem);
+        top:remToPx(0.9rem);
+        ~ .dialog-title{
+          padding-left:remToPx(0.6rem);
+        }
+    }
+    .dialog-title{
+      line-height: 1.53846154;
+      font-size: remToPx(0.8rem);
+    }
+    .dialog-close{
+      position: absolute;
+      right:remToPx(0.75rem);
+      top:remToPx(0.8rem);
+      cursor: pointer;
+      &:before{
+        -webkit-transition: -webkit-transform .3s ease-out;
+        -o-transition: transform .3s ease-out,-o-transform .3s ease-out;
+        transition: -webkit-transform .3s ease-out;
+        transition: transform .3s ease-out,-webkit-transform .3s ease-out,-o-transform .3s ease-out;
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      &:hover{
+        &:before{
+          font-weight: bold;
+          color: map_get($baseColor,black);
+          -webkit-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          -o-transform: rotate(90deg);
+          transform: rotate(90deg);
+        }
+      }
+    }
+    &.dialog-moveable{
+      cursor: move;
+    }
+  }
+  .dialog-content{
+    display: block;
+    position: relative;
+    padding: 15px;
+  }
+  .dialog-footer{
+    display: block;
+    padding: remToPx(0.75rem);
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+  }
+  &.sm{
+    width: remToPx(15rem);
+  }
+  &.lg{
+    width: remToPx(45rem);
+  }
+  &.full{
+    position: relative;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0;
+    border-radius: 0;
+  }
+}
+//需要进行@media控制
+@media (max-width: 767px) {
+  //小屏
+  &.sm{
+    width: 160px;
+  }
+  &.lg{
+    width: 480px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  //中屏
+  &.sm{
+    width: 220px;
+  }
+  &.lg{
+    width: 660px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  //大屏
+  &.sm{
+    width: 260px;
+  }
+  &.lg{
+    width: 780px;
+  }
+}
+@media (min-width: 1200px) {
+  //超大屏
+  &.sm{
+    width: 300px;
+  }
+  &.lg{
+    width: 900px;
+  }
+}
