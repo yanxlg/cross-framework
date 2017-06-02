@@ -1,0 +1,12 @@
+{{if size}}
+    <div class="action fade {{size}}" data-action-id="{{id}}">
+        {{#content}}
+    </div>
+{{else}}
+<div class="action fade" style="{{'height:'+height+'px;'}}" data-action-id="{{id}}">
+    {{#content}}
+</div>
+{{/if}}
+{{if backdrop}}
+<div class="modal-backdrop fade" data-for="action_id_{{id}}"></div>
+{{/if}}

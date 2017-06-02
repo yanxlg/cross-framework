@@ -1,0 +1,64 @@
+@charset "utf-8";
+// Created by yanxlg on 2017/5/31 0031.
+//底部弹出窗体，或者菜单 拥有遮罩
+@import "../../ui/cf-func.scss";
+@import "../../ui/cf-modal.scss";
+.action{
+  position: fixed;
+  bottom: 0;
+  width:100%;
+  left:0;
+  @include prefix(transition,all .3s ease-out);
+  @include prefix(transform,translate(0,100%));
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling:touch;
+  z-index: 1200;
+  background-color: #1D8CE0;
+  //action高度默认值
+  &.normal{
+    @media (max-width: 767px) {
+      height:80%;
+    }
+    @media (min-width: 768px){
+      height:600px;
+    }
+  }
+  &.small{
+    @media (max-width: 767px) {
+      height:360px;
+    }
+    @media (min-width: 768px){
+      height:500px;
+    }
+  }
+  &.large{
+    @media (max-width: 767px) {
+      height:85%;
+    }
+    @media (min-width: 768px) and (max-width: 991px){
+      height:700px;
+    }
+    @media (min-width: 992px) and (max-width: 1199px) {
+      height:900px;
+    }
+    @media (min-width: 1200px) {
+      height:1050px;
+    }
+  }
+  &.full{
+    height:100%;
+  }
+
+  &.fade{
+    opacity: 0;
+    filter: alpha(opacity=0);
+    &.in{
+      //显示动画
+      @include prefix(transform,translate(0,0));
+      opacity:1;
+      filter: alpha(opacity=100);
+    }
+  }
+}
+

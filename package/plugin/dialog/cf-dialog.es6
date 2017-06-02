@@ -18,16 +18,11 @@
  *      showFooter 是否显示底部
  *      footerBtn  Array[{text:"",themeCss:""}]  底部按钮
  *
- *
- *
- *
- * Promise 多次回调问题
  */
 import dialogTemplate from './dialog.art';
 import IDGenerator from '../../cf-idGenerator.es6';
 import {transition,transitionEnd} from '../../cf-transition.es6';
 import Drag from '../../cf-drag.es6';
-import Promise from '../../../static/Promise.es6';
 
 const DIALOG_DEFAULT_OPTION={
     size:"normal",
@@ -47,7 +42,7 @@ const DIALOG_DEFAULT_OPTION={
 };
 
 class Dialog{
-    constructor(options,resolve,reject){
+    constructor(options){
         options=options||{};
         this.size=options.size||DIALOG_DEFAULT_OPTION.size;
         this.width=options.width||DIALOG_DEFAULT_OPTION.width;
@@ -63,8 +58,6 @@ class Dialog{
         this.content=options.content||DIALOG_DEFAULT_OPTION.content;
         this.showFooter=options.content||DIALOG_DEFAULT_OPTION.showFooter;
         this.footerBtn=options.content||DIALOG_DEFAULT_OPTION.footerBtn;
-        this.resolve=resolve;
-        this.reject=reject;
         this.id=IDGenerator.uuid();
         this.create().show();
     }
@@ -156,7 +149,7 @@ class Dialog{
         $(this._element[0]).on("click","[data-operation]",function () {
             let operation=$(this).attr("data-operation");
             if(operation==="cancel") _this.close();
-            _this.resolve("operation_"+operation);
+            _this.callback&&_this.callback(`operation_${operation}`);
         })
     }
     show(){
@@ -171,22 +164,23 @@ class Dialog{
     close(){
         let _this=this;
         transition(()=>{
-            _this.resolve("closeStart");
+            _this.callback&&_this.callback("closeStart");
             _this._element.removeClass("in").on(transitionEnd,function () {
                 _this._element.remove();
                 $(window).off("keydown."+_this.id);
                 if(_this.dragInstance){
                     _this.dragInstance.destroy();
                 }
-                _this.resolve("closeEnd");
+                _this.callback&&_this.callback("closeEnd");
             });
         })
     }
+    then(callback){
+        this.callback=callback;
+    }
 }
 let dialog=(options)=>{
-    return new Promise((resolve, reject)=>{
-        new Dialog(options,resolve,reject);
-    });
+    return new Dialog(options);
 };
 
 dialog({
@@ -195,4 +189,4 @@ dialog({
     modal:false
 }).then(function (type) {
     alert(type);
-})
+});

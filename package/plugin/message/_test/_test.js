@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 19);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -270,7 +270,8 @@ try {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 7 */
+/* 7 */,
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $imports = __webpack_require__(5);
@@ -329,8 +330,8 @@ module.exports = function ($data) {
 };
 
 /***/ }),
-/* 8 */,
-/* 9 */
+/* 9 */,
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -359,6 +360,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       *
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * beta 2.0
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * ******* scale模式   zui效果   缩放动画 scale 与opacity同时
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Promise 不能多次回调，不能用于插件生命周期
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
@@ -367,10 +369,10 @@ var _cfTransition = __webpack_require__(1);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var messageInstances = new Set();
-var message_render = __webpack_require__(7);
+var message_render = __webpack_require__(8);
 
 var Message = function () {
-    function Message(options, resolve, reject) {
+    function Message(options) {
         _classCallCheck(this, Message);
 
         this.message = options.message || "";
@@ -382,8 +384,6 @@ var Message = function () {
         this.round = options.round || false;
         //actions
         this.actions = options.actions || [];
-        this.resolve = resolve;
-        this.reject = reject;
         this.scale = options.scale || false;
         this.create();
         var _this = this;
@@ -415,7 +415,7 @@ var Message = function () {
                 _this.resumeTimer();
             }).on("click", ".message-action", function () {
                 var index = $(_this2).attr("data-action");
-                _this.resolve('action' + index);
+                _this.callback && _this.callback('action' + index);
                 _this.close();
             });
             $("body").append(this._element);
@@ -440,7 +440,7 @@ var Message = function () {
                 _this._element.remove();
             });
             //触发关闭事件
-            this.resolve("close");
+            this.callback && this.callback("close");
         }
     }, {
         key: 'stopTimer',
@@ -458,6 +458,11 @@ var Message = function () {
             this._timer = setTimeout(function () {
                 _this.close();
             }, this.duration - (this.endTime - this.startTime));
+        }
+    }, {
+        key: 'then',
+        value: function then(callback) {
+            this.callback = callback;
         }
     }], [{
         key: 'closeAll',
@@ -478,26 +483,26 @@ var Message = function () {
 }();
 
 var message = function message(options) {
-    return new Promise(function (resolve, reject) {
-        new Message(options, resolve, reject);
-    });
+    return new Message(options);
 };
 exports.default = message;
 
 /***/ }),
-/* 10 */,
 /* 11 */,
 /* 12 */,
 /* 13 */,
 /* 14 */,
 /* 15 */,
-/* 16 */
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _message = __webpack_require__(9);
+var _message = __webpack_require__(10);
 
 var _message2 = _interopRequireDefault(_message);
 

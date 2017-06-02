@@ -17,12 +17,13 @@
  *
  * beta 2.0
  * ******* scale模式   zui效果   缩放动画 scale 与opacity同时
+ * Promise 不能多次回调，不能用于插件生命周期
  */
 import {transition,transitionEnd} from '../../cf-transition.es6';
 const messageInstances=new Set();
 let message_render = require('./message.art');
 class Message{
-    constructor(options,resolve,reject){
+    constructor(options){
         this.message=options.message||"";
         this.type=options.type||"info";
         this.iconClass=options.iconClass||"icon-info";
@@ -32,8 +33,6 @@ class Message{
         this.round=options.round||false;
         //actions
         this.actions=options.actions||[];
-        this.resolve=resolve;
-        this.reject=reject;
         this.scale=options.scale||false;
         this.create();
         let _this=this;
@@ -60,7 +59,7 @@ class Message{
             _this.resumeTimer();
         }).on("click",".message-action",()=>{
             let index=$(this).attr("data-action");
-            _this.resolve(`action${index}`);
+            _this.callback&&_this.callback(`action${index}`);
             _this.close();
         });
         $("body").append(this._element);
@@ -81,7 +80,7 @@ class Message{
             _this._element.remove();
         });
         //触发关闭事件
-        this.resolve("close");
+        this.callback&&this.callback("close");
     }
     static closeAll(){
         messageInstances.forEach(instance=>{
@@ -105,11 +104,12 @@ class Message{
     static success(options){
         return new Message(options);
     }
+    then(callback){
+        this.callback=callback;
+    }
 }
 
 let message=(options)=>{
-    return new Promise((resolve, reject)=>{
-        new Message(options,resolve,reject);
-    });
+    return new Message(options);
 };
 export default message;
