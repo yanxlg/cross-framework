@@ -1,0 +1,12 @@
+<div class="action-btn-group">
+    <div class="action-btn-list">
+        {{each actionList as action i}}
+            <div class="action-btn" data-action-index="{{i}}">
+                {{action}}
+            </div>
+        {{/each}}
+    </div>
+    <div class="action-btn action-cancel">
+        取消
+    </div>
+</div>

@@ -3,6 +3,7 @@
 //底部弹出窗体，或者菜单 拥有遮罩
 @import "../../ui/cf-func.scss";
 @import "../../ui/cf-modal.scss";
+@import "../../ui/cf-varia.scss";
 .action{
   position: fixed;
   bottom: 0;
@@ -14,7 +15,6 @@
   overflow-y: auto;
   -webkit-overflow-scrolling:touch;
   z-index: 1200;
-  background-color: #1D8CE0;
   //action高度默认值
   &.normal{
     @media (max-width: 767px) {
@@ -58,6 +58,42 @@
       @include prefix(transform,translate(0,0));
       opacity:1;
       filter: alpha(opacity=100);
+    }
+  }
+
+  .action-btn-group{
+    color: map_get($baseColor,blue);
+    margin:remToPx(0.5rem);
+  }
+  .action-btn-list{
+    .action-btn:first-of-type{
+      @include prefix(border-top-left-radius,$radiusSize);
+      @include prefix(border-top-right-radius,$radiusSize);
+    }
+    .action-btn:last-of-type{
+      @include prefix(border-bottom-left-radius,$radiusSize);
+      @include prefix(border-bottom-right-radius,$radiusSize);
+    }
+  }
+  .action-btn{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: map_get($baseColor,white);
+    color: inherit;
+    text-align: center;
+    padding:remToPx(0.55rem) remToPx(0.75rem);
+    font-size: remToPx(0.85rem);
+    line-height: remToPx(1rem);
+    ~ .action-btn{
+      border-top:1px solid $borderColor;
+    }
+    &.action-cancel{
+      border:none;
+      margin-top:remToPx(0.75rem);
+      @include prefix(border-radius,$radiusSize);
+      font-weight: bold;
     }
   }
 }
