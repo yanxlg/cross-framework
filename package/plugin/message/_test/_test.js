@@ -63,11 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 21);
+/******/ 	return __webpack_require__(__webpack_require__.s = 26);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports) {
 
 var g;
@@ -94,189 +95,21 @@ module.exports = g;
 
 
 /***/ }),
-/* 1 */
+
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-/**
- * Created by yanxlg on 2017/5/26 0026.
- * 立即执行动画
- */
-var requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || function (callback) {
-    setTimeout(function () {
-        callback.call(undefined);
-    }, 6000 / 100);
-};
-var transition = function transition(callback) {
-    setTimeout(function () {
-        requestAnimationFrame(callback);
-    }, 0);
-};
-
-var transitionEnd = function () {
-    var transEndEventNames = {
-        WebkitTransition: 'webkitTransitionEnd',
-        MozTransition: 'transitionend',
-        OTransition: 'oTransitionEnd otransitionend',
-        transition: 'transitionend'
-    };
-    for (var name in transEndEventNames) {
-        if (typeof document.body.style[name] === "string") {
-            return transEndEventNames[name];
-        }
-    }
-}();
-
-exports.requestAnimationFrame = requestAnimationFrame;
-exports.transition = transition;
-exports.transitionEnd = transitionEnd;
+module.exports = __webpack_require__(2);
 
 /***/ }),
-/* 2 */
+
+/***/ 11:
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-module.exports = __webpack_require__(3);
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-/*! art-template@runtime | https://github.com/aui/art-template */
-
-var detectNode = __webpack_require__(4);
-var runtime = Object.create(detectNode ? global : window);
-
-// 将目标转成字符
-var toString = function toString(value) {
-    if (typeof value !== 'string') {
-        if (value === undefined || value === null) {
-            value = '';
-        } else if (typeof value === 'function') {
-            value = toString(value.call(value));
-        } else {
-            value = JSON.stringify(value);
-        }
-    }
-
-    return value;
-};
-
-// 编码 HTML 内容
-var ESCAPE_REG = /["&'<>]/;
-var xmlEscape = function xmlEscape(content) {
-    var html = '' + content;
-    var regexResult = ESCAPE_REG.exec(html);
-    if (!regexResult) {
-        return content;
-    }
-
-    var result = '';
-    var i = void 0,
-        lastIndex = void 0,
-        char = void 0;
-    for (i = regexResult.index, lastIndex = 0; i < html.length; i++) {
-
-        switch (html.charCodeAt(i)) {
-            case 34:
-                char = '&#34;';
-                break;
-            case 38:
-                char = '&#38;';
-                break;
-            case 39:
-                char = '&#39;';
-                break;
-            case 60:
-                char = '&#60;';
-                break;
-            case 62:
-                char = '&#62;';
-                break;
-            default:
-                continue;
-        }
-
-        if (lastIndex !== i) {
-            result += html.substring(lastIndex, i);
-        }
-
-        lastIndex = i + 1;
-        result += char;
-    }
-
-    if (lastIndex !== i) {
-        return result + html.substring(lastIndex, i);
-    } else {
-        return result;
-    }
-};
-
-/**
- * 编码模板输出的内容
- * @param  {any}        content
- * @return {string}
- */
-var escape = function escape(content) {
-    return xmlEscape(toString(content));
-};
-
-/**
- * 迭代器，支持数组与对象
- * @param {array|Object} data 
- * @param {function}     callback 
- */
-var each = function each(data, callback) {
-    if (Array.isArray(data)) {
-        for (var i = 0, len = data.length; i < len; i++) {
-            callback(data[i], i, data);
-        }
-    } else {
-        for (var _i in data) {
-            callback(data[_i], _i);
-        }
-    }
-};
-
-runtime.$each = each;
-runtime.$escape = escape;
-
-module.exports = runtime;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = false;
-
-// Only Node.JS has a process variable that is of [[Class]] process
-try {
- module.exports = Object.prototype.toString.call(global.process) === '[object process]' 
-} catch(e) {}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var $imports = __webpack_require__(2);
+var $imports = __webpack_require__(1);
 module.exports = function ($data) {
     'use strict';
     $data = $data || {};
@@ -332,9 +165,8 @@ module.exports = function ($data) {
 };
 
 /***/ }),
-/* 11 */,
-/* 12 */,
-/* 13 */
+
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -367,12 +199,12 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
-var _cfTransition = __webpack_require__(1);
+var _cfTransition = __webpack_require__(4);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var messageInstances = new Set();
-var message_render = __webpack_require__(10);
+var message_render = __webpack_require__(11);
 
 var Message = function () {
     function Message(options) {
@@ -491,20 +323,124 @@ var message = function message(options) {
 exports.default = message;
 
 /***/ }),
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */
+
+/***/ 2:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+/*! art-template@runtime | https://github.com/aui/art-template */
+
+var detectNode = __webpack_require__(3);
+var runtime = Object.create(detectNode ? global : window);
+
+// 将目标转成字符
+var toString = function toString(value) {
+    if (typeof value !== 'string') {
+        if (value === undefined || value === null) {
+            value = '';
+        } else if (typeof value === 'function') {
+            value = toString(value.call(value));
+        } else {
+            value = JSON.stringify(value);
+        }
+    }
+
+    return value;
+};
+
+// 编码 HTML 内容
+var ESCAPE_REG = /["&'<>]/;
+var xmlEscape = function xmlEscape(content) {
+    var html = '' + content;
+    var regexResult = ESCAPE_REG.exec(html);
+    if (!regexResult) {
+        return content;
+    }
+
+    var result = '';
+    var i = void 0,
+        lastIndex = void 0,
+        char = void 0;
+    for (i = regexResult.index, lastIndex = 0; i < html.length; i++) {
+
+        switch (html.charCodeAt(i)) {
+            case 34:
+                char = '&#34;';
+                break;
+            case 38:
+                char = '&#38;';
+                break;
+            case 39:
+                char = '&#39;';
+                break;
+            case 60:
+                char = '&#60;';
+                break;
+            case 62:
+                char = '&#62;';
+                break;
+            default:
+                continue;
+        }
+
+        if (lastIndex !== i) {
+            result += html.substring(lastIndex, i);
+        }
+
+        lastIndex = i + 1;
+        result += char;
+    }
+
+    if (lastIndex !== i) {
+        return result + html.substring(lastIndex, i);
+    } else {
+        return result;
+    }
+};
+
+/**
+ * 编码模板输出的内容
+ * @param  {any}        content
+ * @return {string}
+ */
+var escape = function escape(content) {
+    return xmlEscape(toString(content));
+};
+
+/**
+ * 迭代器，支持数组与对象
+ * @param {array|Object} data 
+ * @param {function}     callback 
+ */
+var each = function each(data, callback) {
+    if (Array.isArray(data)) {
+        for (var i = 0, len = data.length; i < len; i++) {
+            callback(data[i], i, data);
+        }
+    } else {
+        for (var _i in data) {
+            callback(data[_i], _i);
+        }
+    }
+};
+
+runtime.$each = each;
+runtime.$escape = escape;
+
+module.exports = runtime;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+
+/***/ 26:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _message = __webpack_require__(13);
+var _message = __webpack_require__(16);
 
 var _message2 = _interopRequireDefault(_message);
 
@@ -524,5 +460,64 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     }]
 });
 
+/***/ }),
+
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = false;
+
+// Only Node.JS has a process variable that is of [[Class]] process
+try {
+ module.exports = Object.prototype.toString.call(global.process) === '[object process]' 
+} catch(e) {}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+
+/***/ 4:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/**
+ * Created by yanxlg on 2017/5/26 0026.
+ * 立即执行动画
+ */
+var requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || function (callback) {
+    setTimeout(function () {
+        callback.call(undefined);
+    }, 6000 / 100);
+};
+var transition = function transition(callback) {
+    setTimeout(function () {
+        requestAnimationFrame(callback);
+    }, 0);
+};
+
+var transitionEnd = function () {
+    var transEndEventNames = {
+        WebkitTransition: 'webkitTransitionEnd',
+        MozTransition: 'transitionend',
+        OTransition: 'oTransitionEnd otransitionend',
+        transition: 'transitionend'
+    };
+    for (var name in transEndEventNames) {
+        if (typeof document.body.style[name] === "string") {
+            return transEndEventNames[name];
+        }
+    }
+}();
+
+exports.requestAnimationFrame = requestAnimationFrame;
+exports.transition = transition;
+exports.transitionEnd = transitionEnd;
+
 /***/ })
-/******/ ]);
+
+/******/ });

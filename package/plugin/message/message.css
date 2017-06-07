@@ -81,6 +81,14 @@ a, a:hover, a:visited, a:link, a:active {
   content: "\e601";
 }
 
+.icon-arrow:before {
+  content: "\e6b7";
+}
+
+.icon-arrow-right {
+  content: "\e6b8";
+}
+
 .flex, .message > i:first-child:before {
   display: -webkit-box;
   display: -moz-box;

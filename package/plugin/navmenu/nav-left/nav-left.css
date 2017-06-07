@@ -1,0 +1,205 @@
+@charset "UTF-8";
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, 'Microsoft Yahei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+div {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+* {
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border;
+  background-clip: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 0.7rem;
+  margin: 0;
+}
+
+a, a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.slide {
+  height: 0;
+  overflow-y: hidden;
+  -webkit-transition: height 500ms ease-out;
+  -moz-transition: height 500ms ease-out;
+  -o-transition: height 500ms ease-out;
+  -ms-transition: height 500ms ease-out;
+  transition: height 500ms ease-out;
+}
+
+@font-face {
+  font-family: "iconfont-menu";
+  src: url("../../../ui/iconfont/iconfont.eot?t=1495448376285");
+  /* IE9*/
+  src: url("../../../ui/iconfont/iconfont.eot?t=1495448376285#iefix") format("embedded-opentype"), url("../../../ui/iconfont/iconfont.woff?t=1495448376285") format("woff"), url("../../../ui/iconfont/iconfont.ttf?t=1495448376285") format("truetype"), url("../../../ui/iconfont/iconfont.svg?t=1495448376285#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+
+.width-nav-left {
+  padding-left: 10rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.nav.nav-left {
+  /*定义滚动条轨道 内阴影+圆角*/
+  /*定义滑块 内阴影+圆角*/
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  width: 10rem;
+  background-color: #324157;
+  padding: 0;
+  list-style-type: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.nav.nav-left::-webkit-scrollbar {
+  width: 3px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.nav.nav-left::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.nav.nav-left::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
+}
+
+.nav.nav-left .nav-menu {
+  -webkit-transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  -moz-transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  -o-transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  -ms-transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  font-size: 0.7rem;
+  color: #bfcbd9;
+  padding: 0 1rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav.nav-left .nav-menu:hover {
+  background-color: #324157;
+}
+
+.nav.nav-left .nav-menu.nav-active {
+  color: #20a0ff;
+}
+
+.nav.nav-left .nav-menu:after {
+  font-family: iconfont-menu;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e6b7";
+  position: absolute;
+  right: 1rem;
+  -webkit-transition: all 500ms ease-out;
+  -moz-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  -ms-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+}
+
+.nav.nav-left .nav-menu:last-child:after {
+  content: '\e6b8';
+}
+
+.nav.nav-left .nav-menu.open:after {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.nav.nav-left ul {
+  padding: 0;
+  list-style-type: none;
+  height: 0;
+  overflow-x: hidden;
+  background-color: #1f2d3d;
+}
+
+.nav.nav-left ul .nav-menu {
+  height: 2.5rem;
+  padding: 0 2.25rem;
+  line-height: 2.5rem;
+}
+
+.nav.nav-left ul .nav-group {
+  padding: 0.75rem 0 0 1.5rem;
+  color: #97a8be;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.nav.nav-left ul ul {
+  background-color: #111925;
+}
+
+.nav.nav-left ul ul .nav-menu {
+  height: 2.2rem;
+  padding: 0 3.5rem;
+  line-height: 2.2rem;
+}
+
+.nav.nav-left ul ul .nav-group {
+  padding: 0.75rem 0 0 3rem;
+}

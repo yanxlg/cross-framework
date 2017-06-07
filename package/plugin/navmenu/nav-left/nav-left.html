@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="navmenu.css">
+    <link rel="stylesheet" type="text/css" href="nav-left.css">
 </head>
 <body>
-    <ul class="nav nav-left">
+<!--    <ul class="nav nav-left">
         <li>
             <div class="nav-menu">导航一</div>
-            <ul>
+            <ul id="test" class="slide">
                 <div class="nav-group">分组一</div>
                 <li>
                     <div class="nav-menu">导航二</div>
-                    <ul>
+                    <ul class="slide">
                         <div class="nav-group">分组二</div>
                         <div class="nav-menu">导航三</div>
                         <div class="nav-menu">导航三</div>
@@ -27,12 +27,20 @@
         <li>
             <div class="nav-menu">导航一</div>
         </li>
-    </ul>
+    </ul>-->
 </body>
-<script src="../../../static/jquery-3.2.1.min.js"></script>
+<script src="../../../../static/jquery-3.2.1.min.js"></script>
+<script src="_test.js"></script>
 <script>
-    setTimeout(function () {
-        $(".nav-menu").addClass("open");
-    },1000)
+/*    setTimeout(function () {
+        var a=$("#test").children();
+        var h=0;
+        $.each(a,function (i, dom) {
+            h+=dom.offsetHeight;
+        });
+        $("#test").css({
+            height:h+"px",
+        });
+    },1000)*/
 </script>
 </html>

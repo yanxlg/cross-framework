@@ -1,0 +1,123 @@
+@charset "utf-8";
+@import "../../../ui/cf-ui-base.scss";
+@import "../../../ui/cf-func.scss";
+@import "../../../ui/cf-varia.scss";
+@import "../../slide/slide.scss";
+//导航菜单  三层菜单高度  56px 50px 44px   颜色 #48576a
+$topNavBg:(top:#324157,child:#1f2d3d,last:#111925);
+$menuColor:(normal:#bfcbd9,active:#20a0ff,group:#97a8be);
+@font-face {font-family: "iconfont-menu";
+  src: url('../../../ui/iconfont/iconfont.eot?t=1495448376285'); /* IE9*/
+  src: url('../../../ui/iconfont/iconfont.eot?t=1495448376285#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../../../ui/iconfont/iconfont.woff?t=1495448376285') format('woff'), /* chrome, firefox */
+  url('../../../ui/iconfont/iconfont.ttf?t=1495448376285') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../../../ui/iconfont/iconfont.svg?t=1495448376285#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+//用于body上的样式
+.width-nav-left{
+  padding-left:remToPx(10rem);
+  @include prefix(box-sizing,border-box);
+  @include prefix(transition,all .3s);
+}
+
+.nav {
+  &.nav-left {
+    &::-webkit-scrollbar
+    {
+      width: 3px;
+      background-color: rgba(0,0,0,.2);
+    }
+    /*定义滚动条轨道 内阴影+圆角*/
+    &::-webkit-scrollbar-track
+    {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      border-radius: 10px;
+      background-color: #F5F5F5;
+    }
+    /*定义滑块 内阴影+圆角*/
+    &::-webkit-scrollbar-thumb
+    {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+      background-color: #555;
+    }
+
+    position: absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    margin:0;
+    //左侧菜单导航
+    width:remToPx(10rem);
+    background-color: map_get($topNavBg,top);
+    padding: 0;
+    list-style-type: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .nav-menu {
+      @include prefix(transition,border-color .3s,background-color .3s,color .3s);
+      height: remToPx(2.8rem);
+      line-height: remToPx(2.8rem);
+      font-size: remToPx(0.7rem);
+      color: map_get($menuColor,normal);
+      padding: 0 remToPx(1rem);
+      @include prefix(box-sizing,border-box);
+      cursor: pointer;
+      position: relative;
+      &:hover{
+        background-color:map_get($topNavBg,top);
+      }
+      &.nav-active{
+        color: map_get($menuColor,active);
+      }
+      &:after{
+        font-family: iconfont-menu;
+        font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: "\e6b7";
+        position: absolute;
+        right:remToPx(1rem);
+        @include prefix(transition,all 500ms ease-out);
+      }
+      &:last-child:after{
+        content: '\e6b8';
+      }
+      &.open:after{
+        @include prefix(transform,rotate(180deg));
+      }
+    }
+    ul{
+      padding: 0;
+      list-style-type: none;
+      height:0;
+      overflow-x: hidden;
+      background-color: map_get($topNavBg,child);
+      .nav-menu {
+        height: remToPx(2.5rem);
+        padding: 0 remToPx(2.25rem);
+        line-height: remToPx(2.5rem);
+      }
+      .nav-group{
+        padding:remToPx(0.75rem) 0 0 remToPx(1.5rem);
+        color: map_get($menuColor,group);
+        @include prefix(box-sizing,border-box);
+      }
+      ul{
+        background-color: map_get($topNavBg,last);
+        .nav-menu{
+          height: remToPx(2.2rem);
+          padding: 0 remToPx(3.5rem);
+          line-height: remToPx(2.2rem);
+        }
+        .nav-group{
+          padding:remToPx(0.75rem) 0 0 remToPx(3rem);
+        }
+      }
+    }
+  }
+  &.nav-pop {
+    //侧边菜单导航
+  }
+}

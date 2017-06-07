@@ -1,0 +1,8 @@
+@charset "utf-8";
+//slide基础样式
+@import "../../ui/cf-func.scss";
+.slide{
+  height:0;
+  overflow-y: hidden;
+  @include prefix(transition,height 500ms ease-out);
+}

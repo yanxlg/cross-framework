@@ -1,0 +1,31 @@
+<div class="nav nav-top">
+    <ul class="nav-right">
+        {{each menus as menu}}
+            <li>
+                <div class="nav-menu" data-data="{{menu.data}}">{{menu.name}}</div>
+                {{if menu.childMenus&&menu.childMenus.length>0}}
+                    <ul>
+                        {{each menu.childMenus as childMenu}}
+                            {{each childMenu.menus as subMenu}}
+                                <li>
+                                    <div class="nav-menu" data-data="{{subMenu.data}}">{{subMenu.name}}</div>
+                                    {{if subMenu.childMenus&&subMenu.childMenus.length>0}}
+                                        <ul>
+                                            {{each subMenu.childMenus as lastMenu}}
+                                                {{each lastMenu.menus as item}}
+                                                    <li>
+                                                        <div class="nav-menu" data-data="{{item.data}}">{{item.name}}</div>
+                                                    </li>
+                                                {{/each}}
+                                            {{/each}}
+                                        </ul>
+                                    {{/if}}
+                                </li>
+                            {{/each}}
+                        {{/each}}
+                    </ul>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+</div>
