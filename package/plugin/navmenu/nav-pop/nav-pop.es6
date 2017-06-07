@@ -34,6 +34,9 @@ class PopMenu{
         this.create();
         this.initLife();
     }
+    getType(){
+        return "PopMenu";
+    }
     create(){
         this.menusRender=$(navTemplate({
             menus:this.menus,

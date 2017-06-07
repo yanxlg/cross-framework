@@ -9,6 +9,9 @@ class TopMenu{
         this.create();
         this.initLife();
     }
+    getType(){
+        return "TopMenu";
+    }
     create(){
         this.menusRender=$(navTemplate({
             menus:this.menus

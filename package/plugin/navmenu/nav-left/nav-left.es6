@@ -33,6 +33,9 @@ class LeftMenu{
         this.create();
         this.initLife();
     }
+    getType(){
+        return "LeftMenu";
+    }
     create(){
         this.menusRender=$(navTemplate({
             menus:this.menus

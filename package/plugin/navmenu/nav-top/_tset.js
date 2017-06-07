@@ -395,6 +395,11 @@ var TopMenu = function () {
     }
 
     _createClass(TopMenu, [{
+        key: "getType",
+        value: function getType() {
+            return "TopMenu";
+        }
+    }, {
         key: "create",
         value: function create() {
             this.menusRender = $((0, _navTop2.default)({

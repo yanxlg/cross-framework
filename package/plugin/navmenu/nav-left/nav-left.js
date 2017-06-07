@@ -356,6 +356,11 @@ var LeftMenu = function () {
     }
 
     _createClass(LeftMenu, [{
+        key: 'getType',
+        value: function getType() {
+            return "LeftMenu";
+        }
+    }, {
         key: 'create',
         value: function create() {
             this.menusRender = $((0, _navLeft2.default)({
