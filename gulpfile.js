@@ -8,6 +8,7 @@ const scss = require('gulp-scss');//ruby 需要安装bundler
 const minify=require("gulp-minify");
 const cleanCSS = require('gulp-clean-css');
 const gulpWebpack=require("gulp-webpack");
+const AssetsRelativePath=require("./gulp_css_url");
 gulp.task('default', ["sass","sass:watch"],function() {
     console.log("develop is building");
 });
@@ -17,6 +18,7 @@ gulp.task('sass', function () {
             errLogToConsole: true,
             outputStyle: 'expanded'
         }).on('error', sass.logError))
+        .pipe(AssetsRelativePath("package"))
         .pipe(gulp.dest('./package'));
 });
 gulp.task('sass:watch', function () {

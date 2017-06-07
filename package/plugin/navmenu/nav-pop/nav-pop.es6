@@ -3,7 +3,7 @@
  * 导航菜单
  * 默认根据屏幕大小切换显示方式，大屏显示在左侧 中屏显示在顶部 小屏顶部折叠 右侧显示（支持左侧侧滑）
  * options 支持参数
- * force:""  强制以某种方式显示
+ * left：菜单header的icon显示在左侧
  * 菜单循环嵌套,一个菜单项是一个object
  * menus:[{pMenu:{},menuList:[{groupName:"",menus:[]},{},{}]},{}}
  * 分组信息 group menus:{groupName:"",menus:[]}
@@ -25,17 +25,19 @@
  *
  * 打开的时候收起其他的
  */
-import navTemplate from './nav-left.art';
+import navTemplate from './nav-pop.art';
 import Slide from '../../slide/slide.es6';
-class LeftMenu{
-    constructor(menus){
+class PopMenu{
+    constructor(menus,left){
         this.menus=menus;
+        this.left=left||false;
         this.create();
         this.initLife();
     }
     create(){
         this.menusRender=$(navTemplate({
-            menus:this.menus
+            menus:this.menus,
+            left:this.left
         }));
         $("body").addClass("width-nav-left").append(this.menusRender);
     }
@@ -83,12 +85,42 @@ class LeftMenu{
                 $this.addClass("nav-active");
                 let data=$this.attr("data-data");
                 _this.callback&&(_this.callback.call(_this,data));
+                _this.close();
             }
+        });
+        $("body").on("click",".nav-icon-menu",function () {
+            _this.show();
+        });
+        this.menusRender.find(".modal-backdrop").on("click",function () {
+            _this.close();
+        });
+        $(window).on("scroll",function () {
+            _this.updateBg();
         })
+    }
+    updateBg(){
+        if(!this.bg){
+            let bgColor=this.menusRender.find(".nav-header").css("background-color");
+            //正则解析出三段int值
+            this.bg=bgColor.match(/\d+/g);
+        }
+        let scrolltop=document.documentElement.scrollTop||document.body.scrollTop;
+        let opacity=1-Math.round(scrolltop/100)/10;//背景调整
+        this.menusRender.find(".nav-header").css({
+            "background-color":`rgba(${this.bg[0]},${this.bg[1]},${this.bg[2]},${opacity})`
+        });
+    }
+    show(){
+        this.menusRender.find(".nav-pop").addClass("show");
+        this.menusRender.find(".modal-backdrop").addClass("in");
+    }
+    close(){
+        this.menusRender.find(".nav-pop").removeClass("show");
+        this.menusRender.find(".modal-backdrop").removeClass("in");
     }
     then(callback){
         this.callback=callback;
     }
 }
 
-export default LeftMenu;
+export default PopMenu;

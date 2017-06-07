@@ -1,0 +1,41 @@
+<div class="nav">
+    <div class="nav-header">
+        <i class="nav-icon-menu {{left?'left':''}}"></i>
+    </div>
+    <div class="modal-backdrop fade"></div>
+    <ul class="nav-pop">
+        {{each menus as menu}}
+        <li>
+            <div class="nav-menu" data-data="{{menu.data}}">{{menu.name}}</div>
+            {{if menu.childMenus&&menu.childMenus.length>0}}
+            <ul class="slide">
+                {{each menu.childMenus as childMenu}}
+                {{if childMenu.groupName}}
+                <div class="nav-group">{{childMenu.groupName}}</div>
+                {{/if}}
+                {{each childMenu.menus as subMenu}}
+                <li>
+                    <div class="nav-menu" data-data="{{subMenu.data}}">{{subMenu.name}}</div>
+                    {{if subMenu.childMenus&&subMenu.childMenus.length>0}}
+                    <ul class="slide">
+                        {{each subMenu.childMenus as lastMenu}}
+                        {{if lastMenu.groupName}}
+                        <div class="nav-group">{{lastMenu.groupName}}</div>
+                        {{/if}}
+                        {{each lastMenu.menus as item}}
+                        <li>
+                            <div class="nav-menu" data-data="{{item.data}}">{{item.name}}</div>
+                        </li>
+                        {{/each}}
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                </li>
+                {{/each}}
+                {{/each}}
+            </ul>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+</div>

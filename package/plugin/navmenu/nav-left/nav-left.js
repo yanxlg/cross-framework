@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 17);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -225,9 +225,7 @@ try {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 4 */,
-/* 5 */,
-/* 6 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -295,81 +293,9 @@ var Slide = function () {
 exports.default = Slide;
 
 /***/ }),
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var $imports = __webpack_require__(1);
-module.exports = function ($data) {
-    'use strict';
-    $data = $data || {};
-    var $$out = '', $each = $imports.$each, menus = $data.menus, menu = $data.menu, $index = $data.$index, $escape = $imports.$escape, childMenu = $data.childMenu, subMenu = $data.subMenu, lastMenu = $data.lastMenu, item = $data.item;
-    $$out += '<ul class="nav nav-left">\r\n    ';
-    $each(menus, function (menu, $index) {
-        $$out += '\r\n        <li>\r\n            <div class="nav-menu" data-data="';
-        $$out += $escape(menu.data);
-        $$out += '">';
-        $$out += $escape(menu.name);
-        $$out += '</div>\r\n            ';
-        if (menu.childMenus && menu.childMenus.length > 0) {
-            $$out += '\r\n                <ul class="slide">\r\n                    ';
-            $each(menu.childMenus, function (childMenu, $index) {
-                $$out += '\r\n                        ';
-                if (childMenu.groupName) {
-                    $$out += '\r\n                            <div class="nav-group">';
-                    $$out += $escape(childMenu.groupName);
-                    $$out += '</div>\r\n                        ';
-                }
-                $$out += '\r\n                        ';
-                $each(childMenu.menus, function (subMenu, $index) {
-                    $$out += '\r\n                            <li>\r\n                                <div class="nav-menu" data-data="';
-                    $$out += $escape(subMenu.data);
-                    $$out += '">';
-                    $$out += $escape(subMenu.name);
-                    $$out += '</div>\r\n                                ';
-                    if (subMenu.childMenus && subMenu.childMenus.length > 0) {
-                        $$out += '\r\n                                    <ul class="slide">\r\n                                        ';
-                        $each(subMenu.childMenus, function (lastMenu, $index) {
-                            $$out += '\r\n                                            ';
-                            if (lastMenu.groupName) {
-                                $$out += '\r\n                                                <div class="nav-group">';
-                                $$out += $escape(lastMenu.groupName);
-                                $$out += '</div>\r\n                                            ';
-                            }
-                            $$out += '\r\n                                            ';
-                            $each(lastMenu.menus, function (item, $index) {
-                                $$out += '\r\n                                                <li>\r\n                                                    <div class="nav-menu" data-data="';
-                                $$out += $escape(item.data);
-                                $$out += '">';
-                                $$out += $escape(item.name);
-                                $$out += '</div>\r\n                                                </li>\r\n                                            ';
-                            });
-                            $$out += '\r\n                                        ';
-                        });
-                        $$out += '\r\n                                    </ul>\r\n                                ';
-                    }
-                    $$out += '\r\n                            </li>\r\n                        ';
-                });
-                $$out += '\r\n                    ';
-            });
-            $$out += '\r\n                </ul>\r\n            ';
-        }
-        $$out += '\r\n        </li>\r\n    ';
-    });
-    $$out += '\r\n</ul>';
-    return $$out;
-};
-
-/***/ }),
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -408,11 +334,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
-var _navLeft = __webpack_require__(12);
+var _navLeft = __webpack_require__(10);
 
 var _navLeft2 = _interopRequireDefault(_navLeft);
 
-var _slide = __webpack_require__(6);
+var _slide = __webpack_require__(4);
 
 var _slide2 = _interopRequireDefault(_slide);
 
@@ -482,7 +408,7 @@ var LeftMenu = function () {
                     $(".nav-active").removeClass("nav-active");
                     $this.addClass("nav-active");
                     var data = $this.attr("data-data");
-                    _this.callback && _this.callback.call(_this, "active", data);
+                    _this.callback && _this.callback.call(_this, data);
                 }
             });
         }
@@ -497,6 +423,73 @@ var LeftMenu = function () {
 }();
 
 exports.default = LeftMenu;
+
+/***/ }),
+/* 8 */,
+/* 9 */,
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $imports = __webpack_require__(1);
+module.exports = function ($data) {
+    'use strict';
+    $data = $data || {};
+    var $$out = '', $each = $imports.$each, menus = $data.menus, menu = $data.menu, $index = $data.$index, $escape = $imports.$escape, childMenu = $data.childMenu, subMenu = $data.subMenu, lastMenu = $data.lastMenu, item = $data.item;
+    $$out += '<ul class="nav nav-left">\r\n    ';
+    $each(menus, function (menu, $index) {
+        $$out += '\r\n        <li>\r\n            <div class="nav-menu" data-data="';
+        $$out += $escape(menu.data);
+        $$out += '">';
+        $$out += $escape(menu.name);
+        $$out += '</div>\r\n            ';
+        if (menu.childMenus && menu.childMenus.length > 0) {
+            $$out += '\r\n                <ul class="slide">\r\n                    ';
+            $each(menu.childMenus, function (childMenu, $index) {
+                $$out += '\r\n                        ';
+                if (childMenu.groupName) {
+                    $$out += '\r\n                            <div class="nav-group">';
+                    $$out += $escape(childMenu.groupName);
+                    $$out += '</div>\r\n                        ';
+                }
+                $$out += '\r\n                        ';
+                $each(childMenu.menus, function (subMenu, $index) {
+                    $$out += '\r\n                            <li>\r\n                                <div class="nav-menu" data-data="';
+                    $$out += $escape(subMenu.data);
+                    $$out += '">';
+                    $$out += $escape(subMenu.name);
+                    $$out += '</div>\r\n                                ';
+                    if (subMenu.childMenus && subMenu.childMenus.length > 0) {
+                        $$out += '\r\n                                    <ul class="slide">\r\n                                        ';
+                        $each(subMenu.childMenus, function (lastMenu, $index) {
+                            $$out += '\r\n                                            ';
+                            if (lastMenu.groupName) {
+                                $$out += '\r\n                                                <div class="nav-group">';
+                                $$out += $escape(lastMenu.groupName);
+                                $$out += '</div>\r\n                                            ';
+                            }
+                            $$out += '\r\n                                            ';
+                            $each(lastMenu.menus, function (item, $index) {
+                                $$out += '\r\n                                                <li>\r\n                                                    <div class="nav-menu" data-data="';
+                                $$out += $escape(item.data);
+                                $$out += '">';
+                                $$out += $escape(item.name);
+                                $$out += '</div>\r\n                                                </li>\r\n                                            ';
+                            });
+                            $$out += '\r\n                                        ';
+                        });
+                        $$out += '\r\n                                    </ul>\r\n                                ';
+                    }
+                    $$out += '\r\n                            </li>\r\n                        ';
+                });
+                $$out += '\r\n                    ';
+            });
+            $$out += '\r\n                </ul>\r\n            ';
+        }
+        $$out += '\r\n        </li>\r\n    ';
+    });
+    $$out += '\r\n</ul>';
+    return $$out;
+};
 
 /***/ })
 /******/ ]);

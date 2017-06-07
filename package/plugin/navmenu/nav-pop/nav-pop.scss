@@ -3,20 +3,47 @@
 @import "../../../ui/cf-func.scss";
 @import "../../../ui/cf-varia.scss";
 @import "../../slide/slide.scss";
+@import "../../../ui/cf-modal.scss";
 @import "../../../ui/cf-iconfont.scss";
 //导航菜单  三层菜单高度  56px 50px 44px   颜色 #48576a
 $topNavBg:(top:#324157,child:#1f2d3d,last:#111925);
 $menuColor:(normal:#bfcbd9,active:#20a0ff,group:#97a8be);
-
-//用于body上的样式
-.width-nav-left{
-  padding-left:remToPx(10rem);
-  @include prefix(box-sizing,border-box);
-  @include prefix(transition,all .3s);
-}
-
+$menuBg:(default:rgba(50,65,87,1));
+//侧边滑层菜单
 .nav {
-  &.nav-left {
+  .nav-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: remToPx(1.5rem);
+    margin: 0;
+    line-height: remToPx(1rem);
+    background-color: map_get($menuBg,default);
+    color: map_get($menuColor,normal);
+    padding: 0;
+    .nav-icon-menu{
+      position: absolute;
+      right:remToPx(0.5rem);
+      top:remToPx(0.2rem);
+      &:after{
+        @extend .icon;
+        content: "\e6a0";
+      }
+      &.left{
+        left:remToPx(0.5rem);
+        right:auto;
+      }
+    }
+  }
+  .modal-backdrop{
+    z-index: -1;
+    &.in{
+      z-index: 100;
+    }
+  }
+  .nav-pop {
+    z-index: 200;
     &::-webkit-scrollbar
     {
       width: 3px;
@@ -36,10 +63,13 @@ $menuColor:(normal:#bfcbd9,active:#20a0ff,group:#97a8be);
       -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
       background-color: #555;
     }
-
     position: fixed;
-    left:0;
-    top:0;
+    left:remToPx(-10rem);
+    @include prefix(transition,left 0.5s);
+    &.show{
+      left:0;
+    }
+    top:remToPx(1.5rem);
     bottom:0;
     margin:0;
     //左侧菜单导航
@@ -67,7 +97,7 @@ $menuColor:(normal:#bfcbd9,active:#20a0ff,group:#97a8be);
       }
       &:after{
         @extend .icon;
-        content: '\e6b7';
+        content: "\e6b7";
         position: absolute;
         right:remToPx(1rem);
         @include prefix(transition,all 500ms ease-out);

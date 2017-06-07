@@ -1,8 +1,7 @@
 /**
- * Created by Administrator on 2017/6/5 0005.
+ * Created by Administrator on 2017/6/7 0007.
  */
-import LeftMenu from './nav-top.es6';
-
+import LeftMenu from './nav-pop.es6';
 setTimeout(()=>{
     new LeftMenu([{
         name:"菜单一",

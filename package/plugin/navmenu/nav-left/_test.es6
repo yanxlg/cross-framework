@@ -59,8 +59,7 @@ setTimeout(()=>{
    },{
        name:"菜单3",
        data:"",
-   }]).then((active,data)=>{
-       alert(active);
+   }]).then((data)=>{
        alert(data);
    })
 },0);

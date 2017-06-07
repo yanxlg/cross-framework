@@ -1,0 +1,24 @@
+@charset "utf-8";
+//Web中直接使用font-family,weex中需要脚本支持导入字体库
+@font-face {font-family: "iconfont";
+  src: url(/package/ui/iconfont/iconfont.eot?t=1495448376285); /* IE9*/
+  src: url(/package/ui/iconfont/iconfont.eot?t=1495448376285#iefix) format('embedded-opentype'), /* IE6-IE8 */
+  url(/package/ui/iconfont/iconfont.woff?t=1495448376285) format('woff'), /* chrome, firefox */
+  url(/package/ui/iconfont/iconfont.ttf?t=1495448376285) format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url(/package/ui/iconfont/iconfont.svg?t=1495448376285#iconfont) format('svg'); /* iOS 4.1- */
+}
+[class*='icon-'],.icon{
+  font-family:"iconfont" !important;
+  font-size:0.8rem;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-warning:before { content: "\e6b6"; }
+.icon-info:before { content: "\e606"; }
+.icon-error:before { content: "\e668"; }
+.icon-success:before { content: "\e641"; }
+.icon-close:before { content: "\e601"; }
+.icon-arrow:before{content: "\e6b7";}
+.icon-arrow-right{content:"\e6b8"}
+.icon-menu:before{content: "\e6a0";}

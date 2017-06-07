@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont";
-  src: url("../../ui/iconfont/iconfont.eot?t=1495448376285");
+  src: url(iconfont/iconfont.eot?t=1495448376285);
   /* IE9*/
-  src: url("../../ui/iconfont/iconfont.eot?t=1495448376285#iefix") format("embedded-opentype"), url("../../ui/iconfont/iconfont.woff?t=1495448376285") format("woff"), url("../../ui/iconfont/iconfont.ttf?t=1495448376285") format("truetype"), url("../../ui/iconfont/iconfont.svg?t=1495448376285#iconfont") format("svg");
+  src: url(iconfont/iconfont.eot?t=1495448376285#iefix) format("embedded-opentype"), url(iconfont/iconfont.woff?t=1495448376285) format("woff"), url(iconfont/iconfont.ttf?t=1495448376285) format("truetype"), url(iconfont/iconfont.svg?t=1495448376285#iconfont) format("svg");
   /* iOS 4.1- */
 }
 
@@ -40,4 +40,8 @@
 
 .icon-arrow-right {
   content: "\e6b8";
+}
+
+.icon-menu:before {
+  content: "\e6a0";
 }

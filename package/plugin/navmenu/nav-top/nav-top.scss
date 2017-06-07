@@ -2,19 +2,14 @@
 @import "../../../ui/cf-ui-base.scss";
 @import "../../../ui/cf-func.scss";
 @import "../../../ui/cf-varia.scss";
+@import "../../../ui/cf-iconfont.scss";
+
 $menuBg:(default:rgba(50,65,87,1),active:#D1DBE5);
 $menuColor:(default:#bfcbd9,primary:#48576a,active:#20a0ff);
 $borderColor:(default:#d1dbe5,active:#20a0ff);
 $shadow:(inner:rgba(0, 0, 0, .12),outer:rgba(0, 0, 0, .04));
 
 //顶部菜单
-@font-face {font-family: "iconfont-menu";
-  src: url('../../../ui/iconfont/iconfont.eot?t=1495448376285'); /* IE9*/
-  src: url('../../../ui/iconfont/iconfont.eot?t=1495448376285#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../../../ui/iconfont/iconfont.woff?t=1495448376285') format('woff'), /* chrome, firefox */
-  url('../../../ui/iconfont/iconfont.ttf?t=1495448376285') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../../../ui/iconfont/iconfont.svg?t=1495448376285#iconfont') format('svg'); /* iOS 4.1- */
-}
 .width-nav-top{
   padding-top:remToPx(3rem);
   @include prefix(box-sizing,border-box);
@@ -110,10 +105,7 @@ $shadow:(inner:rgba(0, 0, 0, .12),outer:rgba(0, 0, 0, .04));
           }
         }
         &:after{
-          font-family: iconfont-menu;
-          font-style:normal;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
+          @extend .icon;
           content: "\e6b8";
           position: absolute;
           right:remToPx(0.05rem);
