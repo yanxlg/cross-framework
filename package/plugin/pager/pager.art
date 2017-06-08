@@ -1,0 +1,39 @@
+<ul class="pager pager-round">
+    {{if pageCount>0}}
+        <li class="previous {{1==pageIndex?'disabled':''}}">
+            <span>«</span>
+        </li>
+        <li class="{{1==pageIndex?'active':''}}"><span data-index="1">1</span></li>
+        {{if pageCount>count}}
+            <%var half=count%2===0?count/2:(count-1)/2;%>
+            {{if pageIndex>half+1}}
+                <li><span data-index="{{pageIndex-5}}">...</span></li>
+            {{/if}}
+            <%var left,right,start,end;%>
+            {{if half+1>=pageIndex}}
+                <%start=2;%>
+                <%end=count+start-4;%>
+            {{else if half+pageIndex>=pageCount}}
+                <%end=pageCount-1;%>
+                <%start=end-count+4;%>
+            {{else}}
+                <%start=pageIndex-half+2;%>
+                <%end=pageIndex+half-2;%>
+            {{/if}}
+            <%for(var i=start;end>=i;i++){%>
+                <li class="<%=i==pageIndex?'active':''%>"><span data-index="{{i}}"><%=i%></span></li>
+            <%}%>
+            {{if pageCount>pageIndex+half+1}}
+                <li><span data-index="{{start+10}}">...</span></li>
+            {{/if}}
+        {{else}}
+            <%for(var i=2;pageCount>i;i++){%>
+            <li class="<%=i==pageIndex?'active':''%>"><span data-index="{{i}}"><%=i%></span></li>
+            <%}%>
+        {{/if}}
+        <li class="{{pageCount==pageIndex?'active':''}}"><span data-index="{{pageCount}}">{{pageCount}}</span></li>
+        <li class="next {{pageCount==pageIndex?'disabled':''}}">
+            <span>»</span>
+        </li>
+    {{/if}}
+</ul>

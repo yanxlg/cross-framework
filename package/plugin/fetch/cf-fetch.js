@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 28);
+/******/ 	return __webpack_require__(__webpack_require__.s = 30);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -650,7 +650,7 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ 23:
+/***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1135,7 +1135,7 @@ exports.default = fetch;
 
 /***/ }),
 
-/***/ 28:
+/***/ 30:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1145,7 +1145,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _fetch = __webpack_require__(23);
+var _fetch = __webpack_require__(25);
 
 var _fetch2 = _interopRequireDefault(_fetch);
 

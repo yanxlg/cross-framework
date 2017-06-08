@@ -1,0 +1,68 @@
+@charset "utf-8";
+//分页插件
+@import "../../ui/cf-ui-base.scss";
+@import "../../ui/cf-func.scss";
+@import "../../ui/cf-varia.scss";
+.pager{
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  list-style: none;
+  ul{
+    list-style-type: none;
+  }
+  ul,li{
+    margin:0;
+    padding:0;
+  }
+  li{
+    display: inline;
+    &.disabled{
+      > a,> a:focus,> a:hover,> span,> span:focus,> span:hover{
+        color: #ddd;
+        cursor: wait;
+        background-color: #fff;
+        border-color: #ddd;
+      }
+    }
+    &.active{
+      > a,> a:hover,> span,> span:hover{
+        z-index: 3;
+        color: #fff;
+        cursor: wait;
+        background-color: #3280fc;
+        border-color: #3280fc;
+      }
+    }
+    > a,> span{
+      cursor: pointer;
+      position: relative;
+      float: left;
+      padding: 5px 12px;
+      margin-left: -1px;
+      line-height: 1.53846154;
+      text-decoration: none;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      transition: all .4s cubic-bezier(.175,.885,.32,1);
+      color: #3280fc;
+      &:hover{
+        background-color: #e5e5e5;
+        color: #3280fc;
+      }
+    }
+  }
+}
+
+.pager-round{
+  > li:first-child{
+    > a,> span{
+      border-radius: 16px 0 0 16px;
+    }
+  }
+  > li:last-child{
+    > a,> span{
+      border-radius: 0 16px 16px 0;
+    }
+  }
+}
