@@ -1,0 +1,108 @@
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, 'Microsoft Yahei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+div {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+* {
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-background-clip: border-box;
+  -moz-background-clip: border;
+  background-clip: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 0.7rem;
+  margin: 0;
+}
+
+a, a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.pager {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  list-style: none;
+}
+
+.pager ul {
+  list-style-type: none;
+}
+
+.pager ul, .pager li {
+  margin: 0;
+  padding: 0;
+}
+
+.pager li {
+  display: inline;
+}
+
+.pager li.disabled > a, .pager li.disabled > a:focus, .pager li.disabled > a:hover, .pager li.disabled > span, .pager li.disabled > span:focus, .pager li.disabled > span:hover {
+  color: #ddd;
+  cursor: wait;
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+.pager li.active > a, .pager li.active > a:hover, .pager li.active > span, .pager li.active > span:hover {
+  z-index: 3;
+  color: #fff;
+  cursor: wait;
+  background-color: #3280fc;
+  border-color: #3280fc;
+}
+
+.pager li > a, .pager li > span {
+  cursor: pointer;
+  position: relative;
+  float: left;
+  padding: 5px 12px;
+  margin-left: -1px;
+  line-height: 1.53846154;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
+  color: #3280fc;
+}
+
+.pager li > a:hover, .pager li > span:hover {
+  background-color: #e5e5e5;
+  color: #3280fc;
+}
+
+.pager-round > li:first-child > a, .pager-round > li:first-child > span {
+  border-radius: 16px 0 0 16px;
+}
+
+.pager-round > li:last-child > a, .pager-round > li:last-child > span {
+  border-radius: 0 16px 16px 0;
+}
