@@ -113,9 +113,15 @@ var $imports = __webpack_require__(1);
 module.exports = function ($data) {
     'use strict';
     $data = $data || {};
-    var $$out = '', pageCount = $data.pageCount, $escape = $imports.$escape, pageIndex = $data.pageIndex, count = $data.count, half = $data.half, left = $data.left, right = $data.right, start = $data.start, end = $data.end, i = $data.i;
+    var $$out = '', pageCount = $data.pageCount, hideJump = $data.hideJump, $escape = $imports.$escape, pageIndex = $data.pageIndex, count = $data.count, half = $data.half, left = $data.left, right = $data.right, start = $data.start, end = $data.end, i = $data.i;
     $$out += '<ul class="pager pager-round">\r\n    ';
     if (pageCount > 0) {
+        $$out += '\r\n        ';
+        if (!hideJump) {
+            $$out += '\r\n            <li class="pager-home ';
+            $$out += $escape(1 == pageIndex ? 'disabled' : '');
+            $$out += '"><span>首页</span></li>\r\n        ';
+        }
         $$out += '\r\n        <li class="previous ';
         $$out += $escape(1 == pageIndex ? 'disabled' : '');
         $$out += '">\r\n            <span>\xAB</span>\r\n        </li>\r\n        <li class="';
@@ -190,7 +196,13 @@ module.exports = function ($data) {
         $$out += $escape(pageCount);
         $$out += '</span></li>\r\n        <li class="next ';
         $$out += $escape(pageCount == pageIndex ? 'disabled' : '');
-        $$out += '">\r\n            <span>\xBB</span>\r\n        </li>\r\n    ';
+        $$out += '">\r\n            <span>\xBB</span>\r\n        </li>\r\n        ';
+        if (!hideJump) {
+            $$out += '\r\n            <li class="pager-last ';
+            $$out += $escape(pageCount == pageIndex ? 'disabled' : '');
+            $$out += '"><span>尾页</span></li>\r\n        ';
+        }
+        $$out += '\r\n    ';
     }
     $$out += '\r\n</ul>';
     return $$out;
@@ -208,9 +220,36 @@ module.exports = function ($data) {
 
 var detectNode = __webpack_require__(3);
 var runtime = Object.create(detectNode ? global : window);
+var ESCAPE_REG = /["&'<>]/;
+
+/**
+ * 编码模板输出的内容
+ * @param  {any}        content
+ * @return {string}
+ */
+runtime.$escape = function (content) {
+    return xmlEscape(toString(content));
+};
+
+/**
+ * 迭代器，支持数组与对象
+ * @param {array|Object} data 
+ * @param {function}     callback 
+ */
+runtime.$each = function (data, callback) {
+    if (Array.isArray(data)) {
+        for (var i = 0, len = data.length; i < len; i++) {
+            callback(data[i], i);
+        }
+    } else {
+        for (var _i in data) {
+            callback(data[_i], _i);
+        }
+    }
+};
 
 // 将目标转成字符
-var toString = function toString(value) {
+function toString(value) {
     if (typeof value !== 'string') {
         if (value === undefined || value === null) {
             value = '';
@@ -225,8 +264,7 @@ var toString = function toString(value) {
 };
 
 // 编码 HTML 内容
-var ESCAPE_REG = /["&'<>]/;
-var xmlEscape = function xmlEscape(content) {
+function xmlEscape(content) {
     var html = '' + content;
     var regexResult = ESCAPE_REG.exec(html);
     if (!regexResult) {
@@ -274,35 +312,6 @@ var xmlEscape = function xmlEscape(content) {
     }
 };
 
-/**
- * 编码模板输出的内容
- * @param  {any}        content
- * @return {string}
- */
-var escape = function escape(content) {
-    return xmlEscape(toString(content));
-};
-
-/**
- * 迭代器，支持数组与对象
- * @param {array|Object} data 
- * @param {function}     callback 
- */
-var each = function each(data, callback) {
-    if (Array.isArray(data)) {
-        for (var i = 0, len = data.length; i < len; i++) {
-            callback(data[i], i, data);
-        }
-    } else {
-        for (var _i in data) {
-            callback(data[_i], _i);
-        }
-    }
-};
-
-runtime.$each = each;
-runtime.$escape = escape;
-
 module.exports = runtime;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
@@ -322,6 +331,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * Created by yanxlg on 2017/6/7 0007.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 分页器插件
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 显示9个
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 添加参数控制是否显示首页 尾页
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
@@ -334,13 +344,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Pager = function () {
-    function Pager(container, count) {
+    function Pager(container, count, hideJump) {
         _classCallCheck(this, Pager);
 
         this.pageIndex = 1;
         this.pageCount = 0;
         this.container = container;
         this.count = count || 9;
+        this.hideJump = hideJump || false;
         this.initLife();
     }
 
@@ -351,7 +362,8 @@ var Pager = function () {
                 var newElement = $((0, _pager2.default)({
                     pageCount: this.pageCount,
                     pageIndex: this.pageIndex,
-                    count: this.count
+                    count: this.count,
+                    hideJump: this.hideJump
                 }));
                 this.element.replaceWith(newElement);
                 this.element = newElement;
@@ -359,7 +371,8 @@ var Pager = function () {
                 this.element = $((0, _pager2.default)({
                     pageCount: this.pageCount,
                     pageIndex: this.pageIndex,
-                    count: this.count
+                    count: this.count,
+                    hideJump: this.hideJump
                 }));
                 this.container.append(this.element);
             }
@@ -391,6 +404,10 @@ var Pager = function () {
                     pageIndex = parseInt($(this).parent().siblings(".active").children("span").attr("data-index")) - 1;
                 } else if (li.hasClass("next")) {
                     pageIndex = parseInt($(this).parent().siblings(".active").children("span").attr("data-index")) + 1;
+                } else if (li.hasClass("pager-home")) {
+                    pageIndex = 1;
+                } else if (li.hasClass("pager-last")) {
+                    pageIndex = _this.pageCount;
                 } else {
                     pageIndex = parseInt($(this).attr("data-index"));
                 }
@@ -440,7 +457,7 @@ var _pager2 = _interopRequireDefault(_pager);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var pager = new _pager2.default($("body")).then(function (index) {
+var pager = new _pager2.default($("body"), 9, true).then(function (index) {
   alert(index);
 }); /**
      * Created by yanxlg on 2017/6/8 0008.
