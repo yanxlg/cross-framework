@@ -17,6 +17,9 @@
   }
   li{
     display: inline;
+    &.pager-home{
+      margin-right:4px;
+    }
     &.disabled{
       > a,> a:focus,> a:hover,> span,> span:focus,> span:hover{
         color: #ddd;
@@ -55,14 +58,26 @@
 }
 
 .pager-round{
-  > li:first-child{
+  > li.previous{
     > a,> span{
       border-radius: 16px 0 0 16px;
     }
   }
-  > li:last-child{
+  > li.next{
     > a,> span{
       border-radius: 0 16px 16px 0;
+    }
+  }
+  .pager-home{
+    > a,> span{
+      border-radius: 16px;
+      margin-right: 4px;
+    }
+  }
+  .pager-last{
+    > a,> span{
+      border-radius: 16px;
+      margin-left: 4px;
     }
   }
 }

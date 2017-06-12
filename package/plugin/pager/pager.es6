@@ -2,14 +2,16 @@
  * Created by yanxlg on 2017/6/7 0007.
  * 分页器插件
  * 显示9个
+ * 添加参数控制是否显示首页 尾页
  */
 import pagerTemp from './pager.art';
 class Pager{
-    constructor(container,count){
+    constructor(container,count,hideJump){
         this.pageIndex=1;
         this.pageCount=0;
         this.container=container;
         this.count=count||9;
+        this.hideJump=hideJump||false;
         this.initLife();
     }
     update(){
@@ -17,7 +19,8 @@ class Pager{
             let newElement=$(pagerTemp({
                 pageCount:this.pageCount,
                 pageIndex:this.pageIndex,
-                count:this.count
+                count:this.count,
+                hideJump:this.hideJump
             }));
             this.element.replaceWith(newElement);
             this.element=newElement;
@@ -25,7 +28,8 @@ class Pager{
             this.element=$(pagerTemp({
                 pageCount:this.pageCount,
                 pageIndex:this.pageIndex,
-                count:this.count
+                count:this.count,
+                hideJump:this.hideJump
             }));
             this.container.append(this.element);
         }
@@ -51,6 +55,10 @@ class Pager{
                 pageIndex=parseInt($(this).parent().siblings(".active").children("span").attr("data-index"))-1;
             }else if(li.hasClass("next")){
                 pageIndex=parseInt($(this).parent().siblings(".active").children("span").attr("data-index"))+1;
+            }else if(li.hasClass("pager-home")){
+                pageIndex=1;
+            }else if(li.hasClass("pager-last")){
+                pageIndex=_this.pageCount;
             }else{
                 pageIndex=parseInt($(this).attr("data-index"));
             }

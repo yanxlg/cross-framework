@@ -1,0 +1,20 @@
+@charset "utf-8";
+//数据列表样式
+@import "../../../ui/cf-ui-base.scss";
+@import "../../../ui/cf-func.scss";
+@import "../../../ui/cf-varia.scss";
+.datagrid{
+  display: table;
+  width:100%;
+  .datalist{
+    display: table-row;
+    .datacell{
+      display: table-cell;
+    }
+    ~ .datalist{
+      .datacell{
+        border-top:1px solid $borderColor;
+      }
+    }
+  }
+}

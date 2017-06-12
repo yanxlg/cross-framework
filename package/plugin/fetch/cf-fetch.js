@@ -881,9 +881,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
             } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
                 this._bodyText = body.toString();
             } else if (support.arrayBuffer && support.blob && isDataView(body)) {
-                this._bodyArrayBuffer = bufferClone(body.buffer);
+                this._bodyArrayBuffer = bufferClone(body.buffer
                 // IE 10-11 can't handle a DataView body.
-                this._bodyInit = new Blob([this._bodyArrayBuffer]);
+                );this._bodyInit = new Blob([this._bodyArrayBuffer]);
             } else if (support.arrayBuffer && (ArrayBuffer.prototype.isPrototypeOf(body) || isArrayBufferView(body))) {
                 this._bodyArrayBuffer = bufferClone(body);
             } else {

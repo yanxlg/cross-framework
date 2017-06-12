@@ -1,5 +1,8 @@
 <ul class="pager pager-round">
     {{if pageCount>0}}
+        {{if !hideJump}}
+            <li class="pager-home {{1==pageIndex?'disabled':''}}"><span>首页</span></li>
+        {{/if}}
         <li class="previous {{1==pageIndex?'disabled':''}}">
             <span>«</span>
         </li>
@@ -35,5 +38,8 @@
         <li class="next {{pageCount==pageIndex?'disabled':''}}">
             <span>»</span>
         </li>
+        {{if !hideJump}}
+            <li class="pager-last {{pageCount==pageIndex?'disabled':''}}"><span>尾页</span></li>
+        {{/if}}
     {{/if}}
 </ul>

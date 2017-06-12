@@ -65,6 +65,10 @@ a, a:hover, a:visited, a:link, a:active {
   display: inline;
 }
 
+.pager li.pager-home {
+  margin-right: 4px;
+}
+
 .pager li.disabled > a, .pager li.disabled > a:focus, .pager li.disabled > a:hover, .pager li.disabled > span, .pager li.disabled > span:focus, .pager li.disabled > span:hover {
   color: #ddd;
   cursor: wait;
@@ -99,10 +103,20 @@ a, a:hover, a:visited, a:link, a:active {
   color: #3280fc;
 }
 
-.pager-round > li:first-child > a, .pager-round > li:first-child > span {
+.pager-round > li.previous > a, .pager-round > li.previous > span {
   border-radius: 16px 0 0 16px;
 }
 
-.pager-round > li:last-child > a, .pager-round > li:last-child > span {
+.pager-round > li.next > a, .pager-round > li.next > span {
   border-radius: 0 16px 16px 0;
+}
+
+.pager-round .pager-home > a, .pager-round .pager-home > span {
+  border-radius: 16px;
+  margin-right: 4px;
+}
+
+.pager-round .pager-last > a, .pager-round .pager-last > span {
+  border-radius: 16px;
+  margin-left: 4px;
 }
