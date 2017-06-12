@@ -4,18 +4,16 @@
 @import "../../../ui/cf-func.scss";
 @import "../../../ui/cf-varia.scss";
 .datagrid{
-  display: table;
+  display: block;
   width:100%;
   .datalist{
-    display: table-row;
+    display: block;
     .datacell{
-      display: table-cell;
+      display: block;
       padding:8px 8px;
     }
     ~ .datalist{
-      .datacell{
         border-top:1px solid $borderColor;
-      }
     }
   }
 }

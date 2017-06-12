@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 30);
+/******/ 	return __webpack_require__(__webpack_require__.s = 32);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -881,9 +881,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
             } else if (support.searchParams && URLSearchParams.prototype.isPrototypeOf(body)) {
                 this._bodyText = body.toString();
             } else if (support.arrayBuffer && support.blob && isDataView(body)) {
-                this._bodyArrayBuffer = bufferClone(body.buffer
+                this._bodyArrayBuffer = bufferClone(body.buffer);
                 // IE 10-11 can't handle a DataView body.
-                );this._bodyInit = new Blob([this._bodyArrayBuffer]);
+                this._bodyInit = new Blob([this._bodyArrayBuffer]);
             } else if (support.arrayBuffer && (ArrayBuffer.prototype.isPrototypeOf(body) || isArrayBufferView(body))) {
                 this._bodyArrayBuffer = bufferClone(body);
             } else {
@@ -1135,7 +1135,7 @@ exports.default = fetch;
 
 /***/ }),
 
-/***/ 30:
+/***/ 32:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

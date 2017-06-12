@@ -48,7 +48,7 @@ a, a:hover, a:visited, a:link, a:active {
 .pager {
   display: inline-block;
   padding-left: 0;
-  margin: 20px 0;
+  margin: 1rem 0;
   list-style: none;
 }
 
@@ -66,7 +66,7 @@ a, a:hover, a:visited, a:link, a:active {
 }
 
 .pager li.pager-home {
-  margin-right: 4px;
+  margin-right: 0.2rem;
 }
 
 .pager li.disabled > a, .pager li.disabled > a:focus, .pager li.disabled > a:hover, .pager li.disabled > span, .pager li.disabled > span:focus, .pager li.disabled > span:hover {
@@ -88,7 +88,7 @@ a, a:hover, a:visited, a:link, a:active {
   cursor: pointer;
   position: relative;
   float: left;
-  padding: 5px 12px;
+  padding: 0.25rem 0.6rem;
   margin-left: -1px;
   line-height: 1.53846154;
   text-decoration: none;
@@ -99,24 +99,24 @@ a, a:hover, a:visited, a:link, a:active {
 }
 
 .pager li > a:hover, .pager li > span:hover {
-  background-color: #e5e5e5;
+  background-color: #E5E5E5;
   color: #3280fc;
 }
 
 .pager-round > li.previous > a, .pager-round > li.previous > span {
-  border-radius: 16px 0 0 16px;
+  border-radius: 0.8rem 0 0 0.8rem;
 }
 
 .pager-round > li.next > a, .pager-round > li.next > span {
-  border-radius: 0 16px 16px 0;
+  border-radius: 0 0.8rem 0.8rem 0;
 }
 
 .pager-round .pager-home > a, .pager-round .pager-home > span {
-  border-radius: 16px;
-  margin-right: 4px;
+  border-radius: 0.8rem;
+  margin-right: 0.2rem;
 }
 
 .pager-round .pager-last > a, .pager-round .pager-last > span {
-  border-radius: 16px;
-  margin-left: 4px;
+  border-radius: 0.8rem;
+  margin-left: 0.2rem;
 }
