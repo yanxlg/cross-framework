@@ -63,11 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 27);
+/******/ 	return __webpack_require__(__webpack_require__.s = 35);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports) {
 
 var g;
@@ -94,7 +95,8 @@ module.exports = g;
 
 
 /***/ }),
-/* 1 */
+
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -103,7 +105,66 @@ module.exports = g;
 module.exports = __webpack_require__(2);
 
 /***/ }),
-/* 2 */
+
+/***/ 16:
+/***/ (function(module, exports, __webpack_require__) {
+
+var $imports = __webpack_require__(1);
+module.exports = function ($data) {
+    'use strict';
+    $data = $data || {};
+    var $$out = '', size = $data.size, $escape = $imports.$escape, id = $data.id, content = $data.content, height = $data.height, backdrop = $data.backdrop;
+    if (size) {
+        $$out += '\r\n    <div class="action fade ';
+        $$out += $escape(size);
+        $$out += '" data-action-id="';
+        $$out += $escape(id);
+        $$out += '">\r\n        ';
+        $$out += content;
+        $$out += '\r\n    </div>\r\n';
+    } else {
+        $$out += '\r\n<div class="action fade" style="';
+        $$out += $escape('height:' + height + 'px;');
+        $$out += '" data-action-id="';
+        $$out += $escape(id);
+        $$out += '">\r\n    ';
+        $$out += content;
+        $$out += '\r\n</div>\r\n';
+    }
+    $$out += '\r\n';
+    if (backdrop) {
+        $$out += '\r\n<div class="modal-backdrop fade" data-for="action_id_';
+        $$out += $escape(id);
+        $$out += '"></div>\r\n';
+    }
+    return $$out;
+};
+
+/***/ }),
+
+/***/ 17:
+/***/ (function(module, exports, __webpack_require__) {
+
+var $imports = __webpack_require__(1);
+module.exports = function ($data) {
+    'use strict';
+    $data = $data || {};
+    var $$out = '', $each = $imports.$each, actionList = $data.actionList, action = $data.action, i = $data.i, $escape = $imports.$escape;
+    $$out += '<div class="action-btn-group">\r\n    <div class="action-btn-list">\r\n        ';
+    $each(actionList, function (action, i) {
+        $$out += '\r\n            <div class="action-btn" data-action-index="';
+        $$out += $escape(i);
+        $$out += '">\r\n                ';
+        $$out += $escape(action);
+        $$out += '\r\n            </div>\r\n        ';
+    });
+    $$out += '\r\n    </div>\r\n    <div class="action-btn action-cancel">\r\n        取消\r\n    </div>\r\n</div>';
+    return $$out;
+};
+
+/***/ }),
+
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -212,169 +273,8 @@ module.exports = runtime;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = false;
-
-// Only Node.JS has a process variable that is of [[Class]] process
-try {
- module.exports = Object.prototype.toString.call(global.process) === '[object process]' 
-} catch(e) {}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 4 */,
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-/**
- * Created by yanxlg on 2017/5/26 0026.
- * 立即执行动画
- */
-var requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || function (callback) {
-    setTimeout(function () {
-        callback.call(undefined);
-    }, 6000 / 100);
-};
-var transition = function transition(callback) {
-    setTimeout(function () {
-        requestAnimationFrame(callback);
-    }, 0);
-};
-
-var transitionEnd = function () {
-    var transEndEventNames = {
-        WebkitTransition: 'webkitTransitionEnd',
-        MozTransition: 'transitionend',
-        OTransition: 'oTransitionEnd otransitionend',
-        transition: 'transitionend'
-    };
-    for (var name in transEndEventNames) {
-        if (typeof document.body.style[name] === "string") {
-            return transEndEventNames[name];
-        }
-    }
-}();
-
-exports.requestAnimationFrame = requestAnimationFrame;
-exports.transition = transition;
-exports.transitionEnd = transitionEnd;
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * Created by yanxlg on 2017/5/26 0026.
- * id 生成序列
- */
-var lastUuidAmend = 0;
-
-var IDGenerator = function () {
-    function IDGenerator() {
-        _classCallCheck(this, IDGenerator);
-    }
-
-    _createClass(IDGenerator, null, [{
-        key: "uuid",
-        value: function uuid() {
-            return new Date().getTime() * 1000 + lastUuidAmend++ % 1000;
-        }
-    }]);
-
-    return IDGenerator;
-}();
-
-exports.default = IDGenerator;
-
-/***/ }),
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var $imports = __webpack_require__(1);
-module.exports = function ($data) {
-    'use strict';
-    $data = $data || {};
-    var $$out = '', size = $data.size, $escape = $imports.$escape, id = $data.id, content = $data.content, height = $data.height, backdrop = $data.backdrop;
-    if (size) {
-        $$out += '\r\n    <div class="action fade ';
-        $$out += $escape(size);
-        $$out += '" data-action-id="';
-        $$out += $escape(id);
-        $$out += '">\r\n        ';
-        $$out += content;
-        $$out += '\r\n    </div>\r\n';
-    } else {
-        $$out += '\r\n<div class="action fade" style="';
-        $$out += $escape('height:' + height + 'px;');
-        $$out += '" data-action-id="';
-        $$out += $escape(id);
-        $$out += '">\r\n    ';
-        $$out += content;
-        $$out += '\r\n</div>\r\n';
-    }
-    $$out += '\r\n';
-    if (backdrop) {
-        $$out += '\r\n<div class="modal-backdrop fade" data-for="action_id_';
-        $$out += $escape(id);
-        $$out += '"></div>\r\n';
-    }
-    return $$out;
-};
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var $imports = __webpack_require__(1);
-module.exports = function ($data) {
-    'use strict';
-    $data = $data || {};
-    var $$out = '', $each = $imports.$each, actionList = $data.actionList, action = $data.action, i = $data.i, $escape = $imports.$escape;
-    $$out += '<div class="action-btn-group">\r\n    <div class="action-btn-list">\r\n        ';
-    $each(actionList, function (action, i) {
-        $$out += '\r\n            <div class="action-btn" data-action-index="';
-        $$out += $escape(i);
-        $$out += '">\r\n                ';
-        $$out += $escape(action);
-        $$out += '\r\n            </div>\r\n        ';
-    });
-    $$out += '\r\n    </div>\r\n    <div class="action-btn action-cancel">\r\n        取消\r\n    </div>\r\n</div>';
-    return $$out;
-};
-
-/***/ }),
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */
+/***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -394,15 +294,15 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
-var _action = __webpack_require__(15);
+var _action = __webpack_require__(16);
 
 var _action2 = _interopRequireDefault(_action);
 
-var _action_btn = __webpack_require__(16);
+var _action_btn = __webpack_require__(17);
 
 var _action_btn2 = _interopRequireDefault(_action_btn);
 
-var _cfIdGenerator = __webpack_require__(6);
+var _cfIdGenerator = __webpack_require__(7);
 
 var _cfIdGenerator2 = _interopRequireDefault(_cfIdGenerator);
 
@@ -517,19 +417,28 @@ var action = function action(options) {
 exports.default = action;
 
 /***/ }),
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */
+
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = false;
+
+// Only Node.JS has a process variable that is of [[Class]] process
+try {
+ module.exports = Object.prototype.toString.call(global.process) === '[object process]' 
+} catch(e) {}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+
+/***/ 35:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _action = __webpack_require__(20);
+var _action = __webpack_require__(25);
 
 var _action2 = _interopRequireDefault(_action);
 
@@ -546,5 +455,89 @@ setTimeout(function () {
     ac.show();
 }, 1000);
 
+/***/ }),
+
+/***/ 5:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/**
+ * Created by yanxlg on 2017/5/26 0026.
+ * 立即执行动画
+ */
+var requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || function (callback) {
+    setTimeout(function () {
+        callback.call(undefined);
+    }, 6000 / 100);
+};
+var transition = function transition(callback) {
+    setTimeout(function () {
+        requestAnimationFrame(callback);
+    }, 0);
+};
+
+var transitionEnd = function () {
+    var transEndEventNames = {
+        WebkitTransition: 'webkitTransitionEnd',
+        MozTransition: 'transitionend',
+        OTransition: 'oTransitionEnd otransitionend',
+        transition: 'transitionend'
+    };
+    for (var name in transEndEventNames) {
+        if (typeof document.body.style[name] === "string") {
+            return transEndEventNames[name];
+        }
+    }
+}();
+
+exports.requestAnimationFrame = requestAnimationFrame;
+exports.transition = transition;
+exports.transitionEnd = transitionEnd;
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Created by yanxlg on 2017/5/26 0026.
+ * id 生成序列
+ */
+var lastUuidAmend = 0;
+
+var IDGenerator = function () {
+    function IDGenerator() {
+        _classCallCheck(this, IDGenerator);
+    }
+
+    _createClass(IDGenerator, null, [{
+        key: "uuid",
+        value: function uuid() {
+            return new Date().getTime() * 1000 + lastUuidAmend++ % 1000;
+        }
+    }]);
+
+    return IDGenerator;
+}();
+
+exports.default = IDGenerator;
+
 /***/ })
-/******/ ]);
+
+/******/ });

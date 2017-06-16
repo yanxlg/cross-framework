@@ -1,0 +1,13 @@
+{{each data as row}}
+    <div class="data-row">
+        {{each titles as title index}}
+            <div class="data-column grid-center">
+                <div class="data-key">{{title.title}}</div>
+                <div class="data-data">{{row[title.bindData]}}</div>
+                {{if index===0}}
+                    <div class="grid-actions hide"></div>
+                {{/if}}
+            </div>
+        {{/each}}
+    </div>
+{{/each}}

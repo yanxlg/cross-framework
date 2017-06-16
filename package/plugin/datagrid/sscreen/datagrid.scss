@@ -3,17 +3,83 @@
 @import "../../../ui/cf-ui-base.scss";
 @import "../../../ui/cf-func.scss";
 @import "../../../ui/cf-varia.scss";
-.datagrid{
-  display: block;
-  width:100%;
-  .datalist{
-    display: block;
-    .datacell{
-      display: block;
-      padding:8px 8px;
+@import "../../../ui/cf-flex-include.scss";
+
+@media screen and (max-width: 999px){
+  .data-grid-group{
+    @include flex;
+    .grid-header{
+      display: none;
     }
-    ~ .datalist{
-        border-top:1px solid $borderColor;
+    .grid-data{
+      height:auto!important;
+      @include flex-1;
+      > .data-grid {
+        @include flex-1;
+        >.data-row{
+          display: none;
+        }
+        > .data-row-group{
+          @include flex-1;
+          @include flex-column;
+          .data-row{
+            @include flex-1;
+            @include flex-column;
+            position: relative;
+            overflow-x: hidden;
+            border-bottom: 1px solid $borderColor;
+            &:first-of-type{
+              border-top: 1px solid $borderColor;
+            }
+            padding:remToPx(0.5rem) remToPx(0.3rem);
+            .data-column{
+              ~.data-column{
+                margin-top:remToPx(0.4rem);
+              }
+              .data-key{
+                margin-right: remToPx(0.3rem);
+                &:after{
+                  content: ":";
+                }
+              }
+              .data-data{
+                @include line-1;
+              }
+            }
+          }
+        }
+      }
     }
   }
+  .grid-actions{
+    @include align-center;
+    padding-right: 6px;
+    padding-left:6px;
+  }
+  .action-btn{
+    word-break: keep-all;
+    white-space: nowrap;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+    padding:4px 4px;
+    min-height:40px;
+    line-height: 40px;
+    cursor:pointer;
+    background-color: map_get($messageColor,success);
+    border-color:#329d38;
+    color: map_get($baseColor,white);
+    &:hover,&:focus{
+      background-color: #2e9134;
+      border-color: #236e27;
+      color: map_get($baseColor,white);
+    }
+    @include prefix(border-radius,remToPx(0.2rem));
+    @include prefix(box-sizing,border-box);
+    @include prefix(background-clip,border-box);
+    margin:0 3px;
+  }
 }
+
+
+

@@ -3,19 +3,114 @@
 @import "../../../ui/cf-ui-base.scss";
 @import "../../../ui/cf-func.scss";
 @import "../../../ui/cf-varia.scss";
-.datagrid{
-  display: table;
-  width:100%;
-  .datalist{
-    display: table-row;
-    .datacell{
-      display: table-cell;
-      padding:8px 8px;
+@import "../../grid-actions/grid-actions.scss";
+@import "../../../ui/cf-flex-include.scss";
+
+@media screen and (min-width: 1000px){
+  .data-grid-group{
+    border:1px solid $borderColor;
+    border-left:0;
+    border-bottom: 0;
+    display: block;
+    position: relative;
+    .data-grid-wrap{
     }
-    ~ .datalist{
-      .datacell{
-        border-top:1px solid $borderColor;
+  }
+
+  .data-grid-wrap{
+    display: block;
+    &.grid-data{
+      padding-right: 0;
+      overflow-y: scroll;
+      .data-row{
+        &:hover{
+          background-color: map_get($paleColor,important-pale);
+        }
       }
     }
+    &.grid-header{
+      overflow-y: scroll;
+      overflow-x: hidden;
+      position: relative;
+    }
+  }
+  .data-grid{
+    display: table;
+    width:100%;
+    table-layout: fixed;
+    .data-row{
+      display: table-row;
+      position: relative;
+      .data-column{
+        display: table-cell;
+        padding:8px 8px;
+        position: relative;
+        &:first-of-type{
+          border-left: 1px solid $borderColor;
+        }
+      }
+      .data-col{
+        display: table-cell;
+      }
+      .data-grid-title{
+        display: table-cell;
+        padding:8px 8px;
+        font-weight: bold;
+        text-align: center;
+        &:first-of-type{
+          border-left: 1px solid $borderColor;
+        }
+      }
+      .data-column,.data-grid-title{
+        border-right: 1px solid $borderColor;
+      }
+    }
+
+  }
+  .data-header{
+  }
+  .grid-data{
+    .data-column,.data-grid-title{
+      border-top: 1px solid $borderColor;
+    }
+  }
+  .grid-center{
+    text-align: center;
+  }
+  .data-row-group{
+    display: table-row-group;
+    .data-row:last-of-type .data-column{
+      border-bottom:1px solid $borderColor;
+    }
+  }
+  .data-key{
+    display: none;
+  }
+
+  .grid-actions{
+      @include align-center;
+      padding-right: 23px;
+      padding-left:6px;
+  }
+  .action-btn{
+    word-break: keep-all;
+    white-space: nowrap;
+    display: inline-block;
+    min-width: 60px;
+    text-align: center;
+    padding:4px 4px;
+    cursor:pointer;
+    background-color: map_get($messageColor,success);
+    border-color:#329d38;
+    color: map_get($baseColor,white);
+    &:hover,&:focus{
+      background-color: #2e9134;
+      border-color: #236e27;
+      color: map_get($baseColor,white);
+    }
+    @include prefix(border-radius,remToPx(0.2rem));
+    @include prefix(box-sizing,border-box);
+    @include prefix(background-clip,border-box);
+    margin:0 3px;
   }
 }

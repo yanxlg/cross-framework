@@ -1,6 +1,5 @@
 @charset "utf-8";
-//flex 布局
-.flex{
+@mixin flex{
   display: -webkit-box; // Chrome 4+, Safari 3.1, iOS Safari 3.2+
   display: -moz-box; // Firefox 17-
   display: -webkit-flex; // Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16
@@ -10,24 +9,29 @@
   display: -ms-flexbox; // IE 10
   display: flex; // Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+
 }
-@for $i from 1 through 3 {
-  .flex-#{$i}{
-    -webkit-box-flex: $i;
-    -moz-box-flex: $i;
-    -webkit-flex: $i;
-    -ms-flex: $i;
-    flex:$i;
-  }
+@mixin flex-1{
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex:1;
+}
+@mixin flex-2{
+  -webkit-box-flex: 2;
+  -moz-box-flex: 2;
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex:2;
 }
 
-.flex-row{
+@mixin flex-row{
   -webkit-box-orient: horizontal;
   -moz-box-orient: horizontal;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
 }
-.flex-column{
+@mixin flex-column{
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
   -webkit-flex-direction: column;
@@ -35,7 +39,7 @@
   flex-direction: column;
 }
 
-.align-start{
+@mixin align-start{
   -moz-box-align: start;
   -ms-box-align: start;
   -webkit-box-align: start;
@@ -47,7 +51,7 @@
   align-items: flex-start;
 }
 
-.align-center{
+@mixin align-center{
   -moz-box-align: center;
   -ms-box-align: center;
   -webkit-box-align: center;
@@ -58,7 +62,7 @@
   -o-align-items: center;
   align-items: center;
 }
-.align-end{
+@mixin align-end{
   -moz-box-align: end;
   -ms-box-align: end;
   -webkit-box-align: end;
@@ -70,7 +74,7 @@
   align-items: flex-end;
 }
 
-.justify-start{
+@mixin justify-start{
   -webkit-box-pack: start;
   -moz-box-pack: start;
   -ms-box-pack: start;
@@ -81,7 +85,7 @@
   -ms-justify-content: flex-start;
   justify-content: flex-start;
 }
-.justify-center{
+@mixin justify-center{
   -webkit-box-pack: center;
   -moz-box-pack: center;
   -ms-box-pack: center;
@@ -92,7 +96,7 @@
   -ms-justify-content: center;
   justify-content: center;
 }
-.justify-end{
+@mixin justify-end{
   -webkit-box-pack: end;
   -moz-box-pack: end;
   -ms-box-pack: end;
@@ -103,13 +107,19 @@
   -ms-justify-content: flex-end;
   justify-content: flex-end;
 }
-@for $i from 1 through 3 {
-  .line-#{$i}{
-    overflow : hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: $i;
-    -webkit-box-orient: vertical;
-    word-break: break-all;
-  }
+@mixin line-1{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+@mixin line-2{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
 }

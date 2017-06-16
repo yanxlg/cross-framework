@@ -1,0 +1,51 @@
+@media screen and (min-width: 1000px) {
+  .grid-actions {
+    position: absolute;
+    height: 100%;
+    background-color: #3280FC;
+    top: 0;
+    left: 0;
+    margin-left: 0;
+    z-index: 50;
+    -webkit-transition: margin-left 0.2s ease, opacity 0.2s ease;
+    -moz-transition: margin-left 0.2s ease, opacity 0.2s ease;
+    -o-transition: margin-left 0.2s ease, opacity 0.2s ease;
+    -ms-transition: margin-left 0.2s ease, opacity 0.2s ease;
+    transition: margin-left 0.2s ease, opacity 0.2s ease;
+    opacity: 0;
+  }
+  .grid-actions.hide {
+    opacity: 0;
+    margin-left: 0 !important;
+  }
+  .grid-actions.show {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .grid-actions {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    background-color: #3280FC;
+    left: 100%;
+    margin-left: 0;
+    -webkit-transition: margin-left 0.2s ease, opacity 0.2s ease;
+    -moz-transition: margin-left 0.2s ease, opacity 0.2s ease;
+    -o-transition: margin-left 0.2s ease, opacity 0.2s ease;
+    -ms-transition: margin-left 0.2s ease, opacity 0.2s ease;
+    transition: margin-left 0.2s ease, opacity 0.2s ease;
+  }
+  .grid-actions.hide {
+    left: 100%;
+    margin-left: 0;
+  }
+  .data-row {
+    -webkit-transition: margin-left 0.2s ease, opacity 0.2s ease;
+    -moz-transition: margin-left 0.2s ease, opacity 0.2s ease;
+    -o-transition: margin-left 0.2s ease, opacity 0.2s ease;
+    -ms-transition: margin-left 0.2s ease, opacity 0.2s ease;
+    transition: margin-left 0.2s ease, opacity 0.2s ease;
+  }
+}

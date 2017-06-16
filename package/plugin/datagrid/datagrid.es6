@@ -8,30 +8,22 @@
  * 表头固定，内容高度自己控制
  * 总会有自适应宽度的列  当存在fix时，fix区域就是自适应列，否则
  * titles:[{title:"",width:100,fixed:false,bindData:""}]  宽度默认值为100   如果没有fixed区域,进度条宽度需要保留  bindData:绑定的字段名
- * actions 列表操作项
+ * then执行actions回调
+ * actions 传递按钮
  */
 import dataGridTemp from './datagrid.art';
 import dataRowsTemp from './rows.art';
-import ListAction from '../../grid-actions/grid-actions.es6';
+import ListAction from '../grid-actions/grid-actions.es6';
 class DataGrid{
-    constructor(container,titles,height){//通过titles来构造表格
-        titles.forEach(function (title,i) {
-            titles[i].width=title.width||100;
-        });
-        this.titles=titles;
+    constructor(container){//通过titles来构造表格
         this.container=container;
-        if(height){
-            this.height=height+"px";
-        }else{
-            this.height="auto";
-        }
-        this.create();
         return this;
     }
     create(){
         let gridRender=$(dataGridTemp({
             titles:this.titles,
-            height:this.height
+            height:this.height,
+            actions:this.actions
         }));
         if(this.gridRender){
             this.gridRender.replaceWith(gridRender);
@@ -46,7 +38,8 @@ class DataGrid{
     update(data){
         let rows=dataRowsTemp({
             titles:this.titles,
-            data:data
+            data:data,
+            actions:this.actions
         });
         this.gridRender.find(".data-row-group").html(rows);
         return this;
@@ -54,7 +47,8 @@ class DataGrid{
     append(data){
         let rows=dataRowsTemp({
             titles:this.titles,
-            data:data
+            data:data,
+            actions:this.actions
         });
         this.gridRender.find(".data-row-group").append(rows);
         return this;
@@ -68,6 +62,34 @@ class DataGrid{
     }
     initActions(){
         this.listActions=new ListAction(this.gridRender);
+        let _this=this;
+        this.gridRender.on("click",".action-btn",function () {
+            let data=$(this).parens(".data-row").attr("data-data");
+            _this.callback&&_this.callback.call(_this,data);
+        });
+    }
+    then(callback){
+        this.callback=callback;
+    }
+    setTitles(titles,height){
+        titles.forEach(function (title,i) {
+            titles[i].width=title.width||100;
+        });
+        this.titles=titles;
+        if(height){
+            this.height=height+"px";
+        }else{
+            this.height="auto";
+        }
+        this.create();
+        return this;
+    }
+    setActions(actions){
+        this.actions=actions;
+        return this;
+    }
+    static instance(container){
+        return new DataGrid(container);
     }
 }
 export default DataGrid;

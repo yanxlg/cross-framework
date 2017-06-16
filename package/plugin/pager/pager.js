@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 23);
+/******/ 	return __webpack_require__(__webpack_require__.s = 30);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -103,110 +103,6 @@ module.exports = g;
 
 
 module.exports = __webpack_require__(2);
-
-/***/ }),
-
-/***/ 18:
-/***/ (function(module, exports, __webpack_require__) {
-
-var $imports = __webpack_require__(1);
-module.exports = function ($data) {
-    'use strict';
-    $data = $data || {};
-    var $$out = '', pageCount = $data.pageCount, hideJump = $data.hideJump, $escape = $imports.$escape, pageIndex = $data.pageIndex, count = $data.count, half = $data.half, left = $data.left, right = $data.right, start = $data.start, end = $data.end, i = $data.i;
-    $$out += '<ul class="pager pager-round">\r\n    ';
-    if (pageCount > 0) {
-        $$out += '\r\n        ';
-        if (!hideJump) {
-            $$out += '\r\n            <li class="pager-home ';
-            $$out += $escape(1 == pageIndex ? 'disabled' : '');
-            $$out += '"><span>首页</span></li>\r\n        ';
-        }
-        $$out += '\r\n        <li class="previous ';
-        $$out += $escape(1 == pageIndex ? 'disabled' : '');
-        $$out += '">\r\n            <span>\xAB</span>\r\n        </li>\r\n        <li class="';
-        $$out += $escape(1 == pageIndex ? 'active' : '');
-        $$out += '"><span data-index="1">1</span></li>\r\n        ';
-        if (pageCount > count) {
-            $$out += '\r\n            ';
-            var half = count % 2 === 0 ? count / 2 : (count - 1) / 2;
-            $$out += '\r\n            ';
-            if (pageIndex > half + 1) {
-                $$out += '\r\n                <li><span data-index="';
-                $$out += $escape(pageIndex - 5);
-                $$out += '">...</span></li>\r\n            ';
-            }
-            $$out += '\r\n            ';
-            var left, right, start, end;
-            $$out += '\r\n            ';
-            if (half + 1 >= pageIndex) {
-                $$out += '\r\n                ';
-                start = 2;
-                $$out += '\r\n                ';
-                end = count + start - 4;
-                $$out += '\r\n            ';
-            } else if (half + pageIndex >= pageCount) {
-                $$out += '\r\n                ';
-                end = pageCount - 1;
-                $$out += '\r\n                ';
-                start = end - count + 4;
-                $$out += '\r\n            ';
-            } else {
-                $$out += '\r\n                ';
-                start = pageIndex - half + 2;
-                $$out += '\r\n                ';
-                end = pageIndex + half - 2;
-                $$out += '\r\n            ';
-            }
-            $$out += '\r\n            ';
-            for (var i = start; end >= i; i++) {
-                $$out += '\r\n                <li class="';
-                $$out += $escape(i == pageIndex ? 'active' : '');
-                $$out += '"><span data-index="';
-                $$out += $escape(i);
-                $$out += '">';
-                $$out += $escape(i);
-                $$out += '</span></li>\r\n            ';
-            }
-            $$out += '\r\n            ';
-            if (pageCount > pageIndex + half + 1) {
-                $$out += '\r\n                <li><span data-index="';
-                $$out += $escape(start + 10);
-                $$out += '">...</span></li>\r\n            ';
-            }
-            $$out += '\r\n        ';
-        } else {
-            $$out += '\r\n            ';
-            for (var i = 2; pageCount > i; i++) {
-                $$out += '\r\n            <li class="';
-                $$out += $escape(i == pageIndex ? 'active' : '');
-                $$out += '"><span data-index="';
-                $$out += $escape(i);
-                $$out += '">';
-                $$out += $escape(i);
-                $$out += '</span></li>\r\n            ';
-            }
-            $$out += '\r\n        ';
-        }
-        $$out += '\r\n        <li class="';
-        $$out += $escape(pageCount == pageIndex ? 'active' : '');
-        $$out += '"><span data-index="';
-        $$out += $escape(pageCount);
-        $$out += '">';
-        $$out += $escape(pageCount);
-        $$out += '</span></li>\r\n        <li class="next ';
-        $$out += $escape(pageCount == pageIndex ? 'disabled' : '');
-        $$out += '">\r\n            <span>\xBB</span>\r\n        </li>\r\n        ';
-        if (!hideJump) {
-            $$out += '\r\n            <li class="pager-last ';
-            $$out += $escape(pageCount == pageIndex ? 'disabled' : '');
-            $$out += '"><span>尾页</span></li>\r\n        ';
-        }
-        $$out += '\r\n    ';
-    }
-    $$out += '\r\n</ul>';
-    return $$out;
-};
 
 /***/ }),
 
@@ -323,6 +219,124 @@ module.exports = runtime;
 /***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
+var $imports = __webpack_require__(1);
+module.exports = function ($data) {
+    'use strict';
+    $data = $data || {};
+    var $$out = '', pageCount = $data.pageCount, hideJump = $data.hideJump, $escape = $imports.$escape, pageIndex = $data.pageIndex, count = $data.count, half = $data.half, left = $data.left, right = $data.right, start = $data.start, end = $data.end, i = $data.i;
+    $$out += '<ul class="pager pager-round">\r\n    ';
+    if (pageCount > 0) {
+        $$out += '\r\n        ';
+        if (!hideJump) {
+            $$out += '\r\n            <li class="pager-home ';
+            $$out += $escape(1 == pageIndex ? 'disabled' : '');
+            $$out += '"><span>首页</span></li>\r\n        ';
+        }
+        $$out += '\r\n        <li class="previous ';
+        $$out += $escape(1 == pageIndex ? 'disabled' : '');
+        $$out += '">\r\n            <span>\xAB</span>\r\n        </li>\r\n        <li class="';
+        $$out += $escape(1 == pageIndex ? 'active' : '');
+        $$out += '"><span data-index="1">1</span></li>\r\n        ';
+        if (pageCount > count) {
+            $$out += '\r\n            ';
+            var half = count % 2 === 0 ? count / 2 : (count - 1) / 2;
+            $$out += '\r\n            ';
+            if (pageIndex > half + 1) {
+                $$out += '\r\n                <li><span data-index="';
+                $$out += $escape(pageIndex - 5);
+                $$out += '">...</span></li>\r\n            ';
+            }
+            $$out += '\r\n            ';
+            var left, right, start, end;
+            $$out += '\r\n            ';
+            if (half + 1 >= pageIndex) {
+                $$out += '\r\n                ';
+                start = 2;
+                $$out += '\r\n                ';
+                end = count + start - 4;
+                $$out += '\r\n            ';
+            } else if (half + pageIndex >= pageCount) {
+                $$out += '\r\n                ';
+                end = pageCount - 1;
+                $$out += '\r\n                ';
+                start = end - count + 4;
+                $$out += '\r\n            ';
+            } else {
+                $$out += '\r\n                ';
+                start = pageIndex - half + 2;
+                $$out += '\r\n                ';
+                end = pageIndex + half - 2;
+                $$out += '\r\n            ';
+            }
+            $$out += '\r\n            ';
+            for (var i = start; end >= i; i++) {
+                $$out += '\r\n                <li class="';
+                $$out += $escape(i == pageIndex ? 'active' : '');
+                $$out += '"><span data-index="';
+                $$out += $escape(i);
+                $$out += '">';
+                $$out += $escape(i);
+                $$out += '</span></li>\r\n            ';
+            }
+            $$out += '\r\n            ';
+            if (pageCount > pageIndex + half + 1) {
+                $$out += '\r\n                <li><span data-index="';
+                $$out += $escape(start + 10);
+                $$out += '">...</span></li>\r\n            ';
+            }
+            $$out += '\r\n        ';
+        } else {
+            $$out += '\r\n            ';
+            for (var i = 2; pageCount > i; i++) {
+                $$out += '\r\n            <li class="';
+                $$out += $escape(i == pageIndex ? 'active' : '');
+                $$out += '"><span data-index="';
+                $$out += $escape(i);
+                $$out += '">';
+                $$out += $escape(i);
+                $$out += '</span></li>\r\n            ';
+            }
+            $$out += '\r\n        ';
+        }
+        $$out += '\r\n        <li class="';
+        $$out += $escape(pageCount == pageIndex ? 'active' : '');
+        $$out += '"><span data-index="';
+        $$out += $escape(pageCount);
+        $$out += '">';
+        $$out += $escape(pageCount);
+        $$out += '</span></li>\r\n        <li class="next ';
+        $$out += $escape(pageCount == pageIndex ? 'disabled' : '');
+        $$out += '">\r\n            <span>\xBB</span>\r\n        </li>\r\n        ';
+        if (!hideJump) {
+            $$out += '\r\n            <li class="pager-last ';
+            $$out += $escape(pageCount == pageIndex ? 'disabled' : '');
+            $$out += '"><span>尾页</span></li>\r\n        ';
+        }
+        $$out += '\r\n    ';
+    }
+    $$out += '\r\n</ul>';
+    return $$out;
+};
+
+/***/ }),
+
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = false;
+
+// Only Node.JS has a process variable that is of [[Class]] process
+try {
+ module.exports = Object.prototype.toString.call(global.process) === '[object process]' 
+} catch(e) {}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+
+/***/ 30:
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -338,7 +352,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
-var _pager = __webpack_require__(18);
+var _pager = __webpack_require__(23);
 
 var _pager2 = _interopRequireDefault(_pager);
 
@@ -431,20 +445,6 @@ var Pager = function () {
 }();
 
 exports.default = Pager;
-
-/***/ }),
-
-/***/ 3:
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = false;
-
-// Only Node.JS has a process variable that is of [[Class]] process
-try {
- module.exports = Object.prototype.toString.call(global.process) === '[object process]' 
-} catch(e) {}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
 

@@ -1,0 +1,88 @@
+/**
+ * Created by Administrator on 2017/6/13 0013.
+ */
+import Datagrid from './datagrid.es6';
+let datagrid=Datagrid.instance($("body"));
+let titles=[{
+    title:"heade1",
+    bindData:"key0"
+},{
+    title:"heade1",
+    bindData:"key1",
+    width:300,
+},{
+    title:"heade1",
+    bindData:"key2",
+    width:1000,
+},{
+    title:"heade1",
+    bindData:"key3",
+    width:1000,
+},{
+    title:"heade1",
+    bindData:"key4",
+    width:1000,
+}];
+let data=[{
+    key0:"0",
+    key1:"1",
+    key2:"2",
+    key3:"3",
+    key4:"4",
+    key5:"5",
+    key6:"6",
+},{
+    key0:"0",
+    key1:"1",
+    key2:"2",
+    key3:"3",
+    key4:"4",
+    key5:"5",
+    key6:"6",
+},{
+    key0:"0",
+    key1:"1",
+    key2:"2",
+    key3:"3",
+    key4:"4",
+    key5:"5",
+    key6:"6",
+},{
+    key0:"0",
+    key1:"1",
+    key2:"2",
+    key3:"3",
+    key4:"4",
+    key5:"5",
+    key6:"6",
+},{
+    key0:"0",
+    key1:"1",
+    key2:"2",
+    key3:"3",
+    key4:"4",
+    key5:"5",
+    key6:"6",
+},{
+    key0:"0",
+    key1:"1",
+    key2:"2",
+    key3:"3",
+    key4:"4",
+    key5:"5",
+    key6:"6",
+},{
+    key0:"0",
+    key1:"1",
+    key2:"2",
+    key3:"3",
+    key4:"4",
+    key5:"5",
+    key6:"6",
+}];
+datagrid.setActions([{
+    text:"按钮"
+},{
+    text:"按钮"
+}]).setTitles(titles,200).update(data);
+

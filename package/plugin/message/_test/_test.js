@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 33);
+/******/ 	return __webpack_require__(__webpack_require__.s = 42);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -103,66 +103,6 @@ module.exports = g;
 
 
 module.exports = __webpack_require__(2);
-
-/***/ }),
-
-/***/ 17:
-/***/ (function(module, exports, __webpack_require__) {
-
-var $imports = __webpack_require__(1);
-module.exports = function ($data) {
-    'use strict';
-    $data = $data || {};
-    var $$out = '', $escape = $imports.$escape, scale = $data.scale, type = $data.type, round = $data.round, customClass = $data.customClass, iconClass = $data.iconClass, message = $data.message, actions = $data.actions, $each = $imports.$each, action = $data.action, i = $data.i, showClose = $data.showClose;
-    $$out += '<div class="message ';
-    $$out += $escape(scale ? 'message-push-leave' : 'message-fade-leave');
-    $$out += ' ';
-    $$out += $escape(type);
-    $$out += ' ';
-    $$out += $escape(round ? 'round' : '');
-    $$out += ' ';
-    $$out += $escape(customClass);
-    $$out += '">\r\n    ';
-    if (iconClass) {
-        $$out += '\r\n        <i class="icon ';
-        $$out += $escape(iconClass);
-        $$out += '"></i>\r\n    ';
-    }
-    $$out += '\r\n    <div class="message-group">\r\n        <p>';
-    $$out += $escape(message);
-    $$out += '</p>\r\n    </div>\r\n    ';
-    if (actions.length > 0) {
-        $$out += '\r\n        <div class="message-actions">\r\n            ';
-        $each(actions, function (action, i) {
-            $$out += '\r\n                ';
-            if (action.icon) {
-                $$out += '\r\n                    <div class="message-action" data-action="';
-                $$out += $escape(i);
-                $$out += '">\r\n                        ';
-                if (action.icon) {
-                    $$out += '\r\n                            <i class="';
-                    $$out += $escape(action.icon);
-                    $$out += '"></i>\r\n                        ';
-                }
-                $$out += '\r\n                        ';
-                if (action.text) {
-                    $$out += '\r\n                            <p>';
-                    $$out += $escape(action.text);
-                    $$out += '</p>\r\n                        ';
-                }
-                $$out += '\r\n                    </div>\r\n                ';
-            }
-            $$out += '\r\n            ';
-        });
-        $$out += '\r\n        </div>\r\n    ';
-    }
-    $$out += '\r\n    ';
-    if (showClose) {
-        $$out += '\r\n        <div class="message-close icon-close"></div>\r\n    ';
-    }
-    $$out += '\r\n</div>';
-    return $$out;
-};
 
 /***/ }),
 
@@ -276,7 +216,67 @@ module.exports = runtime;
 
 /***/ }),
 
-/***/ 21:
+/***/ 22:
+/***/ (function(module, exports, __webpack_require__) {
+
+var $imports = __webpack_require__(1);
+module.exports = function ($data) {
+    'use strict';
+    $data = $data || {};
+    var $$out = '', $escape = $imports.$escape, scale = $data.scale, type = $data.type, round = $data.round, customClass = $data.customClass, iconClass = $data.iconClass, message = $data.message, actions = $data.actions, $each = $imports.$each, action = $data.action, i = $data.i, showClose = $data.showClose;
+    $$out += '<div class="message ';
+    $$out += $escape(scale ? 'message-push-leave' : 'message-fade-leave');
+    $$out += ' ';
+    $$out += $escape(type);
+    $$out += ' ';
+    $$out += $escape(round ? 'round' : '');
+    $$out += ' ';
+    $$out += $escape(customClass);
+    $$out += '">\r\n    ';
+    if (iconClass) {
+        $$out += '\r\n        <i class="icon ';
+        $$out += $escape(iconClass);
+        $$out += '"></i>\r\n    ';
+    }
+    $$out += '\r\n    <div class="message-group">\r\n        <p>';
+    $$out += $escape(message);
+    $$out += '</p>\r\n    </div>\r\n    ';
+    if (actions.length > 0) {
+        $$out += '\r\n        <div class="message-actions">\r\n            ';
+        $each(actions, function (action, i) {
+            $$out += '\r\n                ';
+            if (action.icon) {
+                $$out += '\r\n                    <div class="message-action" data-action="';
+                $$out += $escape(i);
+                $$out += '">\r\n                        ';
+                if (action.icon) {
+                    $$out += '\r\n                            <i class="';
+                    $$out += $escape(action.icon);
+                    $$out += '"></i>\r\n                        ';
+                }
+                $$out += '\r\n                        ';
+                if (action.text) {
+                    $$out += '\r\n                            <p>';
+                    $$out += $escape(action.text);
+                    $$out += '</p>\r\n                        ';
+                }
+                $$out += '\r\n                    </div>\r\n                ';
+            }
+            $$out += '\r\n            ';
+        });
+        $$out += '\r\n        </div>\r\n    ';
+    }
+    $$out += '\r\n    ';
+    if (showClose) {
+        $$out += '\r\n        <div class="message-close icon-close"></div>\r\n    ';
+    }
+    $$out += '\r\n</div>';
+    return $$out;
+};
+
+/***/ }),
+
+/***/ 28:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -314,7 +314,7 @@ var _cfTransition = __webpack_require__(5);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var messageInstances = new Set();
-var message_render = __webpack_require__(17);
+var message_render = __webpack_require__(22);
 
 var Message = function () {
     function Message(options) {
@@ -448,13 +448,13 @@ try {
 
 /***/ }),
 
-/***/ 33:
+/***/ 42:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _message = __webpack_require__(21);
+var _message = __webpack_require__(28);
 
 var _message2 = _interopRequireDefault(_message);
 

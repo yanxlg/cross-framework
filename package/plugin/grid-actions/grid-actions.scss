@@ -1,0 +1,43 @@
+@charset "utf-8";
+@import "../../ui/cf-func.scss";
+//by yanxlg
+//web端
+@media screen and (min-width: 1000px){
+  .grid-actions{
+    position: absolute;
+    height: 100%;
+    background-color: #3280FC;
+    top: 0;
+    left: 0;
+    margin-left: 0;
+    z-index:50;
+    @include prefix(transition,margin-left 0.2s ease,opacity 0.2s ease);
+    opacity:0;
+    &.hide{
+      opacity:0;
+      margin-left: 0!important;
+    }
+    &.show{
+      opacity: 1;
+    }
+  }
+}
+//移动端
+@media screen and (max-width: 999px){
+  .grid-actions{
+    position: absolute;
+    height: 100%;
+    top:0;
+    background-color: #3280FC;
+    left:100%;
+    margin-left: 0;
+    @include prefix(transition,margin-left 0.2s ease,opacity 0.2s ease);
+    &.hide{
+      left:100%;
+      margin-left: 0;
+    }
+  }
+  .data-row{
+    @include prefix(transition,margin-left 0.2s ease,opacity 0.2s ease);
+  }
+}

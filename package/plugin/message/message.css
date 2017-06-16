@@ -216,6 +216,33 @@ a, a:hover, a:visited, a:link, a:active {
   justify-content: flex-end;
 }
 
+.line-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.line-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.line-3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
 .message {
   box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
   min-width: 15rem;

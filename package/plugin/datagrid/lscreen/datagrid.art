@@ -1,0 +1,31 @@
+<div class="data-grid-group">
+    <div class="data-grid-wrap grid-header">
+        <div class="data-grid">
+            <div class="data-row">
+                {{each titles as title }}
+                    <div class="data-col" style="width: {{title.width}}px;">
+                    </div>
+                {{/each}}
+            </div>
+            <div class="data-row">
+                {{each titles as title }}
+                    <div class="data-grid-title">
+                        {{title.title}}
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="data-grid-wrap grid-data" style="height: {{height}};">
+        <div class="data-grid">
+            <div class="data-row">
+                {{each titles as title }}
+                    <div class="data-col" style="width: {{title.width}}px;">
+                    </div>
+                {{/each}}
+            </div>
+            <div class="data-row-group">
+            </div>
+        </div>
+    </div>
+</div>
