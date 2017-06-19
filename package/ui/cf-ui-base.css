@@ -44,3 +44,18 @@ a, a:hover, a:visited, a:link, a:active {
 .hidden {
   display: none;
 }
+
+.ie-lt {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 99999999;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+  background-color: #DDF3F5;
+  color: #FF4949;
+  display: block;
+}

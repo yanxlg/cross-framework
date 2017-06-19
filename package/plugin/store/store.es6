@@ -51,9 +51,9 @@ class Store{
         //获取当前页面的值
         let $key=encode(new Key(key));
         let $data=store.getItem($key);
-        return !$data?()=>{
+        return !$data?(()=>{
             return null;
-        }:()=>{
+        })():(()=>{
             $data=decode($data);
             $data=JSON.parse($data);
             if(this.isOverduce($data)){
@@ -62,7 +62,7 @@ class Store{
             }else{
                 return $data._val
             }
-        }
+        })();
     }
     static isOverduce(val){
         let _save=val._save;
@@ -127,9 +127,9 @@ class Session{
         //获取当前页面的值
         let $key=encode(new Key(key));
         let $data=session.getItem($key);
-        return !$data?()=>{
+        return !$data?(()=>{
             return null;
-        }:()=>{
+        })():(()=>{
             $data=decode($data);
             $data=JSON.parse($data);
             if(this.isOverduce($data)){
@@ -138,7 +138,7 @@ class Session{
             }else{
                 return $data._val
             }
-        }
+        })()
     }
     static isOverduce(val){
         let _save=val._save;

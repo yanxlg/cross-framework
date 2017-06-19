@@ -45,3 +45,11 @@
 .icon-menu:before {
   content: "\e6a0";
 }
+
+.icon-user-name:before {
+  content: "\e6f6";
+}
+
+.icon-password:before {
+  content: "\e669";
+}

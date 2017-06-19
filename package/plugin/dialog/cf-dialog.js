@@ -491,6 +491,10 @@ module.exports = function ($data) {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * Created by yanxlg on 2017/5/18 0018.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * fit 位置   高度调整为最佳高度，不是居中，可以控制为居中
@@ -546,7 +550,7 @@ var DIALOG_DEFAULT_OPTION = {
     moveable: true,
     content: "<p>这是Dialog默认内容，需要使用其他内容来替换</p>",
     showFooter: true,
-    footerBtn: null
+    footerBtn: false
 };
 
 var Dialog = function () {
@@ -567,7 +571,7 @@ var Dialog = function () {
         this.moveable = options.moveable || DIALOG_DEFAULT_OPTION.moveable;
         this.content = options.content || DIALOG_DEFAULT_OPTION.content;
         this.showFooter = options.content || DIALOG_DEFAULT_OPTION.showFooter;
-        this.footerBtn = options.content || DIALOG_DEFAULT_OPTION.footerBtn;
+        this.footerBtn = options.footerBtn || DIALOG_DEFAULT_OPTION.footerBtn;
         this.id = _cfIdGenerator2.default.uuid();
         this.create().show();
     }
@@ -668,7 +672,10 @@ var Dialog = function () {
             $(this._element[0]).on("click", "[data-operation]", function () {
                 var operation = $(this).attr("data-operation");
                 if (operation === "cancel") _this.close();
-                _this.callback && _this.callback('operation_' + operation);
+                _this.callback && _this.callback.call(_this, 'operation_' + operation);
+            });
+            $(this._element[0]).on("click", ".icon-close", function () {
+                _this.close();
             });
         }
     }, {
@@ -687,14 +694,14 @@ var Dialog = function () {
         value: function close() {
             var _this = this;
             (0, _cfTransition.transition)(function () {
-                _this.callback && _this.callback("closeStart");
+                _this.callback && _this.callback.call(_this, "closeStart");
                 _this._element.removeClass("in").on(_cfTransition.transitionEnd, function () {
                     _this._element.remove();
                     $(window).off("keydown." + _this.id);
                     if (_this.dragInstance) {
                         _this.dragInstance.destroy();
                     }
-                    _this.callback && _this.callback("closeEnd");
+                    _this.callback && _this.callback.call(_this, "closeEnd");
                 });
             });
         }
@@ -712,13 +719,7 @@ var dialog = function dialog(options) {
     return new Dialog(options);
 };
 
-dialog({
-    width: "200",
-    title: "测试",
-    modal: false
-}).then(function (type) {
-    alert(type);
-});
+exports.default = dialog;
 
 /***/ }),
 

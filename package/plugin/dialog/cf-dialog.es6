@@ -38,7 +38,7 @@ const DIALOG_DEFAULT_OPTION={
     moveable:true,
     content:"<p>这是Dialog默认内容，需要使用其他内容来替换</p>",
     showFooter:true,
-    footerBtn:null
+    footerBtn:false
 };
 
 class Dialog{
@@ -57,7 +57,7 @@ class Dialog{
         this.moveable=options.moveable||DIALOG_DEFAULT_OPTION.moveable;
         this.content=options.content||DIALOG_DEFAULT_OPTION.content;
         this.showFooter=options.content||DIALOG_DEFAULT_OPTION.showFooter;
-        this.footerBtn=options.content||DIALOG_DEFAULT_OPTION.footerBtn;
+        this.footerBtn=options.footerBtn||DIALOG_DEFAULT_OPTION.footerBtn;
         this.id=IDGenerator.uuid();
         this.create().show();
     }
@@ -149,8 +149,11 @@ class Dialog{
         $(this._element[0]).on("click","[data-operation]",function () {
             let operation=$(this).attr("data-operation");
             if(operation==="cancel") _this.close();
-            _this.callback&&_this.callback(`operation_${operation}`);
-        })
+            _this.callback&&_this.callback.call(_this,`operation_${operation}`);
+        });
+        $(this._element[0]).on("click",".icon-close",function () {
+            _this.close();
+        });
     }
     show(){
         let _this=this;
@@ -164,14 +167,14 @@ class Dialog{
     close(){
         let _this=this;
         transition(()=>{
-            _this.callback&&_this.callback("closeStart");
+            _this.callback&&_this.callback.call(_this,"closeStart");
             _this._element.removeClass("in").on(transitionEnd,function () {
                 _this._element.remove();
                 $(window).off("keydown."+_this.id);
                 if(_this.dragInstance){
                     _this.dragInstance.destroy();
                 }
-                _this.callback&&_this.callback("closeEnd");
+                _this.callback&&_this.callback.call(_this,"closeEnd");
             });
         })
     }
@@ -183,10 +186,4 @@ let dialog=(options)=>{
     return new Dialog(options);
 };
 
-dialog({
-    width:"200",
-    title:"测试",
-    modal:false
-}).then(function (type) {
-    alert(type);
-});
+export default dialog;

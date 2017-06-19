@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AACA;;GAEG;AAGD,UAAS;EACP,KAAK,EAAC,IAAI;EACV,MAAM,EAAC,IAAI;EACX,WAAW,EAAE,mIAAmI",
-"sources": ["cf-ui-base.scss"],
-"names": [],
-"file": "cf-ui-base.css"
-}

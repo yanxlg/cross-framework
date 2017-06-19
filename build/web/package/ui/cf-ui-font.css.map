@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AACA;;GAEG;AASH,KAAK;EACH,SAAS,EAAU,MAAM;;AAKzB,eAAkB;EAChB,SAAS,EAHS,MAAM;;AAE1B,eAAkB;EAChB,SAAS,EAHuB,MAAM;;AAExC,eAAkB;EAChB,SAAS,EAHqC,MAAM;;AAEtD,eAAkB;EAChB,SAAS,EAHmD,MAAM;;AAEpE,eAAkB;EAChB,SAAS,EAHiE,IAAI",
-"sources": ["cf-ui-font.scss"],
-"names": [],
-"file": "cf-ui-font.css"
-}
