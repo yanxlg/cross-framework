@@ -184,22 +184,22 @@
   -o-transition: transform .3s ease-out,-o-transform .3s ease-out;
   transition: -webkit-transform .3s ease-out;
   transition: transform .3s ease-out,-webkit-transform .3s ease-out,-o-transform .3s ease-out;
-  -webkit-transform: translate(0, -25%);
-  -ms-transform: translate(0, -25%);
-  -o-transform: translate(0, -25%);
-  transform: translate(0, -25%);
+  -webkit-transform: translate3d(0, -25%, 0);
+  -ms-transform: translate3d(0, -25%, 0);
+  -o-transform: translate3d(0, -25%, 0);
+  transform: translate3d(0, -25%, 0);
 }
 
 .modal.in .dialog {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  -o-transform: translate(0, 0);
-  transform: translate(0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .dialog {
   display: block;
-  min-width: 24rem;
+  min-width: 10rem;
   max-width: 30rem;
   margin: 1.5rem auto;
   -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);

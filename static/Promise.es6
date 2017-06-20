@@ -311,6 +311,6 @@
             }
         }, U.polyfill = W, U.Promise = U, U
     }();
-}(typeof self !== 'undefined' ? self : this);
-let Promise=typeof self !== 'undefined' ? self.Promise : this.Promise;
+}(typeof self !== 'undefined' ? self : window);
+let Promise=typeof self !== 'undefined' ? self.Promise : window.Promise;
 export default Promise;

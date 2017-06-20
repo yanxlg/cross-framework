@@ -186,4 +186,14 @@ let dialog=(options)=>{
     return new Dialog(options);
 };
 
+window.alert=(msg,title)=>{
+    title=title||"懂老板";
+    return dialog({
+        title:title,
+        content:msg,
+        modal:false
+    }).then(function(){
+        this.close();
+    });
+};
 export default dialog;

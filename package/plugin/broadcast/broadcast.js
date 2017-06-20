@@ -89,9 +89,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * 不同页面存在不同的空间，接入存储时间控制，在get与set的时候会检查存储时间来清理一次
  * location.href 替换成 location.pathname
  * storage事件在当前页面不会广播，调整为当前页面也能接收到广播
+ * length() 调整为getLength()  fix mobile UC length hack
  */
-var store = localStorage;
-var session = sessionStorage;
+var storage = window.localStorage;
+var sessionCache = window.sessionStorage;
 
 var encode = function encode(text) {
     return encodeURI(encodeURIComponent(encodeURI(text)));
@@ -136,7 +137,7 @@ var Store = function () {
             //time 保存时间，以s为单位
             var $key = encode(new Key(key));
             var $val = encode(new Data(val, time));
-            store.setItem($key, $val);
+            storage.setItem($key, $val);
         }
     }, {
         key: "get",
@@ -145,14 +146,14 @@ var Store = function () {
 
             //获取当前页面的值
             var $key = encode(new Key(key));
-            var $data = store.getItem($key);
+            var $data = storage.getItem($key);
             return !$data ? function () {
                 return null;
             }() : function () {
                 $data = decode($data);
                 $data = JSON.parse($data);
                 if (_this.isOverduce($data)) {
-                    store.removeItem($key);
+                    storage.removeItem($key);
                     return null;
                 } else {
                     return $data._val;
@@ -172,7 +173,7 @@ var Store = function () {
         key: "remove",
         value: function remove(key) {
             var $key = encode(new Key(key));
-            store.removeItem($key);
+            storage.removeItem($key);
         }
     }, {
         key: "clear",
@@ -181,7 +182,7 @@ var Store = function () {
             !page && (page = location.pathname);
             this.iterator().then(function (key, val, $page, $key) {
                 if ($page === page) {
-                    store.removeItem($key);
+                    storage.removeItem($key);
                 }
             });
         }
@@ -189,17 +190,17 @@ var Store = function () {
         key: "clearAll",
         value: function clearAll() {
             //清空所有数据
-            store.clear();
+            storage.clear();
         }
     }, {
-        key: "length",
-        value: function length() {
-            return store.length;
+        key: "getLength",
+        value: function getLength() {
+            return storage.length;
         }
     }, {
         key: "enabled",
         value: function enabled() {
-            return !!store;
+            return !!storage;
         }
     }, {
         key: "iterator",
@@ -207,13 +208,13 @@ var Store = function () {
             //遍历取的时候也需要判断是否过去
             var $this = this;
             return new Promise(function (resolve) {
-                for (var i = 0, len = store.length; i < len; i++) {
-                    var $key = store.key(i);
+                for (var i = 0, len = storage.length; i < len; i++) {
+                    var $key = storage.key(i);
                     var $keyObj = JSON.parse($key);
-                    var $value = store.getItem($key);
+                    var $value = storage.getItem($key);
                     var $valObj = JSON.parse($value);
                     if ($this.isOverduce($valObj)) {
-                        store.removeItem($key);
+                        storage.removeItem($key);
                     } else {
                         resolve($this, $keyObj._key, $valObj._val, $keyObj._url, $key);
                         // callback.call($this,$keyObj._key,$valObj._val,$keyObj._url,$key);
@@ -239,7 +240,7 @@ var Session = function () {
             //time 保存时间，以s为单位
             var $key = encode(new Key(key));
             var $val = encode(new Data(val, time));
-            session.setItem($key, $val);
+            sessionCache.setItem($key, $val);
         }
     }, {
         key: "get",
@@ -248,14 +249,14 @@ var Session = function () {
 
             //获取当前页面的值
             var $key = encode(new Key(key));
-            var $data = session.getItem($key);
+            var $data = sessionCache.getItem($key);
             return !$data ? function () {
                 return null;
             }() : function () {
                 $data = decode($data);
                 $data = JSON.parse($data);
                 if (_this2.isOverduce($data)) {
-                    session.removeItem($key);
+                    sessionCache.removeItem($key);
                     return null;
                 } else {
                     return $data._val;
@@ -275,7 +276,7 @@ var Session = function () {
         key: "remove",
         value: function remove(key) {
             var $key = encode(new Key(key));
-            session.removeItem($key);
+            sessionCache.removeItem($key);
         }
     }, {
         key: "clear",
@@ -284,7 +285,7 @@ var Session = function () {
             !page && (page = location.pathname);
             this.iterator(function (key, val, $page, $key) {
                 if ($page === page) {
-                    session.removeItem($key);
+                    sessionCache.removeItem($key);
                 }
             });
         }
@@ -292,17 +293,17 @@ var Session = function () {
         key: "clearAll",
         value: function clearAll() {
             //清空所有数据
-            session.clear();
+            sessionCache.clear();
         }
     }, {
-        key: "length",
-        value: function length() {
-            return session.length;
+        key: "getLength",
+        value: function getLength() {
+            return sessionCache.length;
         }
     }, {
         key: "enabled",
         value: function enabled() {
-            return !!session;
+            return !!sessionCache;
         }
     }, {
         key: "iterator",
@@ -310,13 +311,13 @@ var Session = function () {
             //遍历取的时候也需要判断是否过去
             var $this = this;
             callback && function () {
-                for (var i = 0, len = session.length; i < len; i++) {
-                    var $key = session.key(i);
+                for (var i = 0, len = sessionCache.length; i < len; i++) {
+                    var $key = sessionCache.key(i);
                     var $keyObj = JSON.parse(decode($key));
-                    var $value = session.getItem($key);
+                    var $value = sessionCache.getItem($key);
                     var $valObj = JSON.parse(decode($value));
                     if ($this.isOverduce($valObj)) {
-                        session.removeItem($key);
+                        sessionCache.removeItem($key);
                     } else {
                         callback.call($this, $keyObj._key, $valObj._val, $keyObj._url, $key);
                     }

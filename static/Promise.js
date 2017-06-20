@@ -452,8 +452,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             }
         }, U.polyfill = W, U.Promise = U, U;
     }();
-}(typeof self !== 'undefined' ? self : undefined);
-var Promise = typeof self !== 'undefined' ? self.Promise : undefined.Promise;
+}(typeof self !== 'undefined' ? self : window);
+var Promise = typeof self !== 'undefined' ? self.Promise : window.Promise;
 exports.default = Promise;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15), __webpack_require__(0)))
 

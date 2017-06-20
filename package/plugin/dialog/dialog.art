@@ -1,5 +1,5 @@
 <div class="modal fade" data-dialog-id="{{id}}">
-    <div class="dialog {{size}}" style="width:{{width?(width+'px'):'auto'}};height:{{height?(height+'px'):'auto'}};">
+    <div class="dialog {{size}}" style="width:{{width?(width+'px'):'90%'}};height:{{height?(height+'px'):'auto'}};">
         {{if showHeader}}
             <div class="dialog-header {{moveable?'dialog-moveable':''}}">
                 {{if icon}}

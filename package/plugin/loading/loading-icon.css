@@ -1,0 +1,620 @@
+.loading {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 1rem;
+  position: relative;
+}
+
+.loading_0 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_1@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 0ms;
+  -moz-animation-delay: 0ms;
+  -o-animation-delay: 0ms;
+  -ms-animation-delay: 0ms;
+  animation-delay: 0ms;
+}
+
+.loading_1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_2@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 80ms;
+  -moz-animation-delay: 80ms;
+  -o-animation-delay: 80ms;
+  -ms-animation-delay: 80ms;
+  animation-delay: 80ms;
+}
+
+.loading_2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_3@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 160ms;
+  -moz-animation-delay: 160ms;
+  -o-animation-delay: 160ms;
+  -ms-animation-delay: 160ms;
+  animation-delay: 160ms;
+}
+
+.loading_3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_4@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 240ms;
+  -moz-animation-delay: 240ms;
+  -o-animation-delay: 240ms;
+  -ms-animation-delay: 240ms;
+  animation-delay: 240ms;
+}
+
+.loading_4 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_5@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 320ms;
+  -moz-animation-delay: 320ms;
+  -o-animation-delay: 320ms;
+  -ms-animation-delay: 320ms;
+  animation-delay: 320ms;
+}
+
+.loading_5 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_6@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 400ms;
+  -moz-animation-delay: 400ms;
+  -o-animation-delay: 400ms;
+  -ms-animation-delay: 400ms;
+  animation-delay: 400ms;
+}
+
+.loading_6 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_7@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 480ms;
+  -moz-animation-delay: 480ms;
+  -o-animation-delay: 480ms;
+  -ms-animation-delay: 480ms;
+  animation-delay: 480ms;
+}
+
+.loading_7 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_8@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 560ms;
+  -moz-animation-delay: 560ms;
+  -o-animation-delay: 560ms;
+  -ms-animation-delay: 560ms;
+  animation-delay: 560ms;
+}
+
+.loading_8 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_9@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 640ms;
+  -moz-animation-delay: 640ms;
+  -o-animation-delay: 640ms;
+  -ms-animation-delay: 640ms;
+  animation-delay: 640ms;
+}
+
+.loading_9 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_10@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 720ms;
+  -moz-animation-delay: 720ms;
+  -o-animation-delay: 720ms;
+  -ms-animation-delay: 720ms;
+  animation-delay: 720ms;
+}
+
+.loading_10 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_11@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 800ms;
+  -moz-animation-delay: 800ms;
+  -o-animation-delay: 800ms;
+  -ms-animation-delay: 800ms;
+  animation-delay: 800ms;
+}
+
+.loading_11 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_12@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 880ms;
+  -moz-animation-delay: 880ms;
+  -o-animation-delay: 880ms;
+  -ms-animation-delay: 880ms;
+  animation-delay: 880ms;
+}
+
+.loading_12 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_13@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 960ms;
+  -moz-animation-delay: 960ms;
+  -o-animation-delay: 960ms;
+  -ms-animation-delay: 960ms;
+  animation-delay: 960ms;
+}
+
+.loading_13 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_14@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 1040ms;
+  -moz-animation-delay: 1040ms;
+  -o-animation-delay: 1040ms;
+  -ms-animation-delay: 1040ms;
+  animation-delay: 1040ms;
+}
+
+.loading_14 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_15@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 1120ms;
+  -moz-animation-delay: 1120ms;
+  -o-animation-delay: 1120ms;
+  -ms-animation-delay: 1120ms;
+  animation-delay: 1120ms;
+}
+
+.loading_15 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_16@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 1200ms;
+  -moz-animation-delay: 1200ms;
+  -o-animation-delay: 1200ms;
+  -ms-animation-delay: 1200ms;
+  animation-delay: 1200ms;
+}
+
+.loading_16 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_17@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 1280ms;
+  -moz-animation-delay: 1280ms;
+  -o-animation-delay: 1280ms;
+  -ms-animation-delay: 1280ms;
+  animation-delay: 1280ms;
+}
+
+.loading_17 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_18@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 1360ms;
+  -moz-animation-delay: 1360ms;
+  -o-animation-delay: 1360ms;
+  -ms-animation-delay: 1360ms;
+  animation-delay: 1360ms;
+}
+
+.loading_18 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_19@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 1440ms;
+  -moz-animation-delay: 1440ms;
+  -o-animation-delay: 1440ms;
+  -ms-animation-delay: 1440ms;
+  animation-delay: 1440ms;
+}
+
+.loading_19 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_20@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 1520ms;
+  -moz-animation-delay: 1520ms;
+  -o-animation-delay: 1520ms;
+  -ms-animation-delay: 1520ms;
+  animation-delay: 1520ms;
+}
+
+.loading_20 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_21@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 1600ms;
+  -moz-animation-delay: 1600ms;
+  -o-animation-delay: 1600ms;
+  -ms-animation-delay: 1600ms;
+  animation-delay: 1600ms;
+}
+
+.loading_21 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_22@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 1680ms;
+  -moz-animation-delay: 1680ms;
+  -o-animation-delay: 1680ms;
+  -ms-animation-delay: 1680ms;
+  animation-delay: 1680ms;
+}
+
+.loading_22 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_23@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 1760ms;
+  -moz-animation-delay: 1760ms;
+  -o-animation-delay: 1760ms;
+  -ms-animation-delay: 1760ms;
+  animation-delay: 1760ms;
+}
+
+.loading_23 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_24@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 1840ms;
+  -moz-animation-delay: 1840ms;
+  -o-animation-delay: 1840ms;
+  -ms-animation-delay: 1840ms;
+  animation-delay: 1840ms;
+}
+
+.loading_24 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+  margin-right: 1rem;
+  background-image: url(images/loading_white_25@2x.png);
+  visibility: hidden;
+  -webkit-animation: loading 2s infinite linear;
+  -moz-animation: loading 2s infinite linear;
+  -o-animation: loading 2s infinite linear;
+  -ms-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+  -webkit-animation-delay: 1920ms;
+  -moz-animation-delay: 1920ms;
+  -o-animation-delay: 1920ms;
+  -ms-animation-delay: 1920ms;
+  animation-delay: 1920ms;
+}
+
+.loading_0 {
+  visibility: hidden;
+}
+
+@-webkit-keyframes loading {
+  0% {
+    visibility: hidden;
+  }
+  4% {
+    visibility: visible;
+  }
+  8% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+@-moz-keyframes loading {
+  0% {
+    visibility: hidden;
+  }
+  4% {
+    visibility: visible;
+  }
+  8% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+@-o-keyframes loading {
+  0% {
+    visibility: hidden;
+  }
+  4% {
+    visibility: visible;
+  }
+  8% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+@keyframes loading {
+  0% {
+    visibility: hidden;
+  }
+  4% {
+    visibility: visible;
+  }
+  8% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
+}

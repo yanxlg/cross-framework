@@ -1,0 +1,51 @@
+@charset "utf-8";
+//loading加载动画
+@import "../../ui/cf-ui-base.scss";
+@import "../../ui/cf-modal.scss";
+@import "../../ui/cf-flex.scss";
+@import "../../ui/cf-varia.scss";
+@import "../../ui/cf-func.scss";
+@import "./loading-icon.scss";
+$modalBg:#6950ee;
+.loading-plugin{
+  .modal-backdrop{
+    background-color:$modalBg;
+  }
+  .loading-container{
+    .loading-package{
+      color: map_get($baseColor,white);
+      letter-spacing: remToPx(0.1rem);
+      font-size: remToPx(1.2rem);
+      @for $i from 0 through 2 {
+        .dot-#{$i}{
+          opacity: 0;
+          filter:alpha(opacity=0);
+          @include prefix(animation,dotShow 2s infinite linear);
+          @include prefix(animation-delay, #{80*$i}ms);
+        }
+      }
+    }
+  }
+}
+@include keyframes(dotShow){
+  0%{
+    opacity: 0;
+    filter:alpha(opacity=0);
+  }
+  20%{
+    opacity: 1;
+    filter:alpha(opacity=100);
+  }
+  60%{
+    opacity: 0;
+    filter:alpha(opacity=0);
+  }
+  100%{
+  }
+}
+
+@media screen and (max-width: 400px){
+  .loading-package{
+    display: none;
+  }
+}

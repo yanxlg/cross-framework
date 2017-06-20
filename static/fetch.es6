@@ -465,7 +465,7 @@ import Promise from './Promise.es6';
         })
     }
     self.fetch.polyfill = true
-})(typeof self !== 'undefined' ? self : this);
+})(typeof self !== 'undefined' ? self : window);
 
-let fetch=typeof self !== 'undefined' ? self.fetch : this.fetch;
+let fetch=typeof self !== 'undefined' ? self.fetch : window.fetch;
 export default fetch;
