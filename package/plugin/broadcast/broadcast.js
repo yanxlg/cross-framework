@@ -63,12 +63,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 36);
+/******/ 	return __webpack_require__(__webpack_require__.s = 38);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 31:
+/***/ 14:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -89,40 +89,72 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * 不同页面存在不同的空间，接入存储时间控制，在get与set的时候会检查存储时间来清理一次
  * location.href 替换成 location.pathname
  * storage事件在当前页面不会广播，调整为当前页面也能接收到广播
- * length() 调整为getLength()  fix mobile UC length hack
  */
 var storage = window.localStorage;
 var sessionCache = window.sessionStorage;
 
 var encode = function encode(text) {
-    return encodeURI(encodeURIComponent(encodeURI(text)));
+    var length = text.length,
+        c = String.fromCharCode(text.charCodeAt(0) + length);
+    for (var i = 1; i < length; i++) {
+        c += String.fromCharCode(text.charCodeAt(i) + text.charCodeAt(i - 1));
+    }
+    return escape(c);
+    // return encodeURI(encodeURIComponent(encodeURI(text)));
 };
-
 var decode = function decode(text) {
-    return decodeURI(decodeURIComponent(decodeURI(text)));
+    text = unescape(text);
+    var length = text.length,
+        c = String.fromCharCode(text.charCodeAt(0) - length);
+    for (var i = 1; i < length; i++) {
+        c += String.fromCharCode(text.charCodeAt(i) - c.charCodeAt(i - 1));
+    }
+    return c;
+    // return decodeURI(decodeURIComponent(decodeURI(text)));
 };
 /****
  * 保存体构造器
  */
 
-var Data = function Data(val, time) {
-    _classCallCheck(this, Data);
+var Data = function () {
+    function Data(val, time) {
+        _classCallCheck(this, Data);
 
-    return JSON.stringify({
-        _val: val,
-        _create: new Date().getTime() / 1000,
-        _save: time ? time : -1
-    });
-};
+        this._data = JSON.stringify({
+            _val: val,
+            _create: new Date().getTime() / 1000,
+            _save: time ? time : -1
+        });
+    }
 
-var Key = function Key(key) {
-    _classCallCheck(this, Key);
+    _createClass(Data, [{
+        key: "getString",
+        value: function getString() {
+            return this._data;
+        }
+    }]);
 
-    return JSON.stringify({
-        _key: key,
-        _url: location.pathname
-    });
-};
+    return Data;
+}();
+
+var Key = function () {
+    function Key(key) {
+        _classCallCheck(this, Key);
+
+        this._data = JSON.stringify({
+            _key: key
+        });
+    }
+
+    _createClass(Key, [{
+        key: "getString",
+        value: function getString() {
+            return this._data;
+        }
+    }]);
+
+    return Key;
+}();
 
 var Store = function () {
     function Store() {
@@ -135,8 +167,8 @@ var Store = function () {
             //检查是否过去，页面单实例处理
             //通过url来区别不容的页面
             //time 保存时间，以s为单位
-            var $key = encode(new Key(key));
-            var $val = encode(new Data(val, time));
+            var $key = encode(new Key(key).getString());
+            var $val = encode(new Data(val, time).getString());
             storage.setItem($key, $val);
         }
     }, {
@@ -145,7 +177,7 @@ var Store = function () {
             var _this = this;
 
             //获取当前页面的值
-            var $key = encode(new Key(key));
+            var $key = encode(new Key(key).getString());
             var $data = storage.getItem($key);
             return !$data ? function () {
                 return null;
@@ -172,7 +204,7 @@ var Store = function () {
     }, {
         key: "remove",
         value: function remove(key) {
-            var $key = encode(new Key(key));
+            var $key = encode(new Key(key).getString());
             storage.removeItem($key);
         }
     }, {
@@ -238,8 +270,8 @@ var Session = function () {
             //检查是否过去，页面单实例处理
             //通过url来区别不容的页面
             //time 保存时间，以s为单位
-            var $key = encode(new Key(key));
-            var $val = encode(new Data(val, time));
+            var $key = encode(new Key(key).getString());
+            var $val = encode(new Data(val, time).getString());
             sessionCache.setItem($key, $val);
         }
     }, {
@@ -248,7 +280,7 @@ var Session = function () {
             var _this2 = this;
 
             //获取当前页面的值
-            var $key = encode(new Key(key));
+            var $key = encode(new Key(key).getString());
             var $data = sessionCache.getItem($key);
             return !$data ? function () {
                 return null;
@@ -275,7 +307,7 @@ var Session = function () {
     }, {
         key: "remove",
         value: function remove(key) {
-            var $key = encode(new Key(key));
+            var $key = encode(new Key(key).getString());
             sessionCache.removeItem($key);
         }
     }, {
@@ -336,7 +368,7 @@ exports.decode = decode;
 
 /***/ }),
 
-/***/ 36:
+/***/ 38:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -353,7 +385,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
-var _store = __webpack_require__(31);
+var _store = __webpack_require__(14);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 

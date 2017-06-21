@@ -1,9 +1,9 @@
 .slide {
-  height: 0;
-  overflow-y: hidden;
-  -webkit-transition: height 500ms ease-out;
-  -moz-transition: height 500ms ease-out;
-  -o-transition: height 500ms ease-out;
-  -ms-transition: height 500ms ease-out;
-  transition: height 500ms ease-out;
+    height: 0;
+    overflow-y: hidden;
+    -webkit-transition: height .5s ease-out;
+    -moz-transition: height .5s ease-out;
+    -o-transition: height .5s ease-out;
+    -ms-transition: height .5s ease-out;
+    transition: height .5s ease-out
 }

@@ -119,12 +119,17 @@ Object.defineProperty(exports, "__esModule", {
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * Created by yanxlg on 2017/6/5 0005.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 顶部菜单
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 显示4个，其余的使用展开形式显示
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
 var _navTop = __webpack_require__(13);
 
 var _navTop2 = _interopRequireDefault(_navTop);
+
+var _navPop = __webpack_require__(9);
+
+var _navPop2 = _interopRequireDefault(_navPop);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -140,21 +145,26 @@ var TopMenu = function () {
     }
 
     _createClass(TopMenu, [{
-        key: "getType",
+        key: 'getType',
         value: function getType() {
             return "TopMenu";
         }
     }, {
-        key: "create",
+        key: 'create',
         value: function create() {
             this.menusRender = $((0, _navTop2.default)({
                 menus: this.menus
             }));
+            if (this.menus.length > 4) {
+                //创建nav-pop
+                var popMenus = this.menus.slice(4);
+                this.navPop = new _navPop2.default(popMenus);
+            }
             $("body").addClass("width-nav-top").append(this.menusRender);
             this.updateBg();
         }
     }, {
-        key: "initLife",
+        key: 'initLife',
         value: function initLife() {
             var $this = this;
             this.menusRender.on("mouseover", ".nav-right > li", function () {
@@ -169,18 +179,22 @@ var TopMenu = function () {
                     return;
                 }
                 $this.menusRender.find(".active").removeClass("active");
+                $(".nav-active").removeClass("nav-active");
                 $(this).addClass("active").parents().prev(".nav-menu").addClass("active");
                 var data = $(this).attr("data-data");
                 $this.callback && $this.callback.call($this, data);
             });
+            this.menusRender.on("click", ".nav-icon-menu", function () {
+                $this.navPop && $this.navPop.show();
+            });
             //滚动监听，当滚动到一定程度的时候背景设置为透明
-            $(window).on("scroll", function () {
+            $(window).on("scroll.top", function () {
                 //500像素透明
                 $this.updateBg();
             });
         }
     }, {
-        key: "updateBg",
+        key: 'updateBg',
         value: function updateBg() {
             if (!this.bg) {
                 var bgColor = this.menusRender.css("background-color");
@@ -190,13 +204,23 @@ var TopMenu = function () {
             var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
             var opacity = 1 - Math.round(scrolltop / 100) / 10; //背景调整
             this.menusRender.css({
-                "background-color": "rgba(" + this.bg[0] + "," + this.bg[1] + "," + this.bg[2] + "," + opacity + ")"
+                "background-color": 'rgba(' + this.bg[0] + ',' + this.bg[1] + ',' + this.bg[2] + ',' + opacity + ')'
             });
         }
     }, {
-        key: "then",
+        key: 'then',
         value: function then(callback) {
             this.callback = callback;
+        }
+    }, {
+        key: 'destroy',
+        value: function destroy() {
+            this.menusRender.remove();
+            $("body").removeClass("width-nav-top");
+            $(window).off("scroll.top");
+            if (this.navPop) {
+                this.navPop.destroy();
+            }
         }
     }]);
 
@@ -207,6 +231,74 @@ exports.default = TopMenu;
 
 /***/ }),
 
+/***/ 12:
+/***/ (function(module, exports, __webpack_require__) {
+
+var $imports = __webpack_require__(1);
+module.exports = function ($data) {
+    'use strict';
+    $data = $data || {};
+    var $$out = '', $escape = $imports.$escape, left = $data.left, $each = $imports.$each, menus = $data.menus, menu = $data.menu, $index = $data.$index, childMenu = $data.childMenu, subMenu = $data.subMenu, lastMenu = $data.lastMenu, item = $data.item;
+    $$out += '<div class="nav">\r\n    <div class="nav-header">\r\n        <i class="nav-icon-menu ';
+    $$out += $escape(left ? 'left' : '');
+    $$out += '"></i>\r\n    </div>\r\n    <div class="modal-backdrop fade"></div>\r\n    <ul class="nav-pop">\r\n        ';
+    $each(menus, function (menu, $index) {
+        $$out += '\r\n        <li>\r\n            <div class="nav-menu" data-data="';
+        $$out += $escape(menu.data);
+        $$out += '">';
+        $$out += $escape(menu.name);
+        $$out += '</div>\r\n            ';
+        if (menu.childMenus && menu.childMenus.length > 0) {
+            $$out += '\r\n            <ul class="slide">\r\n                ';
+            $each(menu.childMenus, function (childMenu, $index) {
+                $$out += '\r\n                ';
+                if (childMenu.groupName) {
+                    $$out += '\r\n                <div class="nav-group">';
+                    $$out += $escape(childMenu.groupName);
+                    $$out += '</div>\r\n                ';
+                }
+                $$out += '\r\n                ';
+                $each(childMenu.menus, function (subMenu, $index) {
+                    $$out += '\r\n                <li>\r\n                    <div class="nav-menu" data-data="';
+                    $$out += $escape(subMenu.data);
+                    $$out += '">';
+                    $$out += $escape(subMenu.name);
+                    $$out += '</div>\r\n                    ';
+                    if (subMenu.childMenus && subMenu.childMenus.length > 0) {
+                        $$out += '\r\n                    <ul class="slide">\r\n                        ';
+                        $each(subMenu.childMenus, function (lastMenu, $index) {
+                            $$out += '\r\n                        ';
+                            if (lastMenu.groupName) {
+                                $$out += '\r\n                        <div class="nav-group">';
+                                $$out += $escape(lastMenu.groupName);
+                                $$out += '</div>\r\n                        ';
+                            }
+                            $$out += '\r\n                        ';
+                            $each(lastMenu.menus, function (item, $index) {
+                                $$out += '\r\n                        <li>\r\n                            <div class="nav-menu" data-data="';
+                                $$out += $escape(item.data);
+                                $$out += '">';
+                                $$out += $escape(item.name);
+                                $$out += '</div>\r\n                        </li>\r\n                        ';
+                            });
+                            $$out += '\r\n                        ';
+                        });
+                        $$out += '\r\n                    </ul>\r\n                    ';
+                    }
+                    $$out += '\r\n                </li>\r\n                ';
+                });
+                $$out += '\r\n                ';
+            });
+            $$out += '\r\n            </ul>\r\n            ';
+        }
+        $$out += '\r\n        </li>\r\n        ';
+    });
+    $$out += '\r\n    </ul>\r\n</div>\r\n';
+    return $$out;
+};
+
+/***/ }),
+
 /***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -214,46 +306,54 @@ var $imports = __webpack_require__(1);
 module.exports = function ($data) {
     'use strict';
     $data = $data || {};
-    var $$out = '', $each = $imports.$each, menus = $data.menus, menu = $data.menu, $index = $data.$index, $escape = $imports.$escape, childMenu = $data.childMenu, subMenu = $data.subMenu, lastMenu = $data.lastMenu, item = $data.item;
+    var $$out = '', $each = $imports.$each, menus = $data.menus, menu = $data.menu, index = $data.index, $escape = $imports.$escape, childMenu = $data.childMenu, $index = $data.$index, subMenu = $data.subMenu, lastMenu = $data.lastMenu, item = $data.item;
     $$out += '<div class="nav nav-top">\r\n    <ul class="nav-right">\r\n        ';
-    $each(menus, function (menu, $index) {
-        $$out += '\r\n            <li>\r\n                <div class="nav-menu" data-data="';
-        $$out += $escape(menu.data);
-        $$out += '">';
-        $$out += $escape(menu.name);
-        $$out += '</div>\r\n                ';
-        if (menu.childMenus && menu.childMenus.length > 0) {
-            $$out += '\r\n                    <ul>\r\n                        ';
-            $each(menu.childMenus, function (childMenu, $index) {
-                $$out += '\r\n                            ';
-                $each(childMenu.menus, function (subMenu, $index) {
-                    $$out += '\r\n                                <li>\r\n                                    <div class="nav-menu" data-data="';
-                    $$out += $escape(subMenu.data);
-                    $$out += '">';
-                    $$out += $escape(subMenu.name);
-                    $$out += '</div>\r\n                                    ';
-                    if (subMenu.childMenus && subMenu.childMenus.length > 0) {
-                        $$out += '\r\n                                        <ul>\r\n                                            ';
-                        $each(subMenu.childMenus, function (lastMenu, $index) {
-                            $$out += '\r\n                                                ';
-                            $each(lastMenu.menus, function (item, $index) {
-                                $$out += '\r\n                                                    <li>\r\n                                                        <div class="nav-menu" data-data="';
-                                $$out += $escape(item.data);
-                                $$out += '">';
-                                $$out += $escape(item.name);
-                                $$out += '</div>\r\n                                                    </li>\r\n                                                ';
+    $each(menus, function (menu, index) {
+        $$out += '\r\n            <!--仅显示4个\uFF0C超出的使用隐藏方式显示-->\r\n            ';
+        if (index < 4) {
+            $$out += '\r\n                <li>\r\n                    <div class="nav-menu" data-data="';
+            $$out += $escape(menu.data);
+            $$out += '">';
+            $$out += $escape(menu.name);
+            $$out += '</div>\r\n                    ';
+            if (menu.childMenus && menu.childMenus.length > 0) {
+                $$out += '\r\n                    <ul>\r\n                        ';
+                $each(menu.childMenus, function (childMenu, $index) {
+                    $$out += '\r\n                        ';
+                    $each(childMenu.menus, function (subMenu, $index) {
+                        $$out += '\r\n                        <li>\r\n                            <div class="nav-menu" data-data="';
+                        $$out += $escape(subMenu.data);
+                        $$out += '">';
+                        $$out += $escape(subMenu.name);
+                        $$out += '</div>\r\n                            ';
+                        if (subMenu.childMenus && subMenu.childMenus.length > 0) {
+                            $$out += '\r\n                            <ul>\r\n                                ';
+                            $each(subMenu.childMenus, function (lastMenu, $index) {
+                                $$out += '\r\n                                ';
+                                $each(lastMenu.menus, function (item, $index) {
+                                    $$out += '\r\n                                <li>\r\n                                    <div class="nav-menu" data-data="';
+                                    $$out += $escape(item.data);
+                                    $$out += '">';
+                                    $$out += $escape(item.name);
+                                    $$out += '</div>\r\n                                </li>\r\n                                ';
+                                });
+                                $$out += '\r\n                                ';
                             });
-                            $$out += '\r\n                                            ';
-                        });
-                        $$out += '\r\n                                        </ul>\r\n                                    ';
-                    }
-                    $$out += '\r\n                                </li>\r\n                            ';
+                            $$out += '\r\n                            </ul>\r\n                            ';
+                        }
+                        $$out += '\r\n                        </li>\r\n                        ';
+                    });
+                    $$out += '\r\n                        ';
                 });
-                $$out += '\r\n                        ';
-            });
-            $$out += '\r\n                    </ul>\r\n                ';
+                $$out += '\r\n                    </ul>\r\n                    ';
+            }
+            $$out += '\r\n                </li>\r\n            ';
         }
-        $$out += '\r\n            </li>\r\n        ';
+        $$out += '\r\n            ';
+        if (index === 4) {
+            $$out += '\r\n                <i class="nav-icon-menu"></i>\r\n            ';
+        }
+        $$out += '\r\n        ';
     });
     $$out += '\r\n    </ul>\r\n</div>';
     return $$out;
@@ -382,6 +482,75 @@ try {
 
 /***/ }),
 
+/***/ 4:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Created by yanxlg on 2017/6/5 0005.
+ * slide插件
+ * 需要动态计算展开的大小
+ */
+var Slide = function () {
+    function Slide() {
+        _classCallCheck(this, Slide);
+    }
+
+    _createClass(Slide, null, [{
+        key: "slideDown",
+        value: function slideDown(el) {
+            var child = el.children(),
+                offH = 0;
+            $.each(child, function (i, ch) {
+                offH += ch.offsetHeight; //可能更新 不及时，需要从css中读取
+            });
+            el.css({
+                height: offH + "px"
+            });
+            return offH;
+        }
+    }, {
+        key: "slide",
+        value: function slide(el, delY) {
+            //增量处理
+            var offH = el[0].offsetHeight;
+            el.css({
+                height: offH + delY + "px"
+            });
+            return offH + delY;
+        }
+    }, {
+        key: "slideUp",
+        value: function slideUp(el) {
+            var child = el.children(),
+                offH = 0;
+            $.each(child, function (i, ch) {
+                offH += ch.offsetHeight; //可能更新 不及时，需要从css中读取
+            });
+            el.css({
+                height: 0
+            });
+            return offH;
+        }
+    }]);
+
+    return Slide;
+}();
+
+exports.default = Slide;
+
+/***/ }),
+
 /***/ 48:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -456,6 +625,190 @@ setTimeout(function () {
 }, 0); /**
         * Created by Administrator on 2017/6/5 0005.
         */
+
+/***/ }),
+
+/***/ 9:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Created by yanxlg on 2017/6/2 0002.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 导航菜单
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 默认根据屏幕大小切换显示方式，大屏显示在左侧 中屏显示在顶部 小屏顶部折叠 右侧显示（支持左侧侧滑）
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * options 支持参数
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * left：菜单header的icon显示在左侧
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 菜单循环嵌套,一个菜单项是一个object
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * menus:[{pMenu:{},menuList:[{groupName:"",menus:[]},{},{}]},{}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 分组信息 group menus:{groupName:"",menus:[]}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 一组菜单：[]
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 支持三层结构
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *  name:"",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *  data:obj
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *  childMenus:[{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      groupName:"",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      menus:[{
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     *           name:"",
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     *           data:obj,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     *           childMenus:[]
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      }]
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *  }]
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 打开的时候收起其他的
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+
+
+var _navPop = __webpack_require__(12);
+
+var _navPop2 = _interopRequireDefault(_navPop);
+
+var _slide = __webpack_require__(4);
+
+var _slide2 = _interopRequireDefault(_slide);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var PopMenu = function () {
+    function PopMenu(menus, left) {
+        _classCallCheck(this, PopMenu);
+
+        this.menus = menus;
+        this.left = left || false;
+        this.create();
+        this.initLife();
+    }
+
+    _createClass(PopMenu, [{
+        key: 'getType',
+        value: function getType() {
+            return "PopMenu";
+        }
+    }, {
+        key: 'create',
+        value: function create() {
+            this.menusRender = $((0, _navPop2.default)({
+                menus: this.menus,
+                left: this.left
+            }));
+            $("body").addClass("width-nav-left").append(this.menusRender);
+        }
+    }, {
+        key: 'initLife',
+        value: function initLife() {
+            var _this = this;
+            this.menusRender.on("click", ".nav-menu", function () {
+                var $this = $(this);
+                if ($this.next().hasClass("slide")) {
+                    if ($this.next().hasClass("open")) {
+                        $this.removeClass("open").next().removeClass("open");
+                        var addH = _slide2.default.slideUp($this.next());
+                        var parentSlide = $this.parents(".slide");
+                        $.each(parentSlide, function (i, slide) {
+                            $(slide).addClass("open").prev().addClass("open");
+                            _slide2.default.slide($(slide), -addH);
+                        });
+                    } else {
+                        //这样会造成父级元素高度变化
+                        //fix it
+                        //需要关闭其他父级菜单中已经打开的
+                        var others = $this.parent().siblings(); //li元素
+                        $.each(others, function (i, li) {
+                            var slide = $(li).children(".slide");
+                            if (slide.hasClass("open")) {
+                                slide.removeClass("open").prev().removeClass("open");
+                                _slide2.default.slideUp(slide);
+                                //关闭子的
+                                var childSlide = slide.find(".slide");
+                                $.each(childSlide, function (i, mSlide) {
+                                    $(mSlide).removeClass("open").prev().removeClass("open");
+                                    _slide2.default.slideUp($(mSlide));
+                                });
+                            }
+                        });
+                        $this.addClass("open").next().addClass("open");
+                        var _addH = _slide2.default.slideDown($this.next());
+                        var _parentSlide = $this.parents(".slide");
+                        $.each(_parentSlide, function (i, slide) {
+                            $(slide).addClass("open").prev().addClass("open");
+                            _slide2.default.slide($(slide), _addH);
+                        });
+                    }
+                } else {
+                    $(".nav-active").removeClass("nav-active");
+                    $(".nav-menu.active").removeClass("active");
+                    //...添加样式
+                    $(".nav-icon-menu").addClass("nav-active");
+                    $this.addClass("nav-active");
+                    var data = $this.attr("data-data");
+                    _this.callback && _this.callback.call(_this, data);
+                    _this.close();
+                }
+            });
+            this.menusRender.on("click", ".nav-icon-menu", function () {
+                _this.show();
+            });
+            this.menusRender.on("click", ".modal-backdrop", function () {
+                _this.close();
+            });
+            $(window).on("scroll.pop", function () {
+                _this.updateBg();
+            });
+        }
+    }, {
+        key: 'updateBg',
+        value: function updateBg() {
+            if (!this.bg) {
+                var bgColor = this.menusRender.find(".nav-header").css("background-color");
+                //正则解析出三段int值
+                this.bg = bgColor.match(/\d+/g);
+            }
+            var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
+            var opacity = 1 - Math.round(scrolltop / 100) / 10; //背景调整
+            this.menusRender.find(".nav-header").css({
+                "background-color": 'rgba(' + this.bg[0] + ',' + this.bg[1] + ',' + this.bg[2] + ',' + opacity + ')'
+            });
+        }
+    }, {
+        key: 'show',
+        value: function show() {
+            this.menusRender.find(".nav-pop").addClass("show");
+            this.menusRender.find(".modal-backdrop").addClass("in");
+        }
+    }, {
+        key: 'close',
+        value: function close() {
+            this.menusRender.find(".nav-pop").removeClass("show");
+            this.menusRender.find(".modal-backdrop").removeClass("in");
+        }
+    }, {
+        key: 'then',
+        value: function then(callback) {
+            this.callback = callback;
+        }
+    }, {
+        key: 'destroy',
+        value: function destroy() {
+            this.menusRender.remove();
+            $("body").removeClass("width-nav-left");
+            $(window).off("scroll.pop");
+        }
+    }]);
+
+    return PopMenu;
+}();
+
+exports.default = PopMenu;
 
 /***/ })
 

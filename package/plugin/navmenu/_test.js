@@ -119,12 +119,17 @@ Object.defineProperty(exports, "__esModule", {
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * Created by yanxlg on 2017/6/5 0005.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 顶部菜单
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * 显示4个，其余的使用展开形式显示
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
 var _navTop = __webpack_require__(13);
 
 var _navTop2 = _interopRequireDefault(_navTop);
+
+var _navPop = __webpack_require__(9);
+
+var _navPop2 = _interopRequireDefault(_navPop);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -140,21 +145,26 @@ var TopMenu = function () {
     }
 
     _createClass(TopMenu, [{
-        key: "getType",
+        key: 'getType',
         value: function getType() {
             return "TopMenu";
         }
     }, {
-        key: "create",
+        key: 'create',
         value: function create() {
             this.menusRender = $((0, _navTop2.default)({
                 menus: this.menus
             }));
+            if (this.menus.length > 4) {
+                //创建nav-pop
+                var popMenus = this.menus.slice(4);
+                this.navPop = new _navPop2.default(popMenus);
+            }
             $("body").addClass("width-nav-top").append(this.menusRender);
             this.updateBg();
         }
     }, {
-        key: "initLife",
+        key: 'initLife',
         value: function initLife() {
             var $this = this;
             this.menusRender.on("mouseover", ".nav-right > li", function () {
@@ -169,18 +179,22 @@ var TopMenu = function () {
                     return;
                 }
                 $this.menusRender.find(".active").removeClass("active");
+                $(".nav-active").removeClass("nav-active");
                 $(this).addClass("active").parents().prev(".nav-menu").addClass("active");
                 var data = $(this).attr("data-data");
                 $this.callback && $this.callback.call($this, data);
             });
+            this.menusRender.on("click", ".nav-icon-menu", function () {
+                $this.navPop && $this.navPop.show();
+            });
             //滚动监听，当滚动到一定程度的时候背景设置为透明
-            $(window).on("scroll", function () {
+            $(window).on("scroll.top", function () {
                 //500像素透明
                 $this.updateBg();
             });
         }
     }, {
-        key: "updateBg",
+        key: 'updateBg',
         value: function updateBg() {
             if (!this.bg) {
                 var bgColor = this.menusRender.css("background-color");
@@ -190,13 +204,23 @@ var TopMenu = function () {
             var scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
             var opacity = 1 - Math.round(scrolltop / 100) / 10; //背景调整
             this.menusRender.css({
-                "background-color": "rgba(" + this.bg[0] + "," + this.bg[1] + "," + this.bg[2] + "," + opacity + ")"
+                "background-color": 'rgba(' + this.bg[0] + ',' + this.bg[1] + ',' + this.bg[2] + ',' + opacity + ')'
             });
         }
     }, {
-        key: "then",
+        key: 'then',
         value: function then(callback) {
             this.callback = callback;
+        }
+    }, {
+        key: 'destroy',
+        value: function destroy() {
+            this.menusRender.remove();
+            $("body").removeClass("width-nav-top");
+            $(window).off("scroll.top");
+            if (this.navPop) {
+                this.navPop.destroy();
+            }
         }
     }]);
 
@@ -348,46 +372,54 @@ var $imports = __webpack_require__(1);
 module.exports = function ($data) {
     'use strict';
     $data = $data || {};
-    var $$out = '', $each = $imports.$each, menus = $data.menus, menu = $data.menu, $index = $data.$index, $escape = $imports.$escape, childMenu = $data.childMenu, subMenu = $data.subMenu, lastMenu = $data.lastMenu, item = $data.item;
+    var $$out = '', $each = $imports.$each, menus = $data.menus, menu = $data.menu, index = $data.index, $escape = $imports.$escape, childMenu = $data.childMenu, $index = $data.$index, subMenu = $data.subMenu, lastMenu = $data.lastMenu, item = $data.item;
     $$out += '<div class="nav nav-top">\r\n    <ul class="nav-right">\r\n        ';
-    $each(menus, function (menu, $index) {
-        $$out += '\r\n            <li>\r\n                <div class="nav-menu" data-data="';
-        $$out += $escape(menu.data);
-        $$out += '">';
-        $$out += $escape(menu.name);
-        $$out += '</div>\r\n                ';
-        if (menu.childMenus && menu.childMenus.length > 0) {
-            $$out += '\r\n                    <ul>\r\n                        ';
-            $each(menu.childMenus, function (childMenu, $index) {
-                $$out += '\r\n                            ';
-                $each(childMenu.menus, function (subMenu, $index) {
-                    $$out += '\r\n                                <li>\r\n                                    <div class="nav-menu" data-data="';
-                    $$out += $escape(subMenu.data);
-                    $$out += '">';
-                    $$out += $escape(subMenu.name);
-                    $$out += '</div>\r\n                                    ';
-                    if (subMenu.childMenus && subMenu.childMenus.length > 0) {
-                        $$out += '\r\n                                        <ul>\r\n                                            ';
-                        $each(subMenu.childMenus, function (lastMenu, $index) {
-                            $$out += '\r\n                                                ';
-                            $each(lastMenu.menus, function (item, $index) {
-                                $$out += '\r\n                                                    <li>\r\n                                                        <div class="nav-menu" data-data="';
-                                $$out += $escape(item.data);
-                                $$out += '">';
-                                $$out += $escape(item.name);
-                                $$out += '</div>\r\n                                                    </li>\r\n                                                ';
+    $each(menus, function (menu, index) {
+        $$out += '\r\n            <!--仅显示4个\uFF0C超出的使用隐藏方式显示-->\r\n            ';
+        if (index < 4) {
+            $$out += '\r\n                <li>\r\n                    <div class="nav-menu" data-data="';
+            $$out += $escape(menu.data);
+            $$out += '">';
+            $$out += $escape(menu.name);
+            $$out += '</div>\r\n                    ';
+            if (menu.childMenus && menu.childMenus.length > 0) {
+                $$out += '\r\n                    <ul>\r\n                        ';
+                $each(menu.childMenus, function (childMenu, $index) {
+                    $$out += '\r\n                        ';
+                    $each(childMenu.menus, function (subMenu, $index) {
+                        $$out += '\r\n                        <li>\r\n                            <div class="nav-menu" data-data="';
+                        $$out += $escape(subMenu.data);
+                        $$out += '">';
+                        $$out += $escape(subMenu.name);
+                        $$out += '</div>\r\n                            ';
+                        if (subMenu.childMenus && subMenu.childMenus.length > 0) {
+                            $$out += '\r\n                            <ul>\r\n                                ';
+                            $each(subMenu.childMenus, function (lastMenu, $index) {
+                                $$out += '\r\n                                ';
+                                $each(lastMenu.menus, function (item, $index) {
+                                    $$out += '\r\n                                <li>\r\n                                    <div class="nav-menu" data-data="';
+                                    $$out += $escape(item.data);
+                                    $$out += '">';
+                                    $$out += $escape(item.name);
+                                    $$out += '</div>\r\n                                </li>\r\n                                ';
+                                });
+                                $$out += '\r\n                                ';
                             });
-                            $$out += '\r\n                                            ';
-                        });
-                        $$out += '\r\n                                        </ul>\r\n                                    ';
-                    }
-                    $$out += '\r\n                                </li>\r\n                            ';
+                            $$out += '\r\n                            </ul>\r\n                            ';
+                        }
+                        $$out += '\r\n                        </li>\r\n                        ';
+                    });
+                    $$out += '\r\n                        ';
                 });
-                $$out += '\r\n                        ';
-            });
-            $$out += '\r\n                    </ul>\r\n                ';
+                $$out += '\r\n                    </ul>\r\n                    ';
+            }
+            $$out += '\r\n                </li>\r\n            ';
         }
-        $$out += '\r\n            </li>\r\n        ';
+        $$out += '\r\n            ';
+        if (index === 4) {
+            $$out += '\r\n                <i class="nav-icon-menu"></i>\r\n            ';
+        }
+        $$out += '\r\n        ';
     });
     $$out += '\r\n    </ul>\r\n</div>';
     return $$out;
@@ -502,7 +534,21 @@ module.exports = runtime;
 
 /***/ }),
 
-/***/ 29:
+/***/ 3:
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = false;
+
+// Only Node.JS has a process variable that is of [[Class]] process
+try {
+ module.exports = Object.prototype.toString.call(global.process) === '[object process]' 
+} catch(e) {}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+
+/***/ 32:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -541,9 +587,9 @@ var NavMenu = function () {
         this.menus = menus;
         var width = document.body.offsetWidth;
         var ratio = window.devicePixelRatio;
-        if (width / ratio < 450) {
+        if (width / ratio < 700) {
             this.instance = new _navPop2.default(menus);
-        } else if (width / ratio >= 450 && width / ratio < 700) {
+        } else if (width / ratio >= 700 && width / ratio < 1080) {
             this.instance = new _navTop2.default(menus);
         } else {
             this.instance = new _navLeft2.default(menus);
@@ -564,22 +610,24 @@ var NavMenu = function () {
     }, {
         key: 'update',
         value: function update() {
-            var width = document.body.offsetWidth;
-            var ratio = window.devicePixelRatio;
+            var width = document.documentElement.offsetWidth;
             var newInstance = void 0;
-            if (width / ratio < 450) {
+            if (width < 700) {
                 if (this.instance.getType() === "PopMenu") {
                     return;
                 }
                 newInstance = new _navPop2.default(this.menus);
                 this.instance.menusRender.replaceWith(newInstance.menusRender);
+                this.instance.destroy();
+                //销毁instance
                 this.instance = newInstance;
-            } else if (width / ratio >= 450 && width / ratio < 700) {
+            } else if (width >= 700 && width <= 1080) {
                 if (this.instance.getType() === "TopMenu") {
                     return;
                 }
                 newInstance = new _navTop2.default(this.menus);
                 this.instance.menusRender.replaceWith(newInstance.menusRender);
+                this.instance.destroy();
                 this.instance = newInstance;
             } else {
                 if (this.instance.getType() === "LeftMenu") {
@@ -587,6 +635,7 @@ var NavMenu = function () {
                 }
                 newInstance = new _navLeft2.default(this.menus);
                 this.instance.menusRender.replaceWith(newInstance.menusRender);
+                this.instance.destroy();
                 this.instance = newInstance;
             }
         }
@@ -596,20 +645,6 @@ var NavMenu = function () {
 }();
 
 exports.default = NavMenu;
-
-/***/ }),
-
-/***/ 3:
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = false;
-
-// Only Node.JS has a process variable that is of [[Class]] process
-try {
- module.exports = Object.prototype.toString.call(global.process) === '[object process]' 
-} catch(e) {}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 
@@ -688,7 +723,7 @@ exports.default = Slide;
 "use strict";
 
 
-var _navmenu = __webpack_require__(29);
+var _navmenu = __webpack_require__(32);
 
 var _navmenu2 = _interopRequireDefault(_navmenu);
 
@@ -836,7 +871,7 @@ var LeftMenu = function () {
         key: 'initLife',
         value: function initLife() {
             var _this = this;
-            $("body").on("click", ".nav-menu", function () {
+            this.menusRender.on("click", ".nav-menu", function () {
                 var $this = $(this);
                 if ($this.next().hasClass("slide")) {
                     if ($this.next().hasClass("open")) {
@@ -875,6 +910,7 @@ var LeftMenu = function () {
                     }
                 } else {
                     $(".nav-active").removeClass("nav-active");
+                    $(".nav-menu.active").removeClass("active");
                     $this.addClass("nav-active");
                     var data = $this.attr("data-data");
                     _this.callback && _this.callback.call(_this, data);
@@ -885,6 +921,12 @@ var LeftMenu = function () {
         key: 'then',
         value: function then(callback) {
             this.callback = callback;
+        }
+    }, {
+        key: 'destroy',
+        value: function destroy() {
+            this.menusRender.remove();
+            $("body").removeClass("width-nav-left");
         }
     }]);
 
@@ -974,7 +1016,7 @@ var PopMenu = function () {
         key: 'initLife',
         value: function initLife() {
             var _this = this;
-            $("body").on("click", ".nav-menu", function () {
+            this.menusRender.on("click", ".nav-menu", function () {
                 var $this = $(this);
                 if ($this.next().hasClass("slide")) {
                     if ($this.next().hasClass("open")) {
@@ -1013,19 +1055,22 @@ var PopMenu = function () {
                     }
                 } else {
                     $(".nav-active").removeClass("nav-active");
+                    $(".nav-menu.active").removeClass("active");
+                    //...添加样式
+                    $(".nav-icon-menu").addClass("nav-active");
                     $this.addClass("nav-active");
                     var data = $this.attr("data-data");
                     _this.callback && _this.callback.call(_this, data);
                     _this.close();
                 }
             });
-            $("body").on("click", ".nav-icon-menu", function () {
+            this.menusRender.on("click", ".nav-icon-menu", function () {
                 _this.show();
             });
-            this.menusRender.find(".modal-backdrop").on("click", function () {
+            this.menusRender.on("click", ".modal-backdrop", function () {
                 _this.close();
             });
-            $(window).on("scroll", function () {
+            $(window).on("scroll.pop", function () {
                 _this.updateBg();
             });
         }
@@ -1059,6 +1104,13 @@ var PopMenu = function () {
         key: 'then',
         value: function then(callback) {
             this.callback = callback;
+        }
+    }, {
+        key: 'destroy',
+        value: function destroy() {
+            this.menusRender.remove();
+            $("body").removeClass("width-nav-left");
+            $(window).off("scroll.pop");
         }
     }]);
 

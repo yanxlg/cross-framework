@@ -3,10 +3,10 @@
 @import "../../../ui/cf-func.scss";
 @import "../../../ui/cf-varia.scss";
 @import "../../../ui/cf-iconfont.scss";
-
+@import "../nav-pop/nav-pop.scss";
 $menuBg:(default:rgba(50,65,87,1),active:#D1DBE5);
 $menuColor:(default:#bfcbd9,primary:#48576a,active:#20a0ff);
-$borderColor:(default:#d1dbe5,active:#20a0ff);
+$menuBorderColor:(default:#d1dbe5,active:#20a0ff);
 $shadow:(inner:rgba(0, 0, 0, .12),outer:rgba(0, 0, 0, .04));
 
 //顶部菜单
@@ -16,6 +16,9 @@ $shadow:(inner:rgba(0, 0, 0, .12),outer:rgba(0, 0, 0, .04));
   @include prefix(transition,all .3s);
 }
 .nav {
+  padding-right: 0;
+  @include prefix(box-sizing,border-box);
+  @include prefix(transition,all .3s);
   &.nav-top {
     //顶部菜单导航
     position: fixed;
@@ -38,14 +41,14 @@ $shadow:(inner:rgba(0, 0, 0, .12),outer:rgba(0, 0, 0, .04));
     }
     .nav-right {
       position: absolute;
-      right: remToPx(1rem);
+      right: remToPx(2rem);
       height: 100%;
       top: 0;
       ul {
         visibility: hidden;
         position: absolute;
         min-width: 100%;
-        border: 1px solid map_get($borderColor,default);
+        border: 1px solid map_get($menuBorderColor,default);
         background-color: map_get($baseColor,white);
         padding: remToPx(0.25rem) 0;
         z-index: 100;
@@ -82,7 +85,7 @@ $shadow:(inner:rgba(0, 0, 0, .12),outer:rgba(0, 0, 0, .04));
         font-size: remToPx(0.7rem);
         @include prefix(transition, border-color .3s, background-color .3s, color .3s);
         &:active,&:hover{
-          border-bottom: remToPx(0.25rem) solid map_get($borderColor,active);
+          border-bottom: remToPx(0.25rem) solid map_get($menuBorderColor,active);
         }
         ~ ul{
           visibility: hidden;
@@ -133,8 +136,35 @@ $shadow:(inner:rgba(0, 0, 0, .12),outer:rgba(0, 0, 0, .04));
           &:hover:after{
               @include prefix(transform,rotate(180deg));
           }
+          &.active{
+            border-bottom: remToPx(0.25rem) solid map_get($menuBorderColor,active);
+          }
         }
       }
+    }
+    .nav-icon-menu{
+      position: absolute;
+      right:remToPx(-1rem);
+      top:0;
+      &:after{
+        @extend .icon;
+        content: "\e6a0";
+      }
+      &.left{
+        left:remToPx(0.5rem);
+        right:auto;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1080px){
+  .nav-header{
+    display: none;
+  }
+  .nav{
+    .nav-pop{
+      top:remToPx(3rem);
     }
   }
 }

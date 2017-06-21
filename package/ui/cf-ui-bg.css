@@ -1,107 +1,107 @@
 .bg-success {
-  background-color: #13CE66;
+    background-color: #13ce66
 }
 
 .bg-warning {
-  background-color: #F7BA2A;
+    background-color: #f7ba2a
 }
 
 .bg-danger {
-  background-color: #FF4949;
+    background-color: #ff4949
 }
 
 .bg-info {
-  background-color: #03B8CF;
+    background-color: #03b8cf
 }
 
 .bg-important {
-  background-color: #BD7B46;
+    background-color: #bd7b46
 }
 
 .bg-special {
-  background-color: #8666B8;
+    background-color: #8666b8
 }
 
 .bg-black {
-  background-color: #1F2D3D;
+    background-color: #1f2d3d
 }
 
 .bg-white {
-  background-color: #fff;
+    background-color: #fff
 }
 
 .bg-dark {
-  background-color: #353535;
+    background-color: #353535
 }
 
 .bg-gray {
-  background-color: #808080;
+    background-color: grey
 }
 
 .bg-gray-light {
-  background-color: #DDDDDD;
+    background-color: #ddd
 }
 
 .bg-gray-lighter {
-  background-color: #E5E5E5;
+    background-color: #e5e5e5
 }
 
 .bg-gray-pale {
-  background-color: #F1F1F1;
+    background-color: #f1f1f1
 }
 
 .bg-gray-dark {
-  background-color: #333333;
+    background-color: #333
 }
 
 .bg-gray-darker {
-  background-color: #222222;
+    background-color: #222
 }
 
 .bg-silver {
-  background-color: #8492A6;
+    background-color: #8492a6
 }
 
 .bg-light-silver {
-  background-color: #99A9BF;
+    background-color: #99a9bf
 }
 
 .bg-light-black {
-  background-color: #324057;
+    background-color: #324057
 }
 
 .bg-light-blue {
-  background-color: #58B7FF;
+    background-color: #58b7ff
 }
 
 .bg-blue {
-  background-color: #20A0FF;
+    background-color: #20a0ff
 }
 
 .bg-dark-blue {
-  background-color: #1D8CE0;
+    background-color: #1d8ce0
 }
 
 .bg-danger-pale {
-  background-color: #FFE5E0;
+    background-color: #ffe5e0
 }
 
 .bg-warning-pale {
-  background-color: #FFF0D5;
+    background-color: #fff0d5
 }
 
 .bg-success-pale {
-  background-color: #DDF4DF;
+    background-color: #ddf4df
 }
 
 .bg-info-pale {
-  background-color: #DDF3F5;
+    background-color: #ddf3f5
 }
 
 .bg-important-pale {
-  background-color: #F7EBE1;
+    background-color: #f7ebe1
 }
 
 .bg-special-pale {
-  background-color: #F5EEFF;
+    background-color: #f5eeff
 }

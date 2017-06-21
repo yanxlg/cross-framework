@@ -5,37 +5,51 @@
  * 不同页面存在不同的空间，接入存储时间控制，在get与set的时候会检查存储时间来清理一次
  * location.href 替换成 location.pathname
  * storage事件在当前页面不会广播，调整为当前页面也能接收到广播
- * length() 调整为getLength()  fix mobile UC length hack
  */
 let storage=window.localStorage;
 let sessionCache=window.sessionStorage;
 
 let encode=(text)=>{
-    return encodeURI(encodeURIComponent(encodeURI(text)));
+    let length=text.length,c=String.fromCharCode(text.charCodeAt(0)+length);
+    for(let i=1;i<length;i++){
+        c+=String.fromCharCode(text.charCodeAt(i)+text.charCodeAt(i-1));
+    }
+    return escape(c);
+    // return encodeURI(encodeURIComponent(encodeURI(text)));
 };
-
 let decode=(text)=>{
-    return decodeURI(decodeURIComponent(decodeURI(text)));
+    text=unescape(text);
+    let length=text.length,c=String.fromCharCode(text.charCodeAt(0)-length);
+    for(let i=1;i<length;i++){
+        c+=String.fromCharCode(text.charCodeAt(i)-c.charCodeAt(i-1));
+    }
+    return c;
+    // return decodeURI(decodeURIComponent(decodeURI(text)));
 };
 /****
  * 保存体构造器
  */
 class Data{
     constructor(val,time){
-        return JSON.stringify({
+        this._data=JSON.stringify({
             _val:val,
             _create:new Date().getTime()/1000,
             _save:time?time:-1
         });
     }
+    getString(){
+        return this._data;
+    }
 }
 
 class Key{
     constructor(key){
-        return JSON.stringify({
-            _key:key,
-            _url:location.pathname
+        this._data=JSON.stringify({
+            _key:key
         });
+    }
+    getString(){
+        return this._data;
     }
 }
 class Store{
@@ -43,13 +57,13 @@ class Store{
         //检查是否过去，页面单实例处理
         //通过url来区别不容的页面
         //time 保存时间，以s为单位
-        let $key=encode(new Key(key));
-        let $val=encode(new Data(val,time));
+        let $key=encode(new Key(key).getString());
+        let $val=encode(new Data(val,time).getString());
         storage.setItem($key,$val);
     }
     static get(key){
         //获取当前页面的值
-        let $key=encode(new Key(key));
+        let $key=encode(new Key(key).getString());
         let $data=storage.getItem($key);
         return !$data?(()=>{
             return null;
@@ -72,7 +86,7 @@ class Store{
         }
     }
     static remove(key){
-        let $key=encode(new Key(key));
+        let $key=encode(new Key(key).getString());
         storage.removeItem($key);
     }
     static clear(page){
@@ -118,13 +132,13 @@ class Session{
         //检查是否过去，页面单实例处理
         //通过url来区别不容的页面
         //time 保存时间，以s为单位
-        let $key=encode(new Key(key));
-        let $val=encode(new Data(val,time));
+        let $key=encode(new Key(key).getString());
+        let $val=encode(new Data(val,time).getString());
         sessionCache.setItem($key,$val);
     }
     static get(key){
         //获取当前页面的值
-        let $key=encode(new Key(key));
+        let $key=encode(new Key(key).getString());
         let $data=sessionCache.getItem($key);
         return !$data?(()=>{
             return null;
@@ -147,7 +161,7 @@ class Session{
         }
     }
     static remove(key){
-        let $key=encode(new Key(key));
+        let $key=encode(new Key(key).getString());
         sessionCache.removeItem($key);
     }
     static clear(page){

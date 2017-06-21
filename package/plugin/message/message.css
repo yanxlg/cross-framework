@@ -1,470 +1,466 @@
 html {
-  width: 100%;
-  height: 100%;
-  font-size: 20px;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, 'Microsoft Yahei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    font-family: "Helvetica Neue",Helvetica,Tahoma,Arial,'Microsoft Yahei','PingFang SC','Hiragino Sans GB','WenQuanYi Micro Hei',sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
 }
 
 div {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: -ms-flexbox;
-  display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -ms-flexbox;
+    display: flex
 }
 
 * {
-  outline: 0;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-background-clip: border-box;
-  -moz-background-clip: border;
-  background-clip: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-background-clip: border-box;
+    -moz-background-clip: border;
+    background-clip: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
 }
 
 body {
-  width: 100%;
-  height: 100%;
-  font-size: 0.7rem;
-  margin: 0;
+    width: 100%;
+    height: 100%;
+    font-size: .7rem;
+    margin: 0
 }
 
-a, a:hover, a:visited, a:link, a:active {
-  text-decoration: none;
+a,a:active,a:hover,a:link,a:visited {
+    text-decoration: none
 }
 
 .hidden {
-  display: none;
+    display: none
 }
 
 .ie-lt {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 99999999;
-  padding: 0.8rem 1rem;
-  text-align: center;
-  font-size: 1rem;
-  background-color: #DDF3F5;
-  color: #FF4949;
-  display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99999999;
+    padding: .8rem 1rem;
+    text-align: center;
+    font-size: 1rem;
+    background-color: #ddf3f5;
+    color: #ff4949;
+    display: block
 }
 
 @font-face {
-  font-family: "iconfont";
-  src: url(../../ui/iconfont/iconfont.eot?t=1495448376285);
-  /* IE9*/
-  src: url(../../ui/iconfont/iconfont.eot?t=1495448376285#iefix) format("embedded-opentype"), url(../../ui/iconfont/iconfont.woff?t=1495448376285) format("woff"), url(../../ui/iconfont/iconfont.ttf?t=1495448376285) format("truetype"), url(../../ui/iconfont/iconfont.svg?t=1495448376285#iconfont) format("svg");
-  /* iOS 4.1- */
+    font-family:iconfont;src:url(iconfont/iconfont.eot?t=1495448376285);src:url(iconfont/iconfont.eot?t=1495448376285#iefix) format("embedded-opentype"),url(iconfont/iconfont.woff?t=1495448376285) format("woff"),url(iconfont/iconfont.ttf?t=1495448376285) format("truetype"),url(iconfont/iconfont.svg?t=1495448376285#iconfont) format("svg")
 }
 
-[class*='icon-'], .icon {
-  font-family: "iconfont" !important;
-  font-size: 0.8rem;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.icon,[class*=icon-] {
+    font-family: iconfont!important;
+    font-size: .8rem;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
 }
 
 .icon-warning:before {
-  content: "\e6b6";
+    content: "\e6b6"
 }
 
 .icon-info:before {
-  content: "\e606";
+    content: "\e606"
 }
 
 .icon-error:before {
-  content: "\e668";
+    content: "\e668"
 }
 
 .icon-success:before {
-  content: "\e641";
+    content: "\e641"
 }
 
 .icon-close:before {
-  content: "\e601";
+    content: "\e601"
 }
 
 .icon-arrow:before {
-  content: "\e6b7";
+    content: "\e6b7"
 }
 
 .icon-arrow-right {
-  content: "\e6b8";
+    content: "\e6b8"
 }
 
 .icon-menu:before {
-  content: "\e6a0";
+    content: "\e6a0"
 }
 
 .icon-user-name:before {
-  content: "\e6f6";
+    content: "\e6f6"
 }
 
 .icon-password:before {
-  content: "\e669";
+    content: "\e669"
 }
 
-.flex, .message > i:first-child:before {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: -ms-flexbox;
-  display: flex;
+.flex,.message>i:first-child:before {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -ms-flexbox;
+    display: flex
 }
 
-.flex-1, .message .message-group {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+.flex-1,.message .message-group {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1
 }
 
 .flex-2 {
-  -webkit-box-flex: 2;
-  -moz-box-flex: 2;
-  -webkit-flex: 2;
-  -ms-flex: 2;
-  flex: 2;
+    -webkit-box-flex: 2;
+    -moz-box-flex: 2;
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2
 }
 
 .flex-3 {
-  -webkit-box-flex: 3;
-  -moz-box-flex: 3;
-  -webkit-flex: 3;
-  -ms-flex: 3;
-  flex: 3;
+    -webkit-box-flex: 3;
+    -moz-box-flex: 3;
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3
 }
 
 .flex-row {
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row
 }
 
 .flex-column {
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column
 }
 
 .align-start {
-  -moz-box-align: start;
-  -ms-box-align: start;
-  -webkit-box-align: start;
-  box-align: start;
-  -webkit-align-items: flex-start;
-  -moz-align-items: flex-start;
-  -ms-align-items: flex-start;
-  -o-align-items: flex-start;
-  align-items: flex-start;
+    -moz-box-align: start;
+    -ms-box-align: start;
+    -webkit-box-align: start;
+    box-align: start;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    -ms-align-items: flex-start;
+    -o-align-items: flex-start;
+    align-items: flex-start
 }
 
-.align-center, .message, .message > i:first-child:before, .message-close, .message-actions .message-action {
-  -moz-box-align: center;
-  -ms-box-align: center;
-  -webkit-box-align: center;
-  box-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
+.align-center,.message,.message-actions .message-action,.message-close,.message>i:first-child:before {
+    -moz-box-align: center;
+    -ms-box-align: center;
+    -webkit-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center
 }
 
 .align-end {
-  -moz-box-align: end;
-  -ms-box-align: end;
-  -webkit-box-align: end;
-  box-align: end;
-  -webkit-align-items: flex-end;
-  -moz-align-items: flex-end;
-  -ms-align-items: flex-end;
-  -o-align-items: flex-end;
-  align-items: flex-end;
+    -moz-box-align: end;
+    -ms-box-align: end;
+    -webkit-box-align: end;
+    box-align: end;
+    -webkit-align-items: flex-end;
+    -moz-align-items: flex-end;
+    -ms-align-items: flex-end;
+    -o-align-items: flex-end;
+    align-items: flex-end
 }
 
 .justify-start {
-  -webkit-box-pack: start;
-  -moz-box-pack: start;
-  -ms-box-pack: start;
-  -o-box-pack: start;
-  box-pack: start;
-  -webkit-justify-content: flex-start;
-  -moz-justify-content: flex-start;
-  -ms-justify-content: flex-start;
-  justify-content: flex-start;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -ms-box-pack: start;
+    -o-box-pack: start;
+    box-pack: start;
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    -ms-justify-content: flex-start;
+    justify-content: flex-start
 }
 
-.justify-center, .message > i:first-child:before, .message-close {
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -ms-box-pack: center;
-  -o-box-pack: center;
-  box-pack: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
+.justify-center,.message-close,.message>i:first-child:before {
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-box-pack: center;
+    -o-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center
 }
 
 .justify-end {
-  -webkit-box-pack: end;
-  -moz-box-pack: end;
-  -ms-box-pack: end;
-  -o-box-pack: end;
-  box-pack: end;
-  -webkit-justify-content: flex-end;
-  -moz-justify-content: flex-end;
-  -ms-justify-content: flex-end;
-  justify-content: flex-end;
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    -ms-box-pack: end;
+    -o-box-pack: end;
+    box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    justify-content: flex-end
 }
 
 .line-1 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all
 }
 
 .line-2 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all
 }
 
 .line-3 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-break: break-all
 }
 
 .message {
-  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
-  min-width: 15rem;
-  padding: 0 0.6rem;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -o-border-radius: 2px;
-  -ms-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  position: fixed;
-  left: 50%;
-  top: 1rem;
-  -webkit-transform: translateX(-50%) scale(1);
-  -moz-transform: translateX(-50%) scale(1);
-  -o-transform: translateX(-50%) scale(1);
-  -ms-transform: translateX(-50%) scale(1);
-  transform: translateX(-50%) scale(1);
-  -webkit-transition: opacity 0.3s, transform 0.4s;
-  -moz-transition: opacity 0.3s, transform 0.4s;
-  -o-transition: opacity 0.3s, transform 0.4s;
-  -ms-transition: opacity 0.3s, transform 0.4s;
-  transition: opacity 0.3s, transform 0.4s;
-  overflow: hidden;
-  background-color: #fff;
-  -webkit-transform-origin: center center;
-  -moz-transform-origin: center center;
-  -o-transform-origin: center center;
-  -ms-transform-origin: center center;
-  transform-origin: center center;
-  opacity: 1;
+    box-shadow: 0 .1rem .2rem rgba(0,0,0,.12),0 0 6px rgba(0,0,0,.04);
+    min-width: 15rem;
+    padding: 0 .6rem;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    position: fixed;
+    left: 50%;
+    top: 1rem;
+    -webkit-transform: translateX(-50%) scale(1);
+    -moz-transform: translateX(-50%) scale(1);
+    -o-transform: translateX(-50%) scale(1);
+    -ms-transform: translateX(-50%) scale(1);
+    transform: translateX(-50%) scale(1);
+    -webkit-transition: opacity .3s,transform .4s;
+    -moz-transition: opacity .3s,transform .4s;
+    -o-transition: opacity .3s,transform .4s;
+    -ms-transition: opacity .3s,transform .4s;
+    transition: opacity .3s,transform .4s;
+    overflow: hidden;
+    background-color: #fff;
+    -webkit-transform-origin: center center;
+    -moz-transform-origin: center center;
+    -o-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    opacity: 1
 }
 
-.message > i:first-child:before {
-  width: 2rem;
-  height: 2rem;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  margin-top: -1rem;
-  font-size: 1.2rem;
+.message>i:first-child:before {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -1rem;
+    font-size: 1.2rem
 }
 
 .message .message-group {
-  padding: 0.5rem 0;
+    padding: .5rem 0
 }
 
 .message.default {
-  background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0,0,0,.7)
 }
 
-.message.default .message-close:hover, .message.default .message-close:active, .message.default .message-action:hover, .message.default .message-action:active {
-  background-color: black;
-  color: #fff;
+.message.default .message-action:active,.message.default .message-action:hover,.message.default .message-close:active,.message.default .message-close:hover {
+    background-color: #000;
+    color: #fff
 }
 
 .message.primary {
-  background-color: rgba(3, 184, 207, 0.8);
+    background-color: rgba(3,184,207,.8)
 }
 
 .message.primary .message-group p {
-  color: #e3e3e3;
+    color: #e3e3e3
 }
 
-.message.primary .message-close:hover, .message.primary .message-close:active, .message.primary .message-action:hover, .message.primary .message-action:active {
-  background-color: #03b8cf;
-  color: #fff;
+.message.primary .message-action:active,.message.primary .message-action:hover,.message.primary .message-close:active,.message.primary .message-close:hover {
+    background-color: #03b8cf;
+    color: #fff
 }
 
-.message.info > i:first-child:before {
-  background-color: rgba(80, 191, 255, 0.8);
-  color: #fff;
+.message.info>i:first-child:before {
+    background-color: rgba(80,191,255,.8);
+    color: #fff
 }
 
-.message.info .message-close:hover, .message.info .message-close:active, .message.info .message-action:hover, .message.info .message-action:active {
-  background-color: rgba(80, 191, 255, 0.8);
-  color: #fff;
+.message.info .message-action:active,.message.info .message-action:hover,.message.info .message-close:active,.message.info .message-close:hover {
+    background-color: rgba(80,191,255,.8);
+    color: #fff
 }
 
 .message.info .message-action {
-  color: #808080;
+    color: grey
 }
 
-.message.success > i:first-child:before {
-  background-color: rgba(19, 206, 102, 0.8);
-  color: #fff;
+.message.success>i:first-child:before {
+    background-color: rgba(19,206,102,.8);
+    color: #fff
 }
 
-.message.success .message-close:hover, .message.success .message-close:active, .message.success .message-action:hover, .message.success .message-action:active {
-  background-color: rgba(19, 206, 102, 0.8);
-  color: #fff;
+.message.success .message-action:active,.message.success .message-action:hover,.message.success .message-close:active,.message.success .message-close:hover {
+    background-color: rgba(19,206,102,.8);
+    color: #fff
 }
 
 .message.success .message-action {
-  color: #808080;
+    color: grey
 }
 
-.message.warning > i:first-child:before {
-  background-color: rgba(247, 186, 42, 0.8);
-  color: #fff;
+.message.warning>i:first-child:before {
+    background-color: rgba(247,186,42,.8);
+    color: #fff
 }
 
-.message.warning .message-close:hover, .message.warning .message-close:active, .message.warning .message-action:hover, .message.warning .message-action:active {
-  background-color: rgba(247, 186, 42, 0.8);
-  color: #fff;
+.message.warning .message-action:active,.message.warning .message-action:hover,.message.warning .message-close:active,.message.warning .message-close:hover {
+    background-color: rgba(247,186,42,.8);
+    color: #fff
 }
 
 .message.warning .message-action {
-  color: #808080;
+    color: grey
 }
 
-.message.error > i:first-child:before {
-  background-color: rgba(255, 73, 73, 0.8);
-  color: #fff;
+.message.error>i:first-child:before {
+    background-color: rgba(255,73,73,.8);
+    color: #fff
 }
 
-.message.error .message-close:hover, .message.error .message-close:active, .message.error .message-action:hover, .message.error .message-action:active {
-  background-color: rgba(255, 73, 73, 0.8);
-  color: #fff;
+.message.error .message-action:active,.message.error .message-action:hover,.message.error .message-close:active,.message.error .message-close:hover {
+    background-color: rgba(255,73,73,.8);
+    color: #fff
 }
 
 .message.error .message-action {
-  color: #808080;
+    color: grey
 }
 
 .message.round {
-  -webkit-border-radius: 999rem;
-  -moz-border-radius: 999rem;
-  -o-border-radius: 999rem;
-  -ms-border-radius: 999rem;
-  border-radius: 999rem;
+    -webkit-border-radius: 999rem;
+    -moz-border-radius: 999rem;
+    -o-border-radius: 999rem;
+    -ms-border-radius: 999rem;
+    border-radius: 999rem
 }
 
 .message-group {
-  position: relative;
-  line-height: 1rem;
-  display: -ms-flexbox;
-  -ms-flex-align: center;
-  align-items: center;
+    position: relative;
+    line-height: 1rem;
+    display: -ms-flexbox;
+    -ms-flex-align: center;
+    align-items: center
 }
 
-i ~ .message-group {
-  margin-left: 1.9rem;
+i~.message-group {
+    margin-left: 1.9rem
 }
 
 .message-group p {
-  font-size: 0.7rem;
-  margin: 0 1.7rem 0 0;
-  color: #8391a5;
-  text-align: justify;
+    font-size: .7rem;
+    margin: 0 1.7rem 0 0;
+    color: #8391a5;
+    text-align: justify
 }
 
 .message-close {
-  position: absolute;
-  width: 2rem;
-  height: 100%;
-  right: 0;
-  top: 0;
-  cursor: pointer;
-  color: #bfcbd9;
-  font-size: 1.1rem;
+    position: absolute;
+    width: 2rem;
+    height: 100%;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    color: #bfcbd9;
+    font-size: 1.1rem
 }
 
 .message-fade-leave {
-  opacity: 0;
-  -ms-transform: translate(-50%, -100%);
-  transform: translate(-50%, -100%);
+    opacity: 0;
+    -ms-transform: translate(-50%,-100%);
+    transform: translate(-50%,-100%)
 }
 
 .message-actions {
-  margin-right: 1.4rem;
-  margin-left: -.8rem;
-  position: relative;
-  z-index: 10;
+    margin-right: 1.4rem;
+    margin-left: -.8rem;
+    position: relative;
+    z-index: 10
 }
 
 .message-actions .message-action {
-  cursor: pointer;
-  padding: 0 0.3rem;
-  color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    padding: 0 .3rem;
+    color: rgba(255,255,255,.6)
 }
 
 .message-actions .message-action i {
-  margin-right: 0.2rem;
+    margin-right: .2rem
 }
 
 .message-actions .message-action p {
-  font-size: 0.6rem;
+    font-size: .6rem
 }
 
 .message-push-leave {
-  -webkit-transform: translateX(-50%) scale(0.8);
-  -moz-transform: translateX(-50%) scale(0.8);
-  -ms-transform: translateX(-50%) scale(0.8);
-  -o-transform: translateX(-50%) scale(0.8);
-  transform: translateX(-50%) scale(0.8);
-  opacity: 0.5;
+    -webkit-transform: translateX(-50%) scale(.8);
+    -moz-transform: translateX(-50%) scale(.8);
+    -ms-transform: translateX(-50%) scale(.8);
+    -o-transform: translateX(-50%) scale(.8);
+    transform: translateX(-50%) scale(.8);
+    opacity: .5
 }

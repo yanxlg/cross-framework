@@ -10,9 +10,9 @@ class NavMenu{
         this.menus=menus;
         let width=document.body.offsetWidth;
         let ratio=window.devicePixelRatio;
-        if(width/ratio<450){
+        if(width/ratio<700){
             this.instance=new PopMenu(menus);
-        }else if(width/ratio>=450&&width/ratio<700){
+        }else if(width/ratio>=700&&width/ratio<1080){
             this.instance=new TopMenu(menus);
         }else{
             this.instance=new LeftMenu(menus);
@@ -27,22 +27,24 @@ class NavMenu{
         })
     }
     update(){
-        let width=document.body.offsetWidth;
-        let ratio=window.devicePixelRatio;
+        let width=document.documentElement.offsetWidth;
         let newInstance;
-        if(width/ratio<450){
+        if(width<700){
             if(this.instance.getType()==="PopMenu"){
                 return;
             }
             newInstance=new PopMenu(this.menus);
             this.instance.menusRender.replaceWith(newInstance.menusRender);
+            this.instance.destroy();
+            //销毁instance
             this.instance=newInstance;
-        }else if(width/ratio>=450&&width/ratio<700){
+        }else if(width>=700&&width<=1080){
             if(this.instance.getType()==="TopMenu"){
                 return;
             }
             newInstance=new TopMenu(this.menus);
             this.instance.menusRender.replaceWith(newInstance.menusRender);
+            this.instance.destroy();
             this.instance=newInstance;
         }else{
             if(this.instance.getType()==="LeftMenu"){
@@ -50,6 +52,7 @@ class NavMenu{
             }
             newInstance=new LeftMenu(this.menus);
             this.instance.menusRender.replaceWith(newInstance.menusRender);
+            this.instance.destroy();
             this.instance=newInstance;
         }
     }

@@ -1,31 +1,37 @@
 <div class="nav nav-top">
     <ul class="nav-right">
-        {{each menus as menu}}
-            <li>
-                <div class="nav-menu" data-data="{{menu.data}}">{{menu.name}}</div>
-                {{if menu.childMenus&&menu.childMenus.length>0}}
+        {{each menus as menu index}}
+            <!--仅显示4个，超出的使用隐藏方式显示-->
+            {{if index<4}}
+                <li>
+                    <div class="nav-menu" data-data="{{menu.data}}">{{menu.name}}</div>
+                    {{if menu.childMenus&&menu.childMenus.length>0}}
                     <ul>
                         {{each menu.childMenus as childMenu}}
-                            {{each childMenu.menus as subMenu}}
+                        {{each childMenu.menus as subMenu}}
+                        <li>
+                            <div class="nav-menu" data-data="{{subMenu.data}}">{{subMenu.name}}</div>
+                            {{if subMenu.childMenus&&subMenu.childMenus.length>0}}
+                            <ul>
+                                {{each subMenu.childMenus as lastMenu}}
+                                {{each lastMenu.menus as item}}
                                 <li>
-                                    <div class="nav-menu" data-data="{{subMenu.data}}">{{subMenu.name}}</div>
-                                    {{if subMenu.childMenus&&subMenu.childMenus.length>0}}
-                                        <ul>
-                                            {{each subMenu.childMenus as lastMenu}}
-                                                {{each lastMenu.menus as item}}
-                                                    <li>
-                                                        <div class="nav-menu" data-data="{{item.data}}">{{item.name}}</div>
-                                                    </li>
-                                                {{/each}}
-                                            {{/each}}
-                                        </ul>
-                                    {{/if}}
+                                    <div class="nav-menu" data-data="{{item.data}}">{{item.name}}</div>
                                 </li>
-                            {{/each}}
+                                {{/each}}
+                                {{/each}}
+                            </ul>
+                            {{/if}}
+                        </li>
+                        {{/each}}
                         {{/each}}
                     </ul>
-                {{/if}}
-            </li>
+                    {{/if}}
+                </li>
+            {{/if}}
+            {{if index===4}}
+                <i class="nav-icon-menu"></i>
+            {{/if}}
         {{/each}}
     </ul>
 </div>

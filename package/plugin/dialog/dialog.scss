@@ -115,37 +115,45 @@
 //需要进行@media控制
 @media (max-width: 767px) {
   //小屏
-  &.sm{
-    width: 160px;
-  }
-  &.lg{
-    width: 480px;
+  .dialog{
+    &.sm{
+      width: 160px;
+    }
+    &.lg{
+      width: 480px;
+    }
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   //中屏
-  &.sm{
-    width: 220px;
-  }
-  &.lg{
-    width: 660px;
+  .dialog{
+    &.sm{
+      width: 220px;
+    }
+    &.lg{
+      width: 660px;
+    }
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
   //大屏
-  &.sm{
-    width: 260px;
-  }
-  &.lg{
-    width: 780px;
+  .dialog{
+    &.sm{
+      width: 260px;
+    }
+    &.lg{
+      width: 780px;
+    }
   }
 }
 @media (min-width: 1200px) {
   //超大屏
-  &.sm{
-    width: 300px;
-  }
-  &.lg{
-    width: 900px;
+  .dialog{
+    &.sm{
+      width: 300px;
+    }
+    &.lg{
+      width: 900px;
+    }
   }
 }

@@ -9,6 +9,8 @@ const minify=require("gulp-minify");
 const cleanCSS = require('gulp-clean-css');
 const gulpWebpack=require("gulp-webpack");
 const AssetsRelativePath=require("./gulp_css_url");
+const cssbeautify=require("gulp-cssbeautify");
+const importOnce=require("node-sass-import-once");
 gulp.task('default', ["sass","sass:watch"],function() {
     console.log("develop is building");
 });
@@ -16,9 +18,12 @@ gulp.task('sass', function () {
     return gulp.src('./package/**/*.scss')
         .pipe(sass({
             errLogToConsole: true,
-            outputStyle: 'expanded'
+            outputStyle: 'expanded',
+            importer:importOnce
         }).on('error', sass.logError))
         .pipe(AssetsRelativePath("package"))
+        .pipe(cleanCSS({compatibility: 'ie10'})) //去除@import重复代码
+        .pipe(cssbeautify())
         .pipe(gulp.dest('./package'));
 });
 gulp.task('sass:watch', function () {

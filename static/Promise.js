@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -96,7 +96,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 14:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -455,11 +455,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 }(typeof self !== 'undefined' ? self : window);
 var Promise = typeof self !== 'undefined' ? self.Promise : window.Promise;
 exports.default = Promise;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15), __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17), __webpack_require__(0)))
 
 /***/ }),
 
-/***/ 15:
+/***/ 17:
 /***/ (function(module, exports) {
 
 // shim for using process in browser

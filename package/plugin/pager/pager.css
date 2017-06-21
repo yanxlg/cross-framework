@@ -1,137 +1,137 @@
 html {
-  width: 100%;
-  height: 100%;
-  font-size: 20px;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, 'Microsoft Yahei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    font-family: "Helvetica Neue",Helvetica,Tahoma,Arial,'Microsoft Yahei','PingFang SC','Hiragino Sans GB','WenQuanYi Micro Hei',sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
 }
 
 div {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: -ms-flexbox;
-  display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -ms-flexbox;
+    display: flex
 }
 
 * {
-  outline: 0;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-background-clip: border-box;
-  -moz-background-clip: border;
-  background-clip: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-background-clip: border-box;
+    -moz-background-clip: border;
+    background-clip: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
 }
 
 body {
-  width: 100%;
-  height: 100%;
-  font-size: 0.7rem;
-  margin: 0;
+    width: 100%;
+    height: 100%;
+    font-size: .7rem;
+    margin: 0
 }
 
-a, a:hover, a:visited, a:link, a:active {
-  text-decoration: none;
+a,a:active,a:hover,a:link,a:visited {
+    text-decoration: none
 }
 
 .hidden {
-  display: none;
+    display: none
 }
 
 .ie-lt {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 99999999;
-  padding: 0.8rem 1rem;
-  text-align: center;
-  font-size: 1rem;
-  background-color: #DDF3F5;
-  color: #FF4949;
-  display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99999999;
+    padding: .8rem 1rem;
+    text-align: center;
+    font-size: 1rem;
+    background-color: #ddf3f5;
+    color: #ff4949;
+    display: block
 }
 
 .pager {
-  display: inline-block;
-  padding-left: 0;
-  margin: 1rem 0;
-  list-style: none;
+    display: inline-block;
+    padding-left: 0;
+    margin: 1rem 0;
+    list-style: none
 }
 
 .pager ul {
-  list-style-type: none;
+    list-style-type: none
 }
 
-.pager ul, .pager li {
-  margin: 0;
-  padding: 0;
+.pager li,.pager ul {
+    margin: 0;
+    padding: 0
 }
 
 .pager li {
-  display: inline;
+    display: inline
 }
 
 .pager li.pager-home {
-  margin-right: 0.2rem;
+    margin-right: .2rem
 }
 
-.pager li.disabled > a, .pager li.disabled > a:focus, .pager li.disabled > a:hover, .pager li.disabled > span, .pager li.disabled > span:focus, .pager li.disabled > span:hover {
-  color: #ddd;
-  cursor: wait;
-  background-color: #fff;
-  border-color: #ddd;
+.pager li.disabled>a,.pager li.disabled>a:focus,.pager li.disabled>a:hover,.pager li.disabled>span,.pager li.disabled>span:focus,.pager li.disabled>span:hover {
+    color: #ddd;
+    cursor: wait;
+    background-color: #fff;
+    border-color: #ddd
 }
 
-.pager li.active > a, .pager li.active > a:hover, .pager li.active > span, .pager li.active > span:hover {
-  z-index: 3;
-  color: #fff;
-  cursor: wait;
-  background-color: #3280fc;
-  border-color: #3280fc;
+.pager li.active>a,.pager li.active>a:hover,.pager li.active>span,.pager li.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: wait;
+    background-color: #3280fc;
+    border-color: #3280fc
 }
 
-.pager li > a, .pager li > span {
-  cursor: pointer;
-  position: relative;
-  float: left;
-  padding: 0.25rem 0.6rem;
-  margin-left: -1px;
-  line-height: 1.53846154;
-  text-decoration: none;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1);
-  color: #3280fc;
+.pager li>a,.pager li>span {
+    cursor: pointer;
+    position: relative;
+    float: left;
+    padding: .25rem .6rem;
+    margin-left: -1px;
+    line-height: 1.53846154;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    transition: all .4s cubic-bezier(.175,.885,.32,1);
+    color: #3280fc
 }
 
-.pager li > a:hover, .pager li > span:hover {
-  background-color: #E5E5E5;
-  color: #3280fc;
+.pager li>a:hover,.pager li>span:hover {
+    background-color: #e5e5e5;
+    color: #3280fc
 }
 
-.pager-round > li.previous > a, .pager-round > li.previous > span {
-  border-radius: 0.8rem 0 0 0.8rem;
+.pager-round>li.previous>a,.pager-round>li.previous>span {
+    border-radius: .8rem 0 0 .8rem
 }
 
-.pager-round > li.next > a, .pager-round > li.next > span {
-  border-radius: 0 0.8rem 0.8rem 0;
+.pager-round>li.next>a,.pager-round>li.next>span {
+    border-radius: 0 .8rem .8rem 0
 }
 
-.pager-round .pager-home > a, .pager-round .pager-home > span {
-  border-radius: 0.8rem;
-  margin-right: 0.2rem;
+.pager-round .pager-home>a,.pager-round .pager-home>span {
+    border-radius: .8rem;
+    margin-right: .2rem
 }
 
-.pager-round .pager-last > a, .pager-round .pager-last > span {
-  border-radius: 0.8rem;
-  margin-left: 0.2rem;
+.pager-round .pager-last>a,.pager-round .pager-last>span {
+    border-radius: .8rem;
+    margin-left: .2rem
 }

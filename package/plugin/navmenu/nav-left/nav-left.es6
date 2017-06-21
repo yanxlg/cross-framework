@@ -44,7 +44,7 @@ class LeftMenu{
     }
     initLife(){
         let _this=this;
-        $("body").on("click",".nav-menu",function(){
+        this.menusRender.on("click",".nav-menu",function () {
             let $this=$(this);
             if($this.next().hasClass("slide")){
                 if($this.next().hasClass("open")){
@@ -83,14 +83,19 @@ class LeftMenu{
                 }
             }else{
                 $(".nav-active").removeClass("nav-active");
+                $(".nav-menu.active").removeClass("active");
                 $this.addClass("nav-active");
                 let data=$this.attr("data-data");
                 _this.callback&&(_this.callback.call(_this,data));
             }
-        })
+        });
     }
     then(callback){
         this.callback=callback;
+    }
+    destroy(){
+        this.menusRender.remove();
+        $("body").removeClass("width-nav-left");
     }
 }
 

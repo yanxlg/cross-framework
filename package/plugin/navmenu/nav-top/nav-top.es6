@@ -1,8 +1,10 @@
 /**
  * Created by yanxlg on 2017/6/5 0005.
  * 顶部菜单
+ * 显示4个，其余的使用展开形式显示
  */
 import navTemplate from './nav-top.art';
+import NavPop from '../nav-pop/nav-pop.es6';
 class TopMenu{
     constructor(menus){
         this.menus=menus;
@@ -16,6 +18,11 @@ class TopMenu{
         this.menusRender=$(navTemplate({
             menus:this.menus
         }));
+        if(this.menus.length>4){
+            //创建nav-pop
+            let popMenus=this.menus.slice(4);
+            this.navPop=new NavPop(popMenus);
+        }
         $("body").addClass("width-nav-top").append(this.menusRender);
         this.updateBg();
     }
@@ -33,12 +40,16 @@ class TopMenu{
                 return;
             }
             $this.menusRender.find(".active").removeClass("active");
+            $(".nav-active").removeClass("nav-active");
             $(this).addClass("active").parents().prev(".nav-menu").addClass("active");
             let data=$(this).attr("data-data");
             $this.callback&&($this.callback.call($this,data));
         });
+        this.menusRender.on("click",".nav-icon-menu",function () {
+            $this.navPop&&$this.navPop.show();
+        });
         //滚动监听，当滚动到一定程度的时候背景设置为透明
-        $(window).on("scroll",function () {
+        $(window).on("scroll.top",function () {
             //500像素透明
             $this.updateBg();
         })
@@ -57,6 +68,14 @@ class TopMenu{
     }
     then(callback){
         this.callback=callback;
+    }
+    destroy(){
+        this.menusRender.remove();
+        $("body").removeClass("width-nav-top");
+        $(window).off("scroll.top");
+        if(this.navPop){
+            this.navPop.destroy();
+        }
     }
 }
 export default TopMenu;

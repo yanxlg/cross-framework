@@ -520,7 +520,7 @@ var PopMenu = function () {
         key: 'initLife',
         value: function initLife() {
             var _this = this;
-            $("body").on("click", ".nav-menu", function () {
+            this.menusRender.on("click", ".nav-menu", function () {
                 var $this = $(this);
                 if ($this.next().hasClass("slide")) {
                     if ($this.next().hasClass("open")) {
@@ -559,19 +559,22 @@ var PopMenu = function () {
                     }
                 } else {
                     $(".nav-active").removeClass("nav-active");
+                    $(".nav-menu.active").removeClass("active");
+                    //...添加样式
+                    $(".nav-icon-menu").addClass("nav-active");
                     $this.addClass("nav-active");
                     var data = $this.attr("data-data");
                     _this.callback && _this.callback.call(_this, data);
                     _this.close();
                 }
             });
-            $("body").on("click", ".nav-icon-menu", function () {
+            this.menusRender.on("click", ".nav-icon-menu", function () {
                 _this.show();
             });
-            this.menusRender.find(".modal-backdrop").on("click", function () {
+            this.menusRender.on("click", ".modal-backdrop", function () {
                 _this.close();
             });
-            $(window).on("scroll", function () {
+            $(window).on("scroll.pop", function () {
                 _this.updateBg();
             });
         }
@@ -605,6 +608,13 @@ var PopMenu = function () {
         key: 'then',
         value: function then(callback) {
             this.callback = callback;
+        }
+    }, {
+        key: 'destroy',
+        value: function destroy() {
+            this.menusRender.remove();
+            $("body").removeClass("width-nav-left");
+            $(window).off("scroll.pop");
         }
     }]);
 

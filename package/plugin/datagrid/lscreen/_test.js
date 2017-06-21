@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 39);
+/******/ 	return __webpack_require__(__webpack_require__.s = 40);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -103,40 +103,6 @@ module.exports = g;
 
 
 module.exports = __webpack_require__(2);
-
-/***/ }),
-
-/***/ 19:
-/***/ (function(module, exports, __webpack_require__) {
-
-var $imports = __webpack_require__(1);
-module.exports = function ($data) {
-    'use strict';
-    $data = $data || {};
-    var $$out = '', $each = $imports.$each, titles = $data.titles, title = $data.title, $index = $data.$index, $escape = $imports.$escape, height = $data.height;
-    $$out += '<div class="data-grid-group">\r\n    <div class="data-grid-wrap grid-header">\r\n        <div class="data-grid">\r\n            <div class="data-row">\r\n                ';
-    $each(titles, function (title, $index) {
-        $$out += '\r\n                    <div class="data-col" style="width: ';
-        $$out += $escape(title.width);
-        $$out += 'px;">\r\n                    </div>\r\n                ';
-    });
-    $$out += '\r\n            </div>\r\n            <div class="data-row">\r\n                ';
-    $each(titles, function (title, $index) {
-        $$out += '\r\n                    <div class="data-grid-title">\r\n                        ';
-        $$out += $escape(title.title);
-        $$out += '\r\n                    </div>\r\n                ';
-    });
-    $$out += '\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class="data-grid-wrap grid-data" style="height: ';
-    $$out += $escape(height);
-    $$out += ';">\r\n        <div class="data-grid">\r\n            <div class="data-row">\r\n                ';
-    $each(titles, function (title, $index) {
-        $$out += '\r\n                    <div class="data-col" style="width: ';
-        $$out += $escape(title.width);
-        $$out += 'px;">\r\n                    </div>\r\n                ';
-    });
-    $$out += '\r\n            </div>\r\n            <div class="data-row-group">\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>';
-    return $$out;
-};
 
 /***/ }),
 
@@ -247,7 +213,41 @@ module.exports = runtime;
 
 /***/ }),
 
-/***/ 20:
+/***/ 21:
+/***/ (function(module, exports, __webpack_require__) {
+
+var $imports = __webpack_require__(1);
+module.exports = function ($data) {
+    'use strict';
+    $data = $data || {};
+    var $$out = '', $each = $imports.$each, titles = $data.titles, title = $data.title, $index = $data.$index, $escape = $imports.$escape, height = $data.height;
+    $$out += '<div class="data-grid-group">\r\n    <div class="data-grid-wrap grid-header">\r\n        <div class="data-grid">\r\n            <div class="data-row">\r\n                ';
+    $each(titles, function (title, $index) {
+        $$out += '\r\n                    <div class="data-col" style="width: ';
+        $$out += $escape(title.width);
+        $$out += 'px;">\r\n                    </div>\r\n                ';
+    });
+    $$out += '\r\n            </div>\r\n            <div class="data-row">\r\n                ';
+    $each(titles, function (title, $index) {
+        $$out += '\r\n                    <div class="data-grid-title">\r\n                        ';
+        $$out += $escape(title.title);
+        $$out += '\r\n                    </div>\r\n                ';
+    });
+    $$out += '\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class="data-grid-wrap grid-data" style="height: ';
+    $$out += $escape(height);
+    $$out += ';">\r\n        <div class="data-grid">\r\n            <div class="data-row">\r\n                ';
+    $each(titles, function (title, $index) {
+        $$out += '\r\n                    <div class="data-col" style="width: ';
+        $$out += $escape(title.width);
+        $$out += 'px;">\r\n                    </div>\r\n                ';
+    });
+    $$out += '\r\n            </div>\r\n            <div class="data-row-group">\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>';
+    return $$out;
+};
+
+/***/ }),
+
+/***/ 22:
 /***/ (function(module, exports, __webpack_require__) {
 
 var $imports = __webpack_require__(1);
@@ -275,7 +275,7 @@ module.exports = function ($data) {
 
 /***/ }),
 
-/***/ 27:
+/***/ 29:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -299,15 +299,15 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
-var _datagrid = __webpack_require__(19);
+var _datagrid = __webpack_require__(21);
 
 var _datagrid2 = _interopRequireDefault(_datagrid);
 
-var _rows = __webpack_require__(20);
+var _rows = __webpack_require__(22);
 
 var _rows2 = _interopRequireDefault(_rows);
 
-var _gridActions = __webpack_require__(6);
+var _gridActions = __webpack_require__(7);
 
 var _gridActions2 = _interopRequireDefault(_gridActions);
 
@@ -408,13 +408,13 @@ try {
 
 /***/ }),
 
-/***/ 39:
+/***/ 40:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _datagrid = __webpack_require__(27);
+var _datagrid = __webpack_require__(29);
 
 var _datagrid2 = _interopRequireDefault(_datagrid);
 
@@ -501,7 +501,7 @@ new _datagrid2.default($("body"), [{
 
 /***/ }),
 
-/***/ 6:
+/***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

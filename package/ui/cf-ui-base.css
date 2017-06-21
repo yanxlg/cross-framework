@@ -1,61 +1,61 @@
 html {
-  width: 100%;
-  height: 100%;
-  font-size: 20px;
-  font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, 'Microsoft Yahei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    font-family: "Helvetica Neue",Helvetica,Tahoma,Arial,'Microsoft Yahei','PingFang SC','Hiragino Sans GB','WenQuanYi Micro Hei',sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
 }
 
 div {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: -ms-flexbox;
-  display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -ms-flexbox;
+    display: flex
 }
 
 * {
-  outline: 0;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-background-clip: border-box;
-  -moz-background-clip: border;
-  background-clip: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-background-clip: border-box;
+    -moz-background-clip: border;
+    background-clip: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
 }
 
 body {
-  width: 100%;
-  height: 100%;
-  font-size: 0.7rem;
-  margin: 0;
+    width: 100%;
+    height: 100%;
+    font-size: .7rem;
+    margin: 0
 }
 
-a, a:hover, a:visited, a:link, a:active {
-  text-decoration: none;
+a,a:active,a:hover,a:link,a:visited {
+    text-decoration: none
 }
 
 .hidden {
-  display: none;
+    display: none
 }
 
 .ie-lt {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 99999999;
-  padding: 0.8rem 1rem;
-  text-align: center;
-  font-size: 1rem;
-  background-color: #DDF3F5;
-  color: #FF4949;
-  display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99999999;
+    padding: .8rem 1rem;
+    text-align: center;
+    font-size: 1rem;
+    background-color: #ddf3f5;
+    color: #ff4949;
+    display: block
 }

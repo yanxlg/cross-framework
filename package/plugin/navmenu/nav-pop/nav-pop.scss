@@ -26,6 +26,9 @@ $menuBg:(default:rgba(50,65,87,1));
       position: absolute;
       right:remToPx(0.5rem);
       top:remToPx(0.2rem);
+      &.nav-active{
+        color: map_get($menuColor,active);
+      }
       &:after{
         @extend .icon;
         content: "\e6a0";

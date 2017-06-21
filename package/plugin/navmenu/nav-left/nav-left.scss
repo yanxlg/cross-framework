@@ -16,6 +16,9 @@ $menuColor:(normal:#bfcbd9,active:#20a0ff,group:#97a8be);
 }
 
 .nav {
+  padding-top: 0;
+  @include prefix(box-sizing,border-box);
+  @include prefix(transition,all .3s);
   &.nav-left {
     &::-webkit-scrollbar
     {
