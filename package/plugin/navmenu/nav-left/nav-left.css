@@ -62,16 +62,6 @@ a,a:active,a:hover,a:link,a:visited {
     display: block
 }
 
-.slide {
-    height: 0;
-    overflow-y: hidden;
-    -webkit-transition: height .5s ease-out;
-    -moz-transition: height .5s ease-out;
-    -o-transition: height .5s ease-out;
-    -ms-transition: height .5s ease-out;
-    transition: height .5s ease-out
-}
-
 @font-face {
     font-family:iconfont;src:url(iconfont/iconfont.eot?t=1495448376285);src:url(iconfont/iconfont.eot?t=1495448376285#iefix) format("embedded-opentype"),url(iconfont/iconfont.woff?t=1495448376285) format("woff"),url(iconfont/iconfont.ttf?t=1495448376285) format("truetype"),url(iconfont/iconfont.svg?t=1495448376285#iconfont) format("svg")
 }
@@ -122,6 +112,16 @@ a,a:active,a:hover,a:link,a:visited {
 
 .icon-password:before {
     content: "\e669"
+}
+
+.slide {
+    height: 0;
+    overflow-y: hidden;
+    -webkit-transition: height .5s ease-out;
+    -moz-transition: height .5s ease-out;
+    -o-transition: height .5s ease-out;
+    -ms-transition: height .5s ease-out;
+    transition: height .5s ease-out
 }
 
 .width-nav-left {

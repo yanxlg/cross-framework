@@ -1,9 +1,9 @@
 @charset "utf-8";
-@import "../../../ui/cf-ui-base.scss";
-@import "../../../ui/cf-func.scss";
 @import "../../../ui/cf-varia.scss";
-@import "../../slide/slide.scss";
+@import "../../../ui/cf-func.scss";
+@import "../../../ui/cf-ui-base.scss";
 @import "../../../ui/cf-iconfont.scss";
+@import "../../slide/slide.scss";
 //导航菜单  三层菜单高度  56px 50px 44px   颜色 #48576a
 $topNavBg:(top:#324157,child:#1f2d3d,last:#111925);
 $menuColor:(normal:#bfcbd9,active:#20a0ff,group:#97a8be);

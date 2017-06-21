@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -291,10 +291,7 @@ exports.default = Slide;
 
 /***/ }),
 /* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -333,7 +330,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
-var _navPop = __webpack_require__(12);
+var _navPop = __webpack_require__(9);
 
 var _navPop2 = _interopRequireDefault(_navPop);
 
@@ -367,7 +364,7 @@ var PopMenu = function () {
                 menus: this.menus,
                 left: this.left
             }));
-            $("body").addClass("width-nav-left").append(this.menusRender);
+            $("body").addClass("width-nav-pop").append(this.menusRender);
         }
     }, {
         key: 'initLife',
@@ -466,7 +463,7 @@ var PopMenu = function () {
         key: 'destroy',
         value: function destroy() {
             this.menusRender.remove();
-            $("body").removeClass("width-nav-left");
+            $("body").removeClass("width-nav-pop");
             $(window).off("scroll.pop");
         }
     }]);
@@ -477,9 +474,9 @@ var PopMenu = function () {
 exports.default = PopMenu;
 
 /***/ }),
-/* 10 */,
-/* 11 */,
-/* 12 */
+/* 7 */,
+/* 8 */,
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $imports = __webpack_require__(1);

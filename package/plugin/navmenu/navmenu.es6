@@ -33,26 +33,23 @@ class NavMenu{
             if(this.instance.getType()==="PopMenu"){
                 return;
             }
-            newInstance=new PopMenu(this.menus);
-            this.instance.menusRender.replaceWith(newInstance.menusRender);
             this.instance.destroy();
             //销毁instance
+            newInstance=new PopMenu(this.menus);
             this.instance=newInstance;
         }else if(width>=700&&width<=1080){
             if(this.instance.getType()==="TopMenu"){
                 return;
             }
-            newInstance=new TopMenu(this.menus);
-            this.instance.menusRender.replaceWith(newInstance.menusRender);
             this.instance.destroy();
+            newInstance=new TopMenu(this.menus);
             this.instance=newInstance;
         }else{
             if(this.instance.getType()==="LeftMenu"){
                 return;
             }
-            newInstance=new LeftMenu(this.menus);
-            this.instance.menusRender.replaceWith(newInstance.menusRender);
             this.instance.destroy();
+            newInstance=new LeftMenu(this.menus);
             this.instance=newInstance;
         }
     }

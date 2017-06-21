@@ -10,6 +10,11 @@ $topNavBg:(top:#324157,child:#1f2d3d,last:#111925);
 $menuColor:(normal:#bfcbd9,active:#20a0ff,group:#97a8be);
 $menuBg:(default:rgba(50,65,87,1));
 //侧边滑层菜单
+.width-nav-pop{
+  padding-top:remToPx(1.5rem);
+  @include prefix(box-sizing,border-box);
+  @include prefix(transition,all .3s);
+}
 .nav {
   .nav-header{
     position: fixed;

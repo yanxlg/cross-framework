@@ -42,7 +42,7 @@ class PopMenu{
             menus:this.menus,
             left:this.left
         }));
-        $("body").addClass("width-nav-left").append(this.menusRender);
+        $("body").addClass("width-nav-pop").append(this.menusRender);
     }
     initLife(){
         let _this=this;
@@ -129,7 +129,7 @@ class PopMenu{
     }
     destroy(){
         this.menusRender.remove();
-        $("body").removeClass("width-nav-left");
+        $("body").removeClass("width-nav-pop");
         $(window).off("scroll.pop");
     }
 }

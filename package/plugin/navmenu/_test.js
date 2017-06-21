@@ -616,26 +616,23 @@ var NavMenu = function () {
                 if (this.instance.getType() === "PopMenu") {
                     return;
                 }
-                newInstance = new _navPop2.default(this.menus);
-                this.instance.menusRender.replaceWith(newInstance.menusRender);
                 this.instance.destroy();
                 //销毁instance
+                newInstance = new _navPop2.default(this.menus);
                 this.instance = newInstance;
             } else if (width >= 700 && width <= 1080) {
                 if (this.instance.getType() === "TopMenu") {
                     return;
                 }
-                newInstance = new _navTop2.default(this.menus);
-                this.instance.menusRender.replaceWith(newInstance.menusRender);
                 this.instance.destroy();
+                newInstance = new _navTop2.default(this.menus);
                 this.instance = newInstance;
             } else {
                 if (this.instance.getType() === "LeftMenu") {
                     return;
                 }
-                newInstance = new _navLeft2.default(this.menus);
-                this.instance.menusRender.replaceWith(newInstance.menusRender);
                 this.instance.destroy();
+                newInstance = new _navLeft2.default(this.menus);
                 this.instance = newInstance;
             }
         }
@@ -1010,7 +1007,7 @@ var PopMenu = function () {
                 menus: this.menus,
                 left: this.left
             }));
-            $("body").addClass("width-nav-left").append(this.menusRender);
+            $("body").addClass("width-nav-pop").append(this.menusRender);
         }
     }, {
         key: 'initLife',
@@ -1109,7 +1106,7 @@ var PopMenu = function () {
         key: 'destroy',
         value: function destroy() {
             this.menusRender.remove();
-            $("body").removeClass("width-nav-left");
+            $("body").removeClass("width-nav-pop");
             $(window).off("scroll.pop");
         }
     }]);
