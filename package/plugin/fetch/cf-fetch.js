@@ -266,7 +266,9 @@ exports.transition = transition;
 exports.transitionEnd = transitionEnd;
 
 /***/ }),
-/* 6 */
+/* 6 */,
+/* 7 */,
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -304,8 +306,6 @@ var IDGenerator = function () {
 exports.default = IDGenerator;
 
 /***/ }),
-/* 7 */,
-/* 8 */,
 /* 9 */,
 /* 10 */,
 /* 11 */,
@@ -1463,7 +1463,7 @@ var _dialog = __webpack_require__(24);
 
 var _dialog2 = _interopRequireDefault(_dialog);
 
-var _cfIdGenerator = __webpack_require__(6);
+var _cfIdGenerator = __webpack_require__(8);
 
 var _cfIdGenerator2 = _interopRequireDefault(_cfIdGenerator);
 

@@ -1,17 +1,18 @@
 .input {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
     display: -o-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: box;
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
     height: 32px;
     padding: 5px 8px;
     font-size: 13px;

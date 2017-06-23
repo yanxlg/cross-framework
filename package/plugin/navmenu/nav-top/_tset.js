@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 52);
+/******/ 	return __webpack_require__(__webpack_require__.s = 48);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -106,7 +106,7 @@ module.exports = __webpack_require__(2);
 
 /***/ }),
 
-/***/ 13:
+/***/ 11:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -123,7 +123,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
-var _navTop = __webpack_require__(17);
+var _navTop = __webpack_require__(13);
 
 var _navTop2 = _interopRequireDefault(_navTop);
 
@@ -211,6 +211,7 @@ var TopMenu = function () {
         key: 'then',
         value: function then(callback) {
             this.callback = callback;
+            return this;
         }
     }, {
         key: 'destroy',
@@ -231,7 +232,7 @@ exports.default = TopMenu;
 
 /***/ }),
 
-/***/ 17:
+/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
 var $imports = __webpack_require__(1);
@@ -483,13 +484,13 @@ exports.default = Slide;
 
 /***/ }),
 
-/***/ 52:
+/***/ 48:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _navTop = __webpack_require__(13);
+var _navTop = __webpack_require__(11);
 
 var _navTop2 = _interopRequireDefault(_navTop);
 
@@ -599,7 +600,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
-var _navPop = __webpack_require__(9);
+var _navPop = __webpack_require__(7);
 
 var _navPop2 = _interopRequireDefault(_navPop);
 
@@ -727,6 +728,7 @@ var PopMenu = function () {
         key: 'then',
         value: function then(callback) {
             this.callback = callback;
+            return this;
         }
     }, {
         key: 'destroy',
@@ -744,7 +746,7 @@ exports.default = PopMenu;
 
 /***/ }),
 
-/***/ 9:
+/***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
 var $imports = __webpack_require__(1);
@@ -752,7 +754,7 @@ module.exports = function ($data) {
     'use strict';
     $data = $data || {};
     var $$out = '', $escape = $imports.$escape, left = $data.left, $each = $imports.$each, menus = $data.menus, menu = $data.menu, $index = $data.$index, childMenu = $data.childMenu, subMenu = $data.subMenu, lastMenu = $data.lastMenu, item = $data.item;
-    $$out += '<div class="nav">\r\n    <div class="nav-header">\r\n        <i class="nav-icon-menu ';
+    $$out += '<div class="nav nav-pop">\r\n    <div class="nav-header">\r\n        <i class="nav-icon-menu ';
     $$out += $escape(left ? 'left' : '');
     $$out += '"></i>\r\n    </div>\r\n    <div class="modal-backdrop fade"></div>\r\n    <ul class="nav-pop">\r\n        ';
     $each(menus, function (menu, $index) {

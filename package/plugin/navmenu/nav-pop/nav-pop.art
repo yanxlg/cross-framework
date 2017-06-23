@@ -1,4 +1,4 @@
-<div class="nav">
+<div class="nav nav-pop">
     <div class="nav-header">
         <i class="nav-icon-menu {{left?'left':''}}"></i>
     </div>

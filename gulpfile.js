@@ -2,7 +2,7 @@
  * 仅处理sass文件
  **/
 const gulp =require('gulp');
-const webpack =require('webpack') ;
+const webpack =require('webpack');
 const sass = require('gulp-sass');
 const scss = require('gulp-scss');//ruby 需要安装bundler
 const minify=require("gulp-minify");

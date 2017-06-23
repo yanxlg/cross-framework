@@ -48,4 +48,9 @@ $modalBg:#6950ee;
   .loading-package{
     display: none;
   }
+  .loading-container{
+    .loading{
+      margin-right:0;
+    }
+  }
 }

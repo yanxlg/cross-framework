@@ -68,6 +68,7 @@ class TopMenu{
     }
     then(callback){
         this.callback=callback;
+        return this;
     }
     destroy(){
         this.menusRender.remove();

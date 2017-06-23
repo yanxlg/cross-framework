@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -295,9 +295,7 @@ exports.default = Slide;
 /* 7 */,
 /* 8 */,
 /* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -336,7 +334,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
 
-var _navLeft = __webpack_require__(16);
+var _navLeft = __webpack_require__(12);
 
 var _navLeft2 = _interopRequireDefault(_navLeft);
 
@@ -424,6 +422,7 @@ var LeftMenu = function () {
         key: 'then',
         value: function then(callback) {
             this.callback = callback;
+            return this;
         }
     }, {
         key: 'destroy',
@@ -439,10 +438,8 @@ var LeftMenu = function () {
 exports.default = LeftMenu;
 
 /***/ }),
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */
+/* 11 */,
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $imports = __webpack_require__(1);
