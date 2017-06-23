@@ -11,7 +11,14 @@ $modalBg:#6950ee;
   .modal-backdrop{
     background-color:$modalBg;
   }
+  .modal{
+    @extend .flex;
+    @extend .align-center;
+    @extend .justify-center;
+  }
   .loading-container{
+    @extend .flex;
+    @extend .align-center;
     .loading-package{
       color: map_get($baseColor,white);
       letter-spacing: remToPx(0.1rem);

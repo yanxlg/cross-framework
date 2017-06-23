@@ -6,35 +6,30 @@ let path = require('path');
 let modifyStreamContent=require("./modifyStreamContent.js");
 
 function matchAll(str, reg) {
-    var res = []
-    var match
+    let res = [],match;
     while(match = reg.exec(str)) {
         res.push(match)
     }
-    return res
+    return res;
 }
-module.exports=function (distPath) {
+module.exports=function () {
     return modifyStreamContent((content, filePath) => {
-        if(!distPath) {
-            return content
-        }
-        var matches = matchAll(content, /url\((\S+?)\)/gi);
-
-        var currentDir = path.dirname(filePath);
+        let matches = matchAll(content, /url\((\S+?)\)/gi);
+        let currentDir = path.dirname(filePath);
         if(matches instanceof Array) {
             matches.forEach(match => {
                 let url = match[1];
-                if(url.toString().substr(0, 8) !== "/package") {
-                    return
+                if(!/^"?\//g.test(url)) {
+                    //Todo 如果是相对路径则不进行处理
+                    return;
                 }
-                let file = __dirname+url.replace("'", "").replace('"', "");
+                let file = __dirname+url.replace(/'/g, "").replace(/"/g, "");
                 let originalPath = path.resolve(currentDir, file);
                 let relative = path.relative(currentDir, originalPath);
                 let res = relative.replace(/\\/g, "/");
-                content = content.replace(url, res);
+                content = content.replace(url, '"./'+res+'"');
             })
         }
-
-        return content
+        return content;
     })
-}
+};

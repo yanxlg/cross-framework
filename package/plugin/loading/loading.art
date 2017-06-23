@@ -1,6 +1,6 @@
 <div class="loading-plugin">
-    <div class="modal fade in flex align-center justify-center">
-        <div class="loading-container flex align-center">
+    <div class="modal fade in">
+        <div class="loading-container">
             <div class="loading">
                 <div class="loading_0"></div>
                 <div class="loading_1"></div>

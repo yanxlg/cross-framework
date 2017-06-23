@@ -13,7 +13,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_1@2x.png);
+    background-image: url("./images/loading_white_1@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -35,7 +35,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_2@2x.png);
+    background-image: url("./images/loading_white_2@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -57,7 +57,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_3@2x.png);
+    background-image: url("./images/loading_white_3@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -79,7 +79,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_4@2x.png);
+    background-image: url("./images/loading_white_4@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -101,7 +101,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_5@2x.png);
+    background-image: url("./images/loading_white_5@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -123,7 +123,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_6@2x.png);
+    background-image: url("./images/loading_white_6@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -145,7 +145,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_7@2x.png);
+    background-image: url("./images/loading_white_7@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -167,7 +167,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_8@2x.png);
+    background-image: url("./images/loading_white_8@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -189,7 +189,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_9@2x.png);
+    background-image: url("./images/loading_white_9@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -211,7 +211,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_10@2x.png);
+    background-image: url("./images/loading_white_10@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -233,7 +233,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_11@2x.png);
+    background-image: url("./images/loading_white_11@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -255,7 +255,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_12@2x.png);
+    background-image: url("./images/loading_white_12@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -277,7 +277,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_13@2x.png);
+    background-image: url("./images/loading_white_13@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -299,7 +299,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_14@2x.png);
+    background-image: url("./images/loading_white_14@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -321,7 +321,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_15@2x.png);
+    background-image: url("./images/loading_white_15@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -343,7 +343,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_16@2x.png);
+    background-image: url("./images/loading_white_16@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -365,7 +365,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_17@2x.png);
+    background-image: url("./images/loading_white_17@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -387,7 +387,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_18@2x.png);
+    background-image: url("./images/loading_white_18@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -409,7 +409,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_19@2x.png);
+    background-image: url("./images/loading_white_19@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -431,7 +431,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_20@2x.png);
+    background-image: url("./images/loading_white_20@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -453,7 +453,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_21@2x.png);
+    background-image: url("./images/loading_white_21@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -475,7 +475,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_22@2x.png);
+    background-image: url("./images/loading_white_22@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -497,7 +497,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_23@2x.png);
+    background-image: url("./images/loading_white_23@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -519,7 +519,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_24@2x.png);
+    background-image: url("./images/loading_white_24@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
@@ -541,7 +541,7 @@
     background-size: 100% 100%;
     background-position: center center;
     margin-right: 1rem;
-    background-image: url(../plugin/loading/images/loading_white_25@2x.png);
+    background-image: url("./images/loading_white_25@2x.png");
     visibility: hidden;
     -webkit-animation: loading 2s infinite linear;
     -moz-animation: loading 2s infinite linear;
